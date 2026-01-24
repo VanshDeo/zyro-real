@@ -75,7 +75,7 @@ export default function Hero() {
                                     transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                                     style={{ transformOrigin: 'bottom' }}
                             >
-                                    <Image src="/zyro.png" alt="Zyro logo" width={400} height={400} />
+                                    <Image src="https://res.cloudinary.com/dkxskaege/image/upload/v1769283465/Zyro_kvywql.png" alt="Zyro logo" width={400} height={400} />
                             </motion.div>
                         </div>
 

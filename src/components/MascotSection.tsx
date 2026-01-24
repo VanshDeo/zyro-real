@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { Reveal } from './AdvancedAnimations';
 import { useState, useRef } from 'react';
 import Image from 'next/image';
+import { features } from '@/lib/featuresData';
 
 export default function MascotSection() {
     const [currentFeature, setCurrentFeature] = useState(0);
@@ -23,50 +24,7 @@ export default function MascotSection() {
         }
     });
 
-    const features = [
-        {
-            number: '01',
-            title: 'Encrypted Private Network',
-            logo: (
-                <svg className="w-full h-full text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-            ),
-            cards: [
-                'Enhanced internet security, ensuring anonymity and effortlessly by passing geographic restrictions',
-                'Block Web3 Phishing Sites, Web3 Anti Virus and avoid Malicious Smart Contracts',
-                'Token Holders get Free EPN access by having $100+ worth of $DM in wallet'
-            ]
-        },
-        {
-            number: '02',
-            title: 'Advanced AI Infrastructure',
-            logo: (
-                <svg className="w-full h-full text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                </svg>
-            ),
-            cards: [
-                'Cutting-edge artificial intelligence systems powering intelligent decision-making',
-                'Automated processes and machine learning capabilities',
-                'Real-time data analysis and predictive modeling'
-            ]
-        },
-        {
-            number: '03',
-            title: 'Secure Decentralized Storage',
-            logo: (
-                <svg className="w-full h-full text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                </svg>
-            ),
-            cards: [
-                'Distributed data storage ensuring high availability and redundancy',
-                'Protection against data loss with multi-node replication',
-                'Encrypted storage with blockchain verification'
-            ]
-        }
-    ];
+
 
     // Scroll to specific feature section
     const scrollToFeature = (index: number) => {
@@ -191,21 +149,21 @@ export default function MascotSection() {
                 <div className="absolute left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 hidden lg:flex">
                     <motion.button
                         onClick={prevFeature}
-                        className="relative w-10 h-10 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
+                        className="relative w-12 h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <svg className="w-5 h-5 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-7 h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                         </svg>
                     </motion.button>
                     <motion.button
                         onClick={nextFeature}
-                        className="relative w-10 h-10 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
+                        className="relative w-12 h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <svg className="w-5 h-5 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-7 h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                     </motion.button>
@@ -293,7 +251,7 @@ export default function MascotSection() {
                             <Reveal direction="up">
                                 <div className="mb-16">
                                     <h2 className="text-6xl md:text-7xl font-bold text-white">
-                                        tracks
+                                        Tracks
                                     </h2>
                                 </div>
                             </Reveal>
@@ -348,6 +306,21 @@ export default function MascotSection() {
                                                 </motion.div>
                                             ))}
                                         </div>
+
+                                        {/* Feature Button */}
+                                        {features[currentFeature].button && (
+                                            <motion.button
+                                                onClick={features[currentFeature].button.action}
+                                                className="mt-6 px-8 py-4 bg-[#00E08F] text-black font-semibold rounded-xl hover:bg-[#00E08F]/90 transition-all shadow-lg shadow-[#00E08F]/20 hover:shadow-[#00E08F]/40 hover:scale-105 active:scale-95"
+                                                initial={{ opacity: 0, y: 20 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: 0.3 }}
+                                                whileHover={{ y: -2 }}
+                                                whileTap={{ scale: 0.95 }}
+                                            >
+                                                {features[currentFeature].button.text}
+                                            </motion.button>
+                                        )}
                                     </motion.div>
                                 </AnimatePresence>
                             </div>
