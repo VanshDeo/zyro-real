@@ -45,7 +45,7 @@ export default function Hero() {
                     <div className="space-y-8">
                         {/* Main Headline with Staggered Animation */}
                         <div className="overflow-hidden">
-                            <motion.h1
+                            {/* <motion.h1
                                 className="text-6xl md:text-7xl lg:text-8xl font-extrabold leading-tight"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -67,14 +67,21 @@ export default function Hero() {
                                 >
                                     <GradientText className="font-extrabold">Nature</GradientText>
                                 </motion.div>
-                            </motion.h1>
+                            </motion.h1> */}
+
+                            <motion.div
+                                initial={{ y: 100, rotateX: -90 }}
+                                    animate={{ y: 0, rotateX: 0 }}
+                                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                                    style={{ transformOrigin: 'bottom' }}
+                            >
+                                    <Image src="/zyro.png" alt="Zyro logo" width={400} height={400} />
+                            </motion.div>
                         </div>
 
                         <Reveal delay={0.6} direction="up">
                             <p className="text-[#A1A1A1] text-lg max-w-md leading-relaxed">
-                                From energy-saving devices to green architecture, we&apos;re dedicated to
-                                preserving the planet while enhancing everyday life. Join us in building
-                                a harmonious balance between nature
+                                Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.
                             </p>
                         </Reveal>
 
@@ -82,35 +89,35 @@ export default function Hero() {
                             <div className="flex flex-wrap gap-4">
                                 <MagneticButton>
                                     <motion.button
-                                        className="btn-outline"
+                                        className="btn-primary relative overflow-hidden group"
                                         whileHover={{ scale: 1.05, borderColor: '#00E08F' }}
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                                     >
-                                        Read More
+                                        Register Now
                                     </motion.button>
                                 </MagneticButton>
                                 <MagneticButton>
                                     <motion.button
-                                        className="btn-primary relative overflow-hidden group"
+                                        className="btn-outline"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
-                                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                                        transition={{ type: 'spring', stiffness: 400, damping: 1 }}
                                     >
-                                        <span className="relative z-10">Get Started</span>
-                                        <motion.div
+                                        <span className="relative z-10">Download Brochure</span>
+                                        {/* <motion.div
                                             className="absolute inset-0 bg-white/20"
                                             initial={{ x: '-100%' }}
                                             whileHover={{ x: '100%' }}
                                             transition={{ duration: 0.5 }}
-                                        />
+                                        /> */}
                                     </motion.button>
                                 </MagneticButton>
                             </div>
                         </Reveal>
 
                         {/* Tags with staggered reveal */}
-                        <Reveal delay={1.0} direction="left">
+                        {/* <Reveal delay={1.0} direction="left">
                             <div className="flex flex-wrap gap-3 pt-4">
                                 <motion.span
                                     className="tag"
@@ -124,8 +131,9 @@ export default function Hero() {
                                     Intersection of technology and nature
                                 </motion.span>
                             </div>
-                        </Reveal>
-                        <Reveal delay={1.2} direction="left">
+                        </Reveal> */}
+
+                        {/* <Reveal delay={1.2} direction="left">
                             <div className="flex flex-wrap gap-3">
                                 <motion.span
                                     className="tag"
@@ -140,13 +148,14 @@ export default function Hero() {
                                     Creating a cleaner world
                                 </motion.span>
                             </div>
-                        </Reveal>
+                        </Reveal> */}
+
                     </div>
 
                     {/* Right Content - Floating Cards */}
                     <div className="relative hidden lg:block h-[500px]">
                         {/* Clients Card */}
-                        <Parallax speed={0.3}>
+                        {/* <Parallax speed={0.3}>
                             <motion.div
                                 className="glass rounded-2xl p-4"
                                 initial={{ opacity: 0, y: 50, rotateY: -20 }}
@@ -182,7 +191,7 @@ export default function Hero() {
                                     </div>
                                 </div>
                             </motion.div>
-                        </Parallax>
+                        </Parallax> */}
 
                         {/* Green Innovation Card */}
                         <Parallax speed={0.5}>
@@ -200,7 +209,7 @@ export default function Hero() {
                                                 Join us in building harmonious balance between nature
                                             </p>
                                         </div>
-                                        <GlowPulse className="w-10 h-10 rounded-xl bg-[#00E08F] flex items-center justify-center flex-shrink-0">
+                                        {/* <GlowPulse className="w-10 h-10 rounded-xl bg-[#00E08F] flex items-center justify-center flex-shrink-0">
                                             <motion.svg
                                                 className="w-5 h-5 text-[#070B0B]"
                                                 fill="none"
@@ -211,7 +220,7 @@ export default function Hero() {
                                             >
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
                                             </motion.svg>
-                                        </GlowPulse>
+                                        </GlowPulse> */}
                                     </div>
                                 </motion.div>
                             </Floating>
@@ -246,7 +255,7 @@ export default function Hero() {
                         </Parallax>
 
                         {/* Sustainable Future Card */}
-                        <Parallax speed={0.4}>
+                        {/* <Parallax speed={0.4}>
                             <Floating duration={4.5} distance={10}>
                                 <motion.div
                                     className="absolute bottom-32 right-8 glass rounded-2xl p-4"
@@ -275,7 +284,8 @@ export default function Hero() {
                                     </div>
                                 </motion.div>
                             </Floating>
-                        </Parallax>
+                        </Parallax> */}
+
                     </div>
                 </div>
             </motion.div>
