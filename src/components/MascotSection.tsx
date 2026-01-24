@@ -1,218 +1,413 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { Reveal } from './AdvancedAnimations';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
-import { Reveal, GradientText } from './AdvancedAnimations';
 
 export default function MascotSection() {
+    const [currentFeature, setCurrentFeature] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    });
+
+    // Update feature based on scroll progress
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        const featureIndex = Math.floor(latest * features.length);
+        // Clamp index between 0 and features.length - 1
+        const newIndex = Math.min(Math.max(featureIndex, 0), features.length - 1);
+        if (newIndex !== currentFeature) {
+            setCurrentFeature(newIndex);
+        }
+    });
+
+    const features = [
+        {
+            number: '01',
+            title: 'Encrypted Private Network',
+            logo: (
+                <svg className="w-full h-full text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+            ),
+            cards: [
+                'Enhanced internet security, ensuring anonymity and effortlessly by passing geographic restrictions',
+                'Block Web3 Phishing Sites, Web3 Anti Virus and avoid Malicious Smart Contracts',
+                'Token Holders get Free EPN access by having $100+ worth of $DM in wallet'
+            ]
+        },
+        {
+            number: '02',
+            title: 'Advanced AI Infrastructure',
+            logo: (
+                <svg className="w-full h-full text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+            ),
+            cards: [
+                'Cutting-edge artificial intelligence systems powering intelligent decision-making',
+                'Automated processes and machine learning capabilities',
+                'Real-time data analysis and predictive modeling'
+            ]
+        },
+        {
+            number: '03',
+            title: 'Secure Decentralized Storage',
+            logo: (
+                <svg className="w-full h-full text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+            ),
+            cards: [
+                'Distributed data storage ensuring high availability and redundancy',
+                'Protection against data loss with multi-node replication',
+                'Encrypted storage with blockchain verification'
+            ]
+        }
+    ];
+
+    // Scroll to specific feature section
+    const scrollToFeature = (index: number) => {
+        if (!containerRef.current) return;
+        const totalHeight = containerRef.current.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        // Calculate the scroll position for the desired index
+        // The scrollable area is (totalHeight - viewportHeight)
+        // We divide this by features.length to find the "slot" for each feature
+        const scrollableDistance = totalHeight - viewportHeight;
+        const scrollPerFeature = scrollableDistance / features.length;
+
+        // Target scroll is start of section + (index * scrollPerSection) + small offset to center it
+        const targetScroll = containerRef.current.offsetTop + (index * scrollPerFeature) + (scrollPerFeature / 2);
+
+        window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+        });
+    };
+
+    const nextFeature = () => {
+        const next = (currentFeature + 1) % features.length;
+        scrollToFeature(next);
+    };
+
+    const prevFeature = () => {
+        const prev = (currentFeature - 1 + features.length) % features.length;
+        scrollToFeature(prev);
+    };
+
     return (
-        <section className="section relative overflow-hidden">
-            {/* Background gradient */}
-            <motion.div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                    background: 'radial-gradient(ellipse at center, rgba(0, 224, 143, 0.05) 0%, transparent 60%)'
-                }}
-            />
-
-            <div className="container-custom">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left - Mascot */}
-                    <motion.div
-                        className="relative h-[500px] flex items-center justify-center"
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        {/* EcoBot Mascot Illustration */}
+        <div ref={containerRef} className="relative h-[300vh] bg-black">
+            <div className="sticky top-0 h-screen overflow-hidden selection:bg-[#00E08F] selection:text-black">
+                {/* Background decorative lines */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    {/* Vertical lines */}
+                    {[...Array(8)].map((_, i) => (
                         <motion.div
-                            className="relative w-64 h-80 mx-auto"
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                        >
-                            {/* Robot Body */}
-                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-40 rounded-3xl bg-gradient-to-b from-[#3a3a3a] to-[#2a2a2a] shadow-xl">
-                                {/* Body glow strip */}
-                                <motion.div
-                                    className="absolute left-1/2 -translate-x-1/2 top-8 w-6 h-20 rounded-full bg-[#00E08F]"
-                                    animate={{
-                                        boxShadow: [
-                                            '0 0 10px #00E08F, 0 0 20px #00E08F',
-                                            '0 0 20px #00E08F, 0 0 40px #00E08F',
-                                            '0 0 10px #00E08F, 0 0 20px #00E08F'
-                                        ]
-                                    }}
-                                    transition={{ duration: 2, repeat: Infinity }}
-                                />
-                                {/* Indicator lights */}
-                                {[0, 1, 2].map((i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="absolute right-4 w-3 h-3 rounded-full bg-[#00E08F]"
-                                        style={{ top: 10 + i * 14 }}
-                                        animate={{
-                                            opacity: [0.5, 1, 0.5],
-                                            scale: [1, 1.2, 1]
-                                        }}
-                                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.3 }}
-                                    />
-                                ))}
-                            </div>
+                            key={`v-line-${i}`}
+                            className="absolute h-full w-px bg-gradient-to-b from-transparent via-[#00E08F]/10 to-transparent"
+                            style={{ left: `${10 + i * 12}%` }}
+                            animate={{ opacity: [0.1, 0.3, 0.1] }}
+                            transition={{ duration: 4, repeat: Infinity, delay: i * 0.5 }}
+                        />
+                    ))}
 
-                            {/* Head */}
+                    {/* Horizontal lines */}
+                    {[...Array(6)].map((_, i) => (
+                        <motion.div
+                            key={`h-line-${i}`}
+                            className="absolute w-full h-px bg-gradient-to-r from-transparent via-[#00E08F]/5 to-transparent"
+                            style={{ top: `${15 + i * 15}%` }}
+                            animate={{ opacity: [0.05, 0.15, 0.05] }}
+                            transition={{ duration: 5, repeat: Infinity, delay: i * 0.3 }}
+                        />
+                    ))}
+                </div>
+
+                {/* Background gradient */}
+                <motion.div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        background: 'radial-gradient(ellipse at 30% 50%, rgba(0, 224, 143, 0.08) 0%, transparent 50%)'
+                    }}
+                />
+
+                {/* Left Circuit Decoration */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+                    <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
+                        <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="80" y1="230" x2="80" y2="370" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="80" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
+
+                        <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow)" />
+                        <circle cx="80" cy="230" r="4" fill="#00E08F" filter="url(#glow)" />
+                        <circle cx="80" cy="370" r="4" fill="#00E08F" filter="url(#glow)" />
+                        <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow)" />
+
+                        <defs>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+
+                {/* Right Circuit Decoration */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+                    <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
+                        <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="50" y1="200" x2="20" y2="230" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="20" y1="230" x2="20" y2="370" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="20" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
+                        <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
+
+                        <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow2)" />
+                        <circle cx="20" cy="230" r="4" fill="#00E08F" filter="url(#glow2)" />
+                        <circle cx="20" cy="370" r="4" fill="#00E08F" filter="url(#glow2)" />
+                        <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow2)" />
+
+                        <defs>
+                            <filter id="glow2">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+
+
+                {/* Navigation Arrows - Fixed to Left Screen Edge */}
+                <div className="absolute left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 hidden lg:flex">
+                    <motion.button
+                        onClick={prevFeature}
+                        className="relative w-10 h-10 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <svg className="w-5 h-5 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                        </svg>
+                    </motion.button>
+                    <motion.button
+                        onClick={nextFeature}
+                        className="relative w-10 h-10 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <svg className="w-5 h-5 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </motion.button>
+                </div>
+
+                {/* Progress Indicator - Fixed to Right Screen Edge */}
+                <div className="absolute right-10 md:right-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 hidden lg:flex">
+                    {features.map((_, index) => (
+                        <motion.div
+                            key={index}
+                            className={`w-2 h-2 rounded-full cursor-pointer ${index === currentFeature ? 'bg-[#00E08F]' : 'bg-[#1F2937]'}`}
+                            animate={{ scale: index === currentFeature ? 1.3 : 1 }}
+                            transition={{ duration: 0.3 }}
+                            onClick={() => scrollToFeature(index)}
+                        />
+                    ))}
+                </div>
+
+
+                <div className="container-custom relative h-full flex items-center z-10">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto w-full relative h-full">
+                        {/* Center Column Structure */}
+                        <div className="absolute inset-0 pointer-events-none z-10 hidden lg:block overflow-hidden">
+                            {/* Top Column - Moved down closer to center */}
                             <motion.div
-                                className="absolute bottom-32 left-1/2 -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-b from-[#4a4a4a] to-[#3a3a3a] shadow-lg"
-                                animate={{ y: [0, -5, 0] }}
-                                transition={{ duration: 2, repeat: Infinity }}
+                                className="absolute -top-30 left-[72%] -translate-x-1/2 w-80 h-[calc(50%-80px)]"
+                                initial={{ y: -100, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
                             >
-                                {/* Eyes */}
-                                <motion.div
-                                    className="absolute top-6 left-4 w-5 h-5 rounded-full bg-[#00E08F]"
-                                    animate={{
-                                        boxShadow: [
-                                            '0 0 5px #00E08F',
-                                            '0 0 15px #00E08F, 0 0 25px #00E08F',
-                                            '0 0 5px #00E08F'
-                                        ]
-                                    }}
-                                    transition={{ duration: 1.5, repeat: Infinity }}
+                                <Image
+                                    src="https://res.cloudinary.com/dlrlet9fg/image/upload/v1769273202/column_fpptih.png"
+                                    alt="Top Column"
+                                    fill
+                                    className="object-cover object-bottom"
+                                    priority
                                 />
-                                <motion.div
-                                    className="absolute top-6 right-4 w-5 h-5 rounded-full bg-[#00E08F]"
-                                    animate={{
-                                        boxShadow: [
-                                            '0 0 5px #00E08F',
-                                            '0 0 15px #00E08F, 0 0 25px #00E08F',
-                                            '0 0 5px #00E08F'
-                                        ]
-                                    }}
-                                    transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-                                />
+                                <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 via-30% to-transparent" />
                             </motion.div>
 
-                            {/* Backpack with Plants */}
-                            <div className="absolute bottom-16 left-1/2 -translate-x-1/2 ml-16 w-20 h-28 rounded-2xl bg-gradient-to-b from-[#3a3a3a] to-[#2a2a2a]">
-                                {/* Plants */}
-                                <motion.div
-                                    className="absolute -top-16 left-1/2 -translate-x-1/2"
-                                    animate={{ rotate: [0, 5, 0, -5, 0] }}
-                                    transition={{ duration: 4, repeat: Infinity }}
-                                >
-                                    {[0, 1, 2, 3, 4].map((i) => (
-                                        <motion.div
-                                            key={i}
-                                            className="absolute w-8 h-16 rounded-full bg-gradient-to-t from-green-600 to-green-400"
-                                            style={{
-                                                left: -15 + i * 8,
-                                                top: -10 - Math.abs(i - 2) * 10,
-                                                rotate: -30 + i * 15,
-                                                transformOrigin: 'bottom center'
-                                            }}
-                                            animate={{
-                                                rotate: [-30 + i * 15, -25 + i * 15, -30 + i * 15]
-                                            }}
-                                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
-                                        />
-                                    ))}
-                                </motion.div>
-                            </div>
-
-                            {/* Ground shadow */}
+                            {/* Bottom Column - Fit to bottom */}
                             <motion.div
-                                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-8 bg-[#00E08F]/20 rounded-full blur-xl"
-                                animate={{
-                                    scale: [1, 1.2, 1],
-                                    opacity: [0.2, 0.3, 0.2]
-                                }}
-                                transition={{ duration: 2, repeat: Infinity }}
-                            />
-                        </motion.div>
-
-                        {/* Floating badges around mascot */}
-                        <motion.div
-                            className="absolute top-10 right-10 glass rounded-xl px-4 py-2"
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                        >
-                            <span className="text-[#00E08F] font-bold">AI Powered</span>
-                        </motion.div>
-
-                        <motion.div
-                            className="absolute bottom-20 left-0 glass rounded-xl px-4 py-2"
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                        >
-                            <span className="text-white font-medium text-sm">100% Eco-Friendly</span>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* Right - Content */}
-                    <div className="space-y-6">
-                        <Reveal direction="right">
-                            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                                Meet <GradientText>EcoBot</GradientText>
-                            </h2>
-                        </Reveal>
-
-                        <Reveal direction="right" delay={0.2}>
-                            <p className="text-[#A1A1A1] text-lg leading-relaxed">
-                                Your personal guide to sustainable technology. EcoBot combines
-                                cutting-edge AI with nature-inspired design to help you make
-                                eco-conscious decisions every day.
-                            </p>
-                        </Reveal>
-
-                        <Reveal direction="right" delay={0.4}>
-                            <div className="grid grid-cols-2 gap-4 pt-4">
-                                {[
-                                    { icon: '🌱', title: 'Nature First', desc: 'Designed with sustainability' },
-                                    { icon: '🤖', title: 'AI Powered', desc: 'Smart eco recommendations' },
-                                    { icon: '⚡', title: 'Energy Efficient', desc: 'Low carbon footprint' },
-                                    { icon: '♻️', title: 'Recyclable', desc: '100% biodegradable parts' }
-                                ].map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="glass rounded-xl p-4"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.5 + i * 0.1 }}
-                                        whileHover={{
-                                            y: -5,
-                                            boxShadow: '0 10px 30px rgba(0, 224, 143, 0.15)'
-                                        }}
-                                    >
-                                        <div className="text-2xl mb-2">{item.icon}</div>
-                                        <h3 className="text-white font-semibold text-sm">{item.title}</h3>
-                                        <p className="text-[#A1A1A1] text-xs">{item.desc}</p>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </Reveal>
-
-                        <Reveal direction="right" delay={0.6}>
-                            <motion.button
-                                className="btn-primary mt-4"
-                                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 224, 143, 0.5)' }}
-                                whileTap={{ scale: 0.95 }}
+                                className="absolute -bottom-30 left-[72%] -translate-x-1/2 w-80 h-[calc(50%-80px)]"
+                                initial={{ y: 100, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
                             >
-                                Learn More About EcoBot
-                            </motion.button>
-                        </Reveal>
+                                <Image
+                                    src="https://res.cloudinary.com/dlrlet9fg/image/upload/v1769273202/column-bottom-revert_dtkh7l.png"
+                                    alt="Bottom Column"
+                                    fill
+                                    className="object-cover object-top"
+                                    priority
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 via-30% to-transparent" />
+                            </motion.div>
+                        </div>
+
+                        {/* Center Feature Logo - Bigger and No Box */}
+                        <div className="absolute left-[72%] top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:block">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={currentFeature}
+                                    initial={{ scale: 0, opacity: 0, rotate: -45 }}
+                                    animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                                    exit={{ scale: 0, opacity: 0, rotate: 45 }}
+                                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                                    className="relative z-30"
+                                >
+                                    {/* Glowing bloom effect behind logo */}
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-[#00E08F] blur-[80px] opacity-40 rounded-full" />
+
+                                    <div className="w-40 h-40 text-[#00E08F] drop-shadow-[0_0_30px_rgba(0,224,143,0.9)]">
+                                        {features[currentFeature].logo}
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* LEFT - Features Content */}
+                        <div className="space-y-10 relative">
+                            {/* Navigation Arrows Removed from here */}
+
+
+                            <Reveal direction="up">
+                                <div className="mb-16">
+                                    <h2 className="text-6xl md:text-7xl font-bold text-white">
+                                        tracks
+                                    </h2>
+                                </div>
+                            </Reveal>
+
+                            <div className="relative h-[500px] overflow-hidden">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={currentFeature}
+                                        initial={{ y: 100, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -100, opacity: 0 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 100,
+                                            damping: 20,
+                                            mass: 0.8
+                                        }}
+                                        className="absolute inset-0 space-y-8"
+                                    >
+                                        {/* Feature Number and Title */}
+                                        <motion.div
+                                            className="space-y-4"
+                                            initial={{ y: 20 }}
+                                            animate={{ y: 0 }}
+                                            transition={{ delay: 0.1 }}
+                                        >
+                                            <span className="text-[#6B7280] text-xl font-medium tracking-widest block mb-2">
+                                                {features[currentFeature].number}
+                                            </span>
+                                            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#00E08F] leading-tight">
+                                                {features[currentFeature].title}
+                                            </h3>
+                                        </motion.div>
+
+                                        {/* Feature Cards */}
+                                        <div className="grid grid-cols-1 gap-4">
+                                            {features[currentFeature].cards.map((card, i) => (
+                                                <motion.div
+                                                    key={`${currentFeature}-${i}`}
+                                                    className="bg-black/60 backdrop-blur-sm border border-[#1F2937] rounded-2xl p-6 hover:border-[#00E08F]/30 transition-all"
+                                                    initial={{ opacity: 0, y: 30 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: 0.15 + i * 0.08 }}
+                                                    whileHover={{
+                                                        boxShadow: '0 8px 32px rgba(0, 224, 143, 0.15)',
+                                                        y: -2
+                                                    }}
+                                                >
+                                                    <p className="text-[#9CA3AF] text-base leading-relaxed">
+                                                        {card}
+                                                    </p>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+
+
+                        </div>
+
+
+                        {/* RIGHT - Robot Mascot Only (NO phone) */}
+                        <motion.div
+                            className="relative lg:absolute lg:bottom-50 lg:-right-62  h-[700px] lg:h-auto flex flex-col items-center justify-end gap-12 lg:mb-0"
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            {/* Robot Mascot */}
+                            <div className="relative w-[400px] h-[450px]">
+                                <motion.div
+                                    animate={{ y: [0, -15, 0] }}
+                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                >
+                                    <video
+                                        key="robot-mascot"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-contain"
+                                    >
+                                        <source
+                                            src="https://res.cloudinary.com/dlrlet9fg/video/upload/c_crop,h_1080,w_510/v1769278556/robot1_ioekuk.webm"
+                                            type="video/mp4"
+                                        />
+                                    </video>
+                                </motion.div>
+                                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/80 via-30% to-transparent pointer-events-none" />
+                            </div>
+
+                            {/* Feature indicator */}
+                            <motion.div
+                                key={currentFeature}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="text-center"
+                            >
+                                <p className="text-white/40 text-sm uppercase tracking-wider">
+                                    Feature {features[currentFeature].number}
+                                </p>
+                                <p className="text-white text-lg font-medium mt-2">
+                                    {features[currentFeature].title}
+                                </p>
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
-            </div>
 
-            {/* Decorative elements */}
-            <motion.div
-                className="absolute bottom-0 left-0 w-full h-px"
-                style={{
-                    background: 'linear-gradient(to right, transparent, rgba(0, 224, 143, 0.3), transparent)'
-                }}
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 3, repeat: Infinity }}
-            />
-        </section>
+                {/* Global Bottom Blend Overlay - Ensures seamless transition to next section */}
+                <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black via-black/95 to-transparent z-[60] pointer-events-none" />
+            </div>
+        </div>
     );
 }

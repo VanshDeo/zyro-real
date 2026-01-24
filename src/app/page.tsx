@@ -21,7 +21,7 @@ export default function Home() {
       <div className="relative z-10">
         <Header />
         <Hero />
-        <InnovationSection />
+        {/* <InnovationSection /> */}
         <MascotSection />
         {/* <IntersectionSection /> */}
         {/* <VideoShowcase /> */}
