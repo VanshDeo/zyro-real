@@ -21,11 +21,11 @@ export default function Home() {
       <div className="relative z-10">
         <Header />
         <Hero />
-        <InnovationSection />
+        {/* <InnovationSection /> */}
         <MascotSection />
-        <IntersectionSection />
+        {/* <IntersectionSection />
         <VideoShowcase />
-        <GreenTechSection />
+        <GreenTechSection /> */}
         <BusinessModelSection />
         <PartnersSection />
         <FAQSection />
