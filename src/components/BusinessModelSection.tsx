@@ -11,7 +11,7 @@ const businessComponents = [
         title: 'Node Pools',
         description: 'Distributed computing network',
         color: '#00E08F',
-        position: { top: '-7%', left: '22%' },
+        position: { top: '-7%', left: '18%' },
         border: 'right-bottom',
         lineAngle: 35,
         lineLength: 100
@@ -23,7 +23,7 @@ const businessComponents = [
         title: 'Zyro AI Infrastructure DePIN',
         description: 'Decentralized infrastructure',
         color: '#00E08F',
-        position: { top: '-22%', left: '46%', transform: 'translateX(-50%)' },
+        position: { top: '-25%', left: '42%', transform: 'translateX(-50%)' },
         border: 'bottom',
         lineAngle: 90,
         lineLength: 80
@@ -35,7 +35,7 @@ const businessComponents = [
         title: 'Zyro Protocol',
         description: 'Security and consensus layer',
         color: '#00E08F',
-        position: { top: '-15%', right: '23%' },
+        position: { top: '-15%', right: '18%' },
         border: 'left-bottom',
         lineAngle: 145,
         lineLength: 100
@@ -47,7 +47,7 @@ const businessComponents = [
         title: 'Infrastructure & Technology',
         description: 'Development framework',
         color: '#00E08F',
-        position: { top: '60%', left: '18%' },
+        position: { top: '66%', left: '15%' },
         border: 'right-top',
         lineAngle: -35,
         lineLength: 90
@@ -59,7 +59,7 @@ const businessComponents = [
         title: 'Secure Computing Power',
         description: 'Protected processing units',
         color: '#00E08F',
-        position: { top: '63%', right: '17%' },
+        position: { top: '66%', right: '15%' },
         border: 'left-top',
         lineAngle: -145,
         lineLength: 90
@@ -127,7 +127,7 @@ export default function BusinessModelSection() {
             </div>
 
             {/* Heading - Left aligned like Shieldeum */}
-            <div className="absolute top-[2%] left-[130.5px] z-10 mb-20">
+            <div className="absolute top-[4%] left-[15%] z-10 mb-20">
                 <Reveal direction="up">
                     <h2 className="text-6xl md:text-7xl font-bold text-white uppercase mb-20" >
                         Timeline
