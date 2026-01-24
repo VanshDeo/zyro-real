@@ -71,11 +71,23 @@ export default function Hero() {
 
                             <motion.div
                                 initial={{ y: 100, rotateX: -90 }}
-                                    animate={{ y: 0, rotateX: 0 }}
-                                    transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                                    style={{ transformOrigin: 'bottom' }}
+                                animate={{ y: 0, rotateX: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+                                style={{ transformOrigin: 'bottom' }}
                             >
-                                    <Image src="/zyro.png" alt="Zyro logo" width={400} height={400} />
+                                <motion.img
+                                    src="/zyro-logo.svg"
+                                    alt="Zyro Logo"
+                                    className="w-full max-w-[600px] h-auto object-contain"
+                                    animate={{
+                                        filter: [
+                                            'drop-shadow(0 0 10px rgba(0, 224, 143, 0.3))',
+                                            'drop-shadow(0 0 25px rgba(0, 224, 143, 0.5))',
+                                            'drop-shadow(0 0 10px rgba(0, 224, 143, 0.3))'
+                                        ]
+                                    }}
+                                    transition={{ duration: 3, repeat: Infinity }}
+                                />
                             </motion.div>
                         </div>
 
