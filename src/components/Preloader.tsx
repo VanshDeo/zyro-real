@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 // Unified animation for all logo parts: Draw Stroke -> Then Fill
-const logoAnimation = {
+const logoAnimation: Variants = {
     hidden: {
         pathLength: 0,
         opacity: 0,
