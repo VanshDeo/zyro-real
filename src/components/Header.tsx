@@ -103,7 +103,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <motion.button
+            {/* <motion.button
               className="btn-outline hidden sm:block"
               whileHover={{ scale: 1.05, borderColor: '#00E08F' }}
               whileTap={{ scale: 0.95 }}
@@ -116,7 +116,7 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
             >
               SIGNUP
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </motion.nav>
       </div>
