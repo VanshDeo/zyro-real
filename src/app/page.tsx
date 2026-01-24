@@ -23,9 +23,9 @@ export default function Home() {
         <Hero />
         <InnovationSection />
         <MascotSection />
-        <IntersectionSection />
-        <VideoShowcase />
-        <GreenTechSection />
+        {/* <IntersectionSection /> */}
+        {/* <VideoShowcase /> */}
+        {/* <GreenTechSection /> */}
         <BusinessModelSection />
         <PartnersSection />
         <FAQSection />
