@@ -4,57 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { Reveal } from './AdvancedAnimations';
 import Image from 'next/image';
-
-const prizes = [
-    {
-        place: '2nd',
-        prize: '₹50,000',
-        icon: '🥈',
-        color: 'from-gray-400 to-gray-600',
-        borderColor: '#9CA3AF',
-        perks: [
-            'Cash Prize: ₹50,000',
-            'Certificate of Achievement',
-            'Mentorship Session',
-            'Swag Kit',
-            'LinkedIn Feature'
-        ],
-        popular: false,
-        scale: 0.95
-    },
-    {
-        place: '1st',
-        prize: '₹1,00,000',
-        icon: '🏆',
-        color: 'from-yellow-400 to-yellow-600',
-        borderColor: '#00E08F',
-        perks: [
-            'Cash Prize: ₹1,00,000',
-            'Winner Trophy',
-            'Industry Internship Opportunity',
-            '1-Year Premium Membership',
-            'Featured Article',
-            'Exclusive Networking Event'
-        ],
-        popular: true,
-        scale: 1.05
-    },
-    {
-        place: '3rd',
-        prize: '₹25,000',
-        icon: '🥉',
-        color: 'from-orange-400 to-orange-600',
-        borderColor: '#CD7F32',
-        perks: [
-            'Cash Prize: ₹25,000',
-            'Certificate of Excellence',
-            'Swag Kit',
-            'Community Recognition'
-        ],
-        popular: false,
-        scale: 0.90
-    }
-];
+import { prizes } from '@/lib/prizesData';
 
 export default function PrizePoolSection() {
     const containerRef = useRef(null);
@@ -157,105 +107,74 @@ export default function PrizePoolSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="relative ml-12 mr-4 md:mx-0"
+                            className={`relative ml-12 mr-4 md:mx-0 md:order-${prize.order}`}
                             style={{ transform: window.innerWidth >= 768 ? `scale(${prize.scale})` : 'scale(1)' }}
                         >
                             {/* Winner Badge */}
                             {prize.popular && (
                                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20">
-                                    <motion.div
-                                        className="bg-[#00E08F] text-black px-4 py-1 rounded-full text-sm font-bold"
-                                        animate={{
-                                            y: [0, -5, 0],
-                                            boxShadow: [
-                                                '0 0 20px rgba(0, 224, 143, 0.5)',
-                                                '0 0 30px rgba(0, 224, 143, 0.8)',
-                                                '0 0 20px rgba(0, 224, 143, 0.5)'
-                                            ]
-                                        }}
-                                        transition={{ duration: 2, repeat: Infinity }}
-                                    >
+                                    <div className="bg-[#00E08F] text-black px-4 py-1 rounded-full text-sm font-bold">
                                         WINNER
-                                    </motion.div>
+                                    </div>
                                 </div>
                             )}
 
                             {/* Outer Border Container */}
                             <div
+                                className="relative bg-[#1F2937]"
                                 style={{
-                                    background: prize.popular ? '#00E08F' : prize.borderColor,
                                     clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
-                                    padding: prize.popular ? '2px' : '1px'
+                                    padding: '1px'
                                 }}
                             >
                                 {/* Inner Card */}
                                 <div
-                                    className="relative overflow-hidden h-full"
+                                    className="relative p-6 md:p-8 bg-black/80 backdrop-blur-md h-full"
                                     style={{
-                                        background: 'rgba(0, 0, 0, 0.8)',
-                                        backdropFilter: 'blur(20px)',
                                         clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
-                                        padding: window.innerWidth >= 768 ? '2rem' : '1.5rem'
+                                        borderLeft: '4px solid #00E08F'
                                     }}
                                 >
-                                    {/* Background Glow */}
-                                    {prize.popular && (
-                                        <motion.div
-                                            className="absolute inset-0 bg-gradient-to-b from-[#00E08F]/10 to-transparent pointer-events-none"
-                                            animate={{ opacity: [0.3, 0.6, 0.3] }}
-                                            transition={{ duration: 3, repeat: Infinity }}
-                                        />
-                                    )}
+                                    {/* Glow Effect */}
+                                    <div
+                                        className="absolute -right-10 -top-10 w-32 h-32 opacity-20 blur-2xl rounded-full bg-[#00E08F]"
+                                    />
 
-                                    {/* Content */}
-                                    <div className="relative z-10 text-center">
-                                        {/* Trophy Icon */}
-                                        <motion.div
-                                            className="text-5xl md:text-7xl mb-3 md:mb-4"
-                                            animate={{
-                                                rotate: prize.popular ? [0, 10, -10, 0] : 0,
-                                                scale: prize.popular ? [1, 1.1, 1] : 1
-                                            }}
-                                            transition={{ duration: 2, repeat: Infinity }}
-                                        >
-                                            {prize.icon}
-                                        </motion.div>
-
-                                        {/* Place */}
-                                        <h3 className="text-xl md:text-3xl font-bold text-white mb-1 md:mb-2">{prize.place} Place</h3>
-
-                                        {/* Prize Amount */}
-                                        <div className="mb-4 md:mb-8">
-                                            <motion.div
-                                                className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${prize.color} bg-clip-text text-transparent`}
-                                                animate={prize.popular ? {
-                                                    scale: [1, 1.05, 1],
-                                                } : {}}
-                                                transition={{ duration: 2, repeat: Infinity }}
-                                            >
-                                                {prize.prize}
-                                            </motion.div>
+                                    {/* Header with Place Badge and Number */}
+                                    <div className="flex items-start justify-between mb-6 relative z-10">
+                                        <div className="text-sm font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#00E08F]">
+                                            {prize.place} Place
                                         </div>
-
-                                        {/* Perks List */}
-                                        <ul className="space-y-2 md:space-y-3 mb-4 md:mb-8 text-left">
-                                            {prize.perks.map((perk, i) => (
-                                                <motion.li
-                                                    key={i}
-                                                    className="flex items-start gap-2 md:gap-3 text-[#A1A1A1]"
-                                                    initial={{ opacity: 0, x: -20 }}
-                                                    whileInView={{ opacity: 1, x: 0 }}
-                                                    viewport={{ once: true }}
-                                                    transition={{ delay: 0.1 * i }}
-                                                >
-                                                    <svg className="w-4 h-4 md:w-5 md:h-5 text-[#00E08F] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                                    </svg>
-                                                    <span className="text-xs md:text-sm">{perk}</span>
-                                                </motion.li>
-                                            ))}
-                                        </ul>
+                                        <div className="w-10 h-10 flex items-center justify-center rounded-lg font-bold text-black text-lg bg-[#00E08F] shadow-[0_0_15px_rgba(0,224,143,0.5)]">
+                                            {prize.place === '1st' ? '1' : prize.place === '2nd' ? '2' : '3'}
+                                        </div>
                                     </div>
+
+                                    {/* Prize Amount */}
+                                    <div className="mb-6 relative z-10">
+                                        <div className={`text-4xl md:text-5xl font-bold text-[#00E08F]`}>
+                                            {prize.prize}
+                                        </div>
+                                    </div>
+
+                                    {/* Perks List */}
+                                    <ul className="space-y-2 md:space-y-3 text-left relative z-10">
+                                        {prize.perks.map((perk, i) => (
+                                            <motion.li
+                                                key={i}
+                                                className="flex items-start gap-2 md:gap-3 text-gray-400"
+                                                initial={{ opacity: 0, x: -20 }}
+                                                whileInView={{ opacity: 1, x: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: 0.1 * i }}
+                                            >
+                                                <svg className="w-4 h-4 md:w-5 md:h-5 text-[#00E08F] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                                <span className="text-xs md:text-sm">{perk}</span>
+                                            </motion.li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </div>
                         </motion.div>
