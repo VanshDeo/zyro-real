@@ -67,18 +67,16 @@ export default function FAQSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#070B0B] via-transparent to-[#070B0B] z-[1] pointer-events-none" />
 
             {/* Left Circuit Decoration */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-10">
-                <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
-                    <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="80" y1="230" x2="80" y2="370" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="80" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
+            <div className="absolute -left-10 lg:left-0 top-0 pointer-events-none z-10 w-full h-full">
+                <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
+                    {/* Path starting lower to align with FAQ title (approx 100px down) */}
+                    <path d="M50 100 L50 200 L80 230 L80 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
 
-                    <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow)" />
-                    <circle cx="80" cy="230" r="4" fill="#00E08F" filter="url(#glow)" />
-                    <circle cx="80" cy="370" r="4" fill="#00E08F" filter="url(#glow)" />
-                    <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow)" />
+                    {/* Top Square Node - Aligned with FAQ title */}
+                    <rect x="46" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow)" />
+
+                    {/* Bottom Diamond Node */}
+                    <rect x="46" y="792" width="8" height="8" fill="#00E08F" filter="url(#glow)" transform="rotate(45 50 796)" />
 
                     <defs>
                         <filter id="glow">
@@ -93,18 +91,17 @@ export default function FAQSection() {
             </div>
 
             {/* Right Circuit Decoration */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
-                <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
-                    <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="50" y1="200" x2="20" y2="230" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="20" y1="230" x2="20" y2="370" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="20" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
+            {/* Right Circuit Decoration */}
+            <div className="absolute -right-10 lg:right-0 top-0 pointer-events-none h-full">
+                <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
+                    {/* Path mirrored: Bend Left (20) instead of Right (80) */}
+                    <path d="M50 100 L50 200 L20 230 L20 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
 
-                    <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow2)" />
-                    <circle cx="20" cy="230" r="4" fill="#00E08F" filter="url(#glow2)" />
-                    <circle cx="20" cy="370" r="4" fill="#00E08F" filter="url(#glow2)" />
-                    <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow2)" />
+                    {/* Top Square Node */}
+                    <rect x="46" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow2)" />
+
+                    {/* Bottom Diamond Node */}
+                    <rect x="46" y="792" width="8" height="8" fill="#00E08F" filter="url(#glow2)" transform="rotate(45 50 796)" />
 
                     <defs>
                         <filter id="glow2">
@@ -120,8 +117,8 @@ export default function FAQSection() {
 
             <div className="container-custom relative z-10 py-20">
                 <Reveal direction="up">
-                    <div className="mb-16">
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+                    <div className="mb-16 ml-12 md:ml-0">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-wider">
                             FAQ
                         </h2>
                     </div>
@@ -139,11 +136,11 @@ export default function FAQSection() {
                             >
                                 {/* FAQ Card with visible border using background technique */}
                                 <div
-                                    className="relative cursor-pointer group"
+                                    className="relative cursor-pointer group ml-12 mr-4 md:mx-0"
                                     onClick={() => toggleFAQ(index)}
                                     style={{
                                         background: '#646464',
-                                        clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)',
+                                        clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
                                         padding: '1px'
                                     }}
                                 >
@@ -151,7 +148,7 @@ export default function FAQSection() {
                                     <motion.div
                                         className="relative bg-black w-full h-full"
                                         style={{
-                                            clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
+                                            clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))'
                                         }}
                                         whileHover={{
                                             backgroundColor: '#0A0A0A'

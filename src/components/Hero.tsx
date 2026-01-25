@@ -37,7 +37,7 @@ export default function Hero() {
 
             {/* FAQ Style Global Overlays */}
             <div className="absolute inset-0 bg-[#070B0B]/30 z-[1] pointer-events-none" />
-            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-48 md:h-64 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/90 to-transparent z-[1] pointer-events-none" />
             <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
             {/* Right edge blend (Middle of screen) - Extended smooth fade */}
             <div className="absolute inset-0 bg-gradient-to-l from-[#070B0B] from-30% via-[#070B0B]/90 via-50% to-transparent" />
@@ -59,22 +59,30 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Right Half Video Background */}
-                <div className="absolute top-25 right-0 w-full lg:w-1/2 h-full z-[1] pointer-events-none hidden md:block">
+                <div
+                    className="absolute bottom-0 md:top-25 right-0 w-full lg:w-1/2 h-[500px] md:h-full z-[1] pointer-events-none block"
+                    style={{
+                        maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)'
+                    }}
+                >
                     <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-contain object-right translate-x-16"
+                        className="w-full h-full object-contain object-center md:object-right md:translate-x-16"
                     >
                         <source src="/videos/hero_m4_bg.mp4" type="video/mp4" />
                     </video>
-                    {/* Left edge blend for video - Stronger */}
-                    <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#070B0B] from-20% via-[#070B0B]/80 via-40% to-transparent pointer-events-none" />
-                    {/* Top edge blend for video to hide border */}
-                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/80 to-transparent pointer-events-none" />
+                    {/* Left edge blend for video - Stronger - Desktop Only */}
+                    <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#070B0B] from-20% via-[#070B0B]/80 via-40% to-transparent pointer-events-none hidden md:block" />
+                    {/* Top edge blend removed in favor of CSS mask for better image blending */}
                 </div>
             </motion.div>
+
+            {/* Mobile Text Visibility Overlay - Darkens background video/image only on mobile */}
+            <div className="absolute inset-0 bg-black/40 z-[5] pointer-events-none md:hidden" />
 
             <motion.div
                 className="container-custom relative z-10"
@@ -121,9 +129,9 @@ export default function Hero() {
                                     className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain"
                                     animate={{
                                         filter: [
-                                            'drop-shadow(0 0 10px rgba(0, 224, 143, 0.3))',
-                                            'drop-shadow(0 0 25px rgba(0, 224, 143, 0.5))',
-                                            'drop-shadow(0 0 10px rgba(0, 224, 143, 0.3))'
+                                            'drop-shadow(0 0 15px rgba(0, 224, 143, 0.4))',
+                                            'drop-shadow(0 0 30px rgba(0, 224, 143, 0.7))',
+                                            'drop-shadow(0 0 15px rgba(0, 224, 143, 0.4))'
                                         ]
                                     }}
                                     transition={{ duration: 3, repeat: Infinity }}
@@ -138,38 +146,68 @@ export default function Hero() {
                         </Reveal>
 
                         <Reveal delay={0.8} direction="up">
-                            <div className="flex flex-col sm:flex-row flex-wrap gap-4 lg:ml-12">
-                                <MagneticButton>
-                                    <motion.a
-                                        href="https://unstop.com/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn-primary relative overflow-hidden group w-full sm:w-auto inline-block text-center"
-                                        whileHover={{ scale: 1.05, borderColor: '#00E08F' }}
-                                        whileTap={{ scale: 0.95 }}
-                                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                            <div className="flex flex-col sm:flex-row flex-wrap gap-4 lg:ml-12 items-center">
+                                {/* Register Now Button - Hexagonal Border Fix */}
+                                <div
+                                    className="relative group cursor-pointer w-full sm:w-64"
+                                    style={{
+                                        filter: 'drop-shadow(0 0 5px rgba(0, 224, 143, 0.2))'
+                                    }}
+                                >
+                                    {/* Border Container (The Background acts as border) */}
+                                    <div
+                                        className="p-[1px] bg-[#00E08F] transition-all duration-300 group-hover:bg-[#00E08F] group-hover:shadow-[0_0_15px_rgba(0,224,143,0.4)]"
+                                        style={{
+                                            clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)'
+                                        }}
                                     >
-                                        Register Now
-                                    </motion.a>
-                                </MagneticButton>
-                                <MagneticButton>
-                                    <motion.a
-                                        href="/Brochure/hackathonBrochure.pdf"
-                                        download="Zyro_Hackathon_Brochure.pdf"
-                                        className="btn-outline w-full sm:w-auto inline-block text-center"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        transition={{ type: 'spring', stiffness: 400, damping: 1 }}
+                                        {/* Inner Content */}
+                                        <div
+                                            className="relative flex items-center justify-center px-10 py-4 bg-black/80 backdrop-blur-md transition-colors duration-300 group-hover:bg-[#00E08F]/20"
+                                            style={{
+                                                clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)'
+                                            }}
+                                        >
+                                            <a
+                                                href="https://unstop.com/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-[#00E08F] font-bold text-lg tracking-wide uppercase group-hover:text-white transition-colors"
+                                            >
+                                                Register Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Download Brochure Button - Hexagonal Border Fix */}
+                                <div
+                                    className="relative group cursor-pointer w-full sm:w-64"
+                                >
+                                    {/* Border Container */}
+                                    <div
+                                        className="p-[1px] bg-white/50 transition-all duration-300 group-hover:bg-[#00E08F]"
+                                        style={{
+                                            clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)'
+                                        }}
                                     >
-                                        <span className="relative z-10">Download Brochure</span>
-                                        {/* <motion.div
-                                            className="absolute inset-0 bg-white/20"
-                                            initial={{ x: '-100%' }}
-                                            whileHover={{ x: '100%' }}
-                                            transition={{ duration: 0.5 }}
-                                        /> */}
-                                    </motion.a>
-                                </MagneticButton>
+                                        {/* Inner Content */}
+                                        <div
+                                            className="relative flex items-center justify-center px-4 py-4 bg-black/60 backdrop-blur-md transition-colors duration-300 group-hover:bg-black/80"
+                                            style={{
+                                                clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)'
+                                            }}
+                                        >
+                                            <a
+                                                href="/Brochure/hackathonBrochure.pdf"
+                                                download="Zyro_Hackathon_Brochure.pdf"
+                                                className="text-white font-bold text-lg tracking-wide uppercase group-hover:text-[#00E08F] transition-colors"
+                                            >
+                                                Download Brochure
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </Reveal>
 

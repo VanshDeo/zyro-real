@@ -91,50 +91,21 @@ export default function MascotSection() {
                         background: 'radial-gradient(ellipse at 30% 50%, rgba(0, 224, 143, 0.08) 0%, transparent 50%)'
                     }}
                 />
+                {/* Left Circuit Decoration - Matching FAQ Style */}
+                <div className="absolute -left-10 lg:left-0 top-0 pointer-events-none z-10 w-full h-full">
+                    <svg width="120" height="100%" viewBox="0 0 120 800" preserveAspectRatio="none" className="opacity-90">
+                        {/* Main path starting lower to align with title */}
+                        <path d="M60 100 L60 200 L90 230 L90 550 L60 580 L60 800" stroke="#00E08F" strokeWidth="2" fill="none" />
 
-                {/* Left Circuit Decoration */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-20 hidden lg:block">
-                    <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
-                        <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="80" y1="230" x2="80" y2="370" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="80" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
+                        {/* Top Square Node */}
+                        <rect x="56" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow-p)" />
 
-                        <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow)" />
-                        <circle cx="80" cy="230" r="4" fill="#00E08F" filter="url(#glow)" />
-                        <circle cx="80" cy="370" r="4" fill="#00E08F" filter="url(#glow)" />
-                        <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow)" />
+                        {/* Bottom Diamond Node */}
+                        <rect x="56" y="792" width="8" height="8" fill="#00E08F" filter="url(#glow-p)" transform="rotate(45 60 796)" />
 
                         <defs>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur" />
-                                    <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                            </filter>
-                        </defs>
-                    </svg>
-                </div>
-
-                {/* Right Circuit Decoration */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none z-20 hidden lg:block">
-                    <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
-                        <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="50" y1="200" x2="20" y2="230" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="20" y1="230" x2="20" y2="370" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="20" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
-                        <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
-
-                        <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow2)" />
-                        <circle cx="20" cy="230" r="4" fill="#00E08F" filter="url(#glow2)" />
-                        <circle cx="20" cy="370" r="4" fill="#00E08F" filter="url(#glow2)" />
-                        <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow2)" />
-
-                        <defs>
-                            <filter id="glow2">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                            <filter id="glow-p">
+                                <feGaussianBlur stdDeviation="4" result="coloredBlur" />
                                 <feMerge>
                                     <feMergeNode in="coloredBlur" />
                                     <feMergeNode in="SourceGraphic" />
@@ -145,28 +116,49 @@ export default function MascotSection() {
                 </div>
 
 
-                {/* Navigation Arrows - Fixed to Left Screen Edge */}
-                <div className="absolute left-4 sm:left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 lg:mt-3 hidden lg:block">
-                    <motion.button
-                        onClick={prevFeature}
-                        className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                {/* Right Circuit Decoration - Tracks Specific Bracket Style */}
+
+
+
+                {/* Sidebar Navigation - Desktop Only - Hexagon Style Vertical Column */}
+                <div className="absolute left-30 top-1/2 -translate-y-1/2 flex-col gap-8 z-[90] hidden lg:flex">
+                    <div className="relative w-[60px] h-[180px] flex flex-col items-center justify-center gap-6">
+                        {/* SVG Background Border & Glow - Vertical */}
+                        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 60 180" fill="none">
+                            <path
+                                d="M 1 20 L 1 160 L 30 179 L 59 160 L 59 20 L 30 1 Z"
+                                stroke="#00E08F"
+                                strokeWidth="1.5"
+                                fill="rgba(0,0,0,0.8)"
+                                className="drop-shadow-[0_0_8px_rgba(0,224,143,0.4)]"
+                            />
                         </svg>
-                    </motion.button>
-                    <motion.button
-                        onClick={nextFeature}
-                        className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </motion.button>
+
+                        {/* Content (Buttons Vertical) */}
+                        <div className="relative z-10 flex flex-col items-center gap-6">
+                            <motion.button
+                                onClick={prevFeature}
+                                className="text-white hover:text-[#00E08F] transition-colors"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <svg className="w-6 h-6 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </motion.button>
+
+                            <motion.button
+                                onClick={nextFeature}
+                                className="text-white hover:text-[#00E08F] transition-colors"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <svg className="w-6 h-6 rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </motion.button>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Progress Indicator - Fixed to Right Screen Edge */}
@@ -183,7 +175,7 @@ export default function MascotSection() {
                 </div>
 
 
-                <div className="container-custom relative h-full flex items-center z-10">
+                <div className="container-custom relative h-full flex items-center z-30">
                     <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto w-full relative h-full">
                         {/* Center Column Structure */}
                         <div className="absolute inset-0 pointer-events-none z-10 hidden lg:block overflow-hidden">
@@ -244,19 +236,19 @@ export default function MascotSection() {
                         </div>
 
                         {/* LEFT - Features Content */}
-                        <div className="space-y-10 relative">
-                            {/* Navigation Arrows Removed from here */}
+                        <div className="space-y-10 relative pt-24 lg:pt-0">
+
 
 
                             <Reveal direction="up">
-                                <div className="mb-16">
-                                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+                                <div className="mb-16 ml-12">
+                                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase tracking-wider">
                                         Tracks
                                     </h2>
                                 </div>
                             </Reveal>
 
-                            <div className="relative h-[500px] overflow-hidden">
+                            <div className="relative min-h-[400px] lg:h-[500px] h-auto overflow-visible z-[50]">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={currentFeature}
@@ -269,11 +261,11 @@ export default function MascotSection() {
                                             damping: 20,
                                             mass: 0.8
                                         }}
-                                        className="absolute inset-0 space-y-8"
+                                        className="relative lg:absolute w-full lg:inset-0 space-y-8"
                                     >
                                         {/* Feature Number and Title */}
                                         <motion.div
-                                            className="space-y-4"
+                                            className="space-y-4 ml-12"
                                             initial={{ y: 20 }}
                                             animate={{ y: 0 }}
                                             transition={{ delay: 0.1 }}
@@ -287,42 +279,115 @@ export default function MascotSection() {
                                         </motion.div>
 
                                         {/* Feature Cards */}
-                                        <div className="grid grid-cols-1 gap-4 lg:ml-20">
+                                        <div className="grid grid-cols-1 gap-4 ml-12 mr-4">
                                             {features[currentFeature].cards.map((card, i) => (
                                                 <motion.div
                                                     key={`${currentFeature}-${i}`}
-                                                    className="bg-black/60 backdrop-blur-sm border border-[#1F2937] rounded-2xl p-6 hover:border-[#00E08F]/30 transition-all"
+                                                    className="relative group"
                                                     initial={{ opacity: 0, y: 30 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     transition={{ delay: 0.15 + i * 0.08 }}
-                                                    whileHover={{
-                                                        boxShadow: '0 8px 32px rgba(0, 224, 143, 0.15)',
-                                                        y: -2
-                                                    }}
                                                 >
-                                                    <p className="text-[#9CA3AF] text-base leading-relaxed">
-                                                        {card}
-                                                    </p>
+                                                    {/* Outer Border Container */}
+                                                    <div
+                                                        className="bg-[#1F2937]"
+                                                        style={{
+                                                            clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
+                                                            padding: '1px'
+                                                        }}
+                                                    >
+                                                        {/* Inner Content Container */}
+                                                        <div
+                                                            className="bg-black/60 backdrop-blur-sm p-6 h-full"
+                                                            style={{
+                                                                clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))'
+                                                            }}
+                                                        >
+                                                            <p className="text-[#9CA3AF] text-base leading-relaxed">
+                                                                {card}
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 </motion.div>
                                             ))}
                                         </div>
 
                                         {/* Feature Button */}
                                         {features[currentFeature].button && (
-                                            <motion.button
-                                                onClick={features[currentFeature].button.action}
-                                                className="mt-6 px-8 py-4 bg-[#00E08F] text-black font-semibold rounded-xl hover:bg-[#00E08F]/90 transition-all shadow-lg shadow-[#00E08F]/20 hover:shadow-[#00E08F]/40 hover:scale-105 active:scale-95"
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                transition={{ delay: 0.3 }}
-                                                whileHover={{ y: -2 }}
-                                                whileTap={{ scale: 0.95 }}
-                                            >
-                                                {features[currentFeature].button.text}
-                                            </motion.button>
+                                            <div className="mt-12 ml-16 md:ml-12 relative z-[90] inline-block">
+                                                <motion.button
+                                                    onClick={features[currentFeature].button.action}
+                                                    className="relative group cursor-pointer border-none bg-transparent p-0 outline-none"
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: 0.3 }}
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    <div
+                                                        className="p-[1px] bg-[#00E08F] transition-all duration-300 group-hover:bg-[#00E08F] group-hover:shadow-[0_0_15px_rgba(0,224,143,0.4)]"
+                                                        style={{
+                                                            clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)',
+                                                            filter: 'drop-shadow(0 0 5px rgba(0, 224, 143, 0.2))'
+                                                        }}
+                                                    >
+                                                        <div
+                                                            className="relative flex items-center justify-center px-10 py-4 bg-black/80 backdrop-blur-md transition-colors duration-300 group-hover:bg-[#00E08F]/20"
+                                                            style={{
+                                                                clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)'
+                                                            }}
+                                                        >
+                                                            <span className="text-[#00E08F] font-bold text-lg tracking-wide uppercase group-hover:text-white transition-colors">
+                                                                {features[currentFeature].button.text}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </motion.button>
+                                            </div>
                                         )}
                                     </motion.div>
                                 </AnimatePresence>
+                            </div>
+
+                            {/* Navigation Arrows - Mobile Only (Bottom) */}
+                            <div className="flex justify-start mt-2 ml-16 md:ml-12 relative z-[90] lg:hidden">
+                                <div className="relative w-[180px] h-[60px] flex items-center justify-center gap-6">
+                                    {/* SVG Background Border & Glow */}
+                                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 180 60" fill="none">
+                                        <path
+                                            d="M 20 1 L 160 1 L 179 30 L 160 59 L 20 59 L 1 30 Z"
+                                            stroke="#00E08F"
+                                            strokeWidth="1.5"
+                                            fill="rgba(0,0,0,0.8)"
+                                            className="drop-shadow-[0_0_8px_rgba(0,224,143,0.4)]"
+                                        />
+                                    </svg>
+
+                                    {/* Content (Buttons) */}
+                                    <div className="relative z-10 flex items-center gap-6">
+                                        <motion.button
+                                            onClick={prevFeature}
+                                            className="text-white hover:text-[#00E08F] transition-colors"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                            </svg>
+                                        </motion.button>
+
+                                        <motion.button
+                                            onClick={nextFeature}
+                                            className="text-white hover:text-[#00E08F] transition-colors"
+                                            whileHover={{ scale: 1.1 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </motion.button>
+                                    </div>
+                                </div>
                             </div>
 
 
@@ -331,7 +396,7 @@ export default function MascotSection() {
 
                         {/* RIGHT - Robot Mascot Only (NO phone) */}
                         <motion.div
-                            className="relative lg:absolute lg:bottom-50 lg:-right-62 h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto flex flex-col items-center justify-end gap-12 lg:mb-0"
+                            className="relative lg:absolute lg:bottom-50 lg:-right-62 h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto flex flex-col items-center justify-end gap-12 lg:mb-0 mt-12 lg:mt-0 z-[70]"
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -361,25 +426,13 @@ export default function MascotSection() {
                             </div>
 
                             {/* Feature indicator */}
-                            <motion.div
-                                key={currentFeature}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="text-center"
-                            >
-                                <p className="text-white/40 text-sm uppercase tracking-wider">
-                                    Feature {features[currentFeature].number}
-                                </p>
-                                <p className="text-white text-lg font-medium mt-2">
-                                    {features[currentFeature].title}
-                                </p>
-                            </motion.div>
+
                         </motion.div>
                     </div>
                 </div>
 
                 {/* Global Bottom Blend Overlay - Ensures seamless transition to next section */}
-                <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black via-black/95 to-transparent z-[60] pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black via-black/95 to-transparent z-[25] pointer-events-none" />
             </div>
         </div>
     );

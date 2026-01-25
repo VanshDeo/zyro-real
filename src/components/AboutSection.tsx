@@ -6,19 +6,17 @@ import { Reveal } from './AdvancedAnimations';
 export default function AboutSection() {
     return (
         <section className="section relative overflow-hidden bg-black py-20">
-            {/* Left Circuit Decoration */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-0 hidden md:block">
-                <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
-                    <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="80" y1="230" x2="80" y2="370" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="80" y1="370" x2="50" y2="400" stroke="#00E08F" strokeWidth="2" />
-                    <line x1="50" y1="400" x2="50" y2="600" stroke="#00E08F" strokeWidth="2" />
+            {/* Left Circuit Decoration - Standard FAQ Style - Desktop Only */}
+            <div className="absolute left-0 top-0 pointer-events-none z-0 w-full h-full hidden lg:block">
+                <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
+                    {/* Path matching About section flow */}
+                    <path d="M50 0 L50 200 L80 230 L80 570 L50 600 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
 
-                    <circle cx="50" cy="200" r="4" fill="#00E08F" filter="url(#glow)" />
-                    <circle cx="80" cy="230" r="4" fill="#00E08F" filter="url(#glow)" />
-                    <circle cx="80" cy="370" r="4" fill="#00E08F" filter="url(#glow)" />
-                    <circle cx="50" cy="400" r="4" fill="#00E08F" filter="url(#glow)" />
+                    {/* Top Square Node */}
+                    <rect x="46" y="0" width="8" height="8" fill="#00E08F" filter="url(#glow)" />
+
+                    {/* Bottom Diamond Node */}
+                    <rect x="46" y="600" width="8" height="8" fill="#00E08F" filter="url(#glow)" transform="rotate(45 50 604)" />
 
                     <defs>
                         <filter id="glow">
@@ -63,25 +61,33 @@ export default function AboutSection() {
                         </motion.div>
 
                         <div className="flex flex-col gap-6">
-                            {/* Feature Card 1 - Clipped Border */}
+                            {/* Feature Card 1 - Constructed Border */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="relative group"
-                                style={{
-                                    background: '#646464',
-                                    clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)',
-                                    padding: '1px'
-                                }}
+                                className="relative group p-6 bg-black"
                             >
-                                <div
-                                    className="relative bg-black w-full h-full p-6 flex items-start gap-4"
-                                    style={{
-                                        clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
-                                    }}
-                                >
+                                {/* Border Top (Shortened for Left Corner) */}
+                                <div className="absolute top-0 left-[20px] right-0 h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Bottom (Shortened for Right Corner - Starts at 1px) */}
+                                <div className="absolute bottom-0 left-[1px] right-[20px] h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Left (Shortened for Top Corner - Shifted to 1px) */}
+                                <div className="absolute top-[20px] bottom-0 left-[1px] w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Right (Shortened for Bottom Corner) */}
+                                <div className="absolute top-0 bottom-[20px] right-0 w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+
+                                {/* Angled Corner: Top-Left - SVG */}
+                                <svg className="absolute top-0 left-0 w-[20px] h-[20px] pointer-events-none overflow-visible">
+                                    <line x1="1" y1="20" x2="20" y2="0" stroke="#646464" strokeWidth="1" className="group-hover:stroke-[#00E08F] transition-colors" />
+                                </svg>
+                                {/* Angled Corner: Bottom-Right - SVG */}
+                                <svg className="absolute bottom-0 right-0 w-[20px] h-[20px] pointer-events-none overflow-visible">
+                                    <line x1="1" y1="20" x2="20" y2="0" stroke="#646464" strokeWidth="1" className="group-hover:stroke-[#00E08F] transition-colors" />
+                                </svg>
+
+                                <div className="relative w-full h-full flex items-start gap-4 z-10">
                                     <div className="w-10 h-10 rounded-lg bg-[#00E08F]/10 flex items-center justify-center shrink-0">
                                         <svg className="w-5 h-5 text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -94,25 +100,33 @@ export default function AboutSection() {
                                 </div>
                             </motion.div>
 
-                            {/* Feature Card 2 - Clipped Border */}
+                            {/* Feature Card 2 - Constructed Border */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
-                                className="relative group"
-                                style={{
-                                    background: '#646464',
-                                    clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)',
-                                    padding: '1px'
-                                }}
+                                className="relative group p-6 bg-black"
                             >
-                                <div
-                                    className="relative bg-black w-full h-full p-6 flex items-start gap-4"
-                                    style={{
-                                        clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
-                                    }}
-                                >
+                                {/* Border Top (Shortened for Left Corner) */}
+                                <div className="absolute top-0 left-[20px] right-0 h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Bottom (Shortened for Right Corner - Starts at 1px) */}
+                                <div className="absolute bottom-0 left-[1px] right-[20px] h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Left (Shortened for Top Corner - Shifted to 1px) */}
+                                <div className="absolute top-[20px] bottom-0 left-[1px] w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Right (Shortened for Bottom Corner) */}
+                                <div className="absolute top-0 bottom-[20px] right-0 w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+
+                                {/* Angled Corner: Top-Left - SVG */}
+                                <svg className="absolute top-0 left-0 w-[20px] h-[20px] pointer-events-none overflow-visible">
+                                    <line x1="1" y1="20" x2="20" y2="0" stroke="#646464" strokeWidth="1" className="group-hover:stroke-[#00E08F] transition-colors" />
+                                </svg>
+                                {/* Angled Corner: Bottom-Right - SVG */}
+                                <svg className="absolute bottom-0 right-0 w-[20px] h-[20px] pointer-events-none overflow-visible">
+                                    <line x1="1" y1="20" x2="20" y2="0" stroke="#646464" strokeWidth="1" className="group-hover:stroke-[#00E08F] transition-colors" />
+                                </svg>
+
+                                <div className="relative w-full h-full flex items-start gap-4 z-10">
                                     <div className="w-10 h-10 rounded-lg bg-[#00E08F]/10 flex items-center justify-center shrink-0">
                                         <svg className="w-5 h-5 text-[#00E08F]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />

@@ -24,7 +24,7 @@ export const businessComponents: BusinessComponent[] = [
         title: 'Registration Opens',
         description: 'Join the global community of developers building the future of AI.',
         color: '#00E08F',
-        position: { top: '-7%', left: '18%' },
+        position: { top: '15%', left: '0%' }, // Pulled in from -10% to prevent edge clipping
         border: 'right-bottom',
         lineAngle: 35,
         lineLength: 100
@@ -47,8 +47,8 @@ export const businessComponents: BusinessComponent[] = [
         date: 'Phase 2',
         title: 'Submission Deadline',
         description: 'Finalize and submit your innovative projects for evaluation.',
-        color: '#0c0c0cff',
-        position: { top: '-15%', right: '18%' },
+        color: '#00E08F',
+        position: { top: '15%', right: '0%' }, // Pulled in from -14% to prevent edge clipping
         border: 'left-bottom',
         lineAngle: 145,
         lineLength: 100
@@ -60,9 +60,9 @@ export const businessComponents: BusinessComponent[] = [
         title: 'Winners Announcement',
         description: 'Celebrating the most innovative solutions and announcing the grand prize winners.',
         color: '#00E08F',
-        position: { top: '66%', left: '15%' },
+        position: { top: '75%', left: '50%', transform: 'translateX(-50%)' }, // Lifted from 100% to 75% to fix cutoff
         border: 'right-top',
-        lineAngle: -35,
+        lineAngle: -99,
         lineLength: 90
     }
 ];

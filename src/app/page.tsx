@@ -12,6 +12,7 @@ import VideoShowcase from '@/components/VideoShowcase';
 import GreenTechSection from '@/components/GreenTechSection';
 import BusinessModelSection from '@/components/BusinessModelSection';
 import PartnersSection from '@/components/PartnersSection';
+import PrizePoolSection from '@/components/PrizePoolSection';
 import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
@@ -40,7 +41,7 @@ export default function Home() {
         </div>
         {/* <InnovationSection /> */}
         <div id="tracks">
-        <MascotSection />
+          <MascotSection />
         </div>
         {/* <IntersectionSection /> */}
         {/* <VideoShowcase /> */}
@@ -50,6 +51,9 @@ export default function Home() {
         </div>
         <div id="partners">
           <PartnersSection />
+        </div>
+        <div id="pricing">
+          <PrizePoolSection />
         </div>
         <div id="faq">
           <FAQSection />
