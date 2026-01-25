@@ -157,7 +157,7 @@ export default function PrizePoolSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className="relative"
+                            className="relative ml-12 mr-4 md:mx-0"
                             style={{ transform: window.innerWidth >= 768 ? `scale(${prize.scale})` : 'scale(1)' }}
                         >
                             {/* Winner Badge */}
@@ -184,7 +184,7 @@ export default function PrizePoolSection() {
                             <div
                                 style={{
                                     background: prize.popular ? '#00E08F' : prize.borderColor,
-                                    clipPath: 'polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px))',
+                                    clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
                                     padding: prize.popular ? '2px' : '1px'
                                 }}
                             >
@@ -194,7 +194,7 @@ export default function PrizePoolSection() {
                                     style={{
                                         background: 'rgba(0, 0, 0, 0.8)',
                                         backdropFilter: 'blur(20px)',
-                                        clipPath: 'polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px))',
+                                        clipPath: 'polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))',
                                         padding: window.innerWidth >= 768 ? '2rem' : '1.5rem'
                                     }}
                                 >
@@ -211,7 +211,7 @@ export default function PrizePoolSection() {
                                     <div className="relative z-10 text-center">
                                         {/* Trophy Icon */}
                                         <motion.div
-                                            className="text-6xl md:text-7xl mb-4"
+                                            className="text-5xl md:text-7xl mb-3 md:mb-4"
                                             animate={{
                                                 rotate: prize.popular ? [0, 10, -10, 0] : 0,
                                                 scale: prize.popular ? [1, 1.1, 1] : 1
@@ -222,10 +222,10 @@ export default function PrizePoolSection() {
                                         </motion.div>
 
                                         {/* Place */}
-                                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{prize.place} Place</h3>
+                                        <h3 className="text-xl md:text-3xl font-bold text-white mb-1 md:mb-2">{prize.place} Place</h3>
 
                                         {/* Prize Amount */}
-                                        <div className="mb-6 md:mb-8">
+                                        <div className="mb-4 md:mb-8">
                                             <motion.div
                                                 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${prize.color} bg-clip-text text-transparent`}
                                                 animate={prize.popular ? {
@@ -238,7 +238,7 @@ export default function PrizePoolSection() {
                                         </div>
 
                                         {/* Perks List */}
-                                        <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8 text-left">
+                                        <ul className="space-y-2 md:space-y-3 mb-4 md:mb-8 text-left">
                                             {prize.perks.map((perk, i) => (
                                                 <motion.li
                                                     key={i}
