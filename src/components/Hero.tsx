@@ -8,6 +8,7 @@ import { Parallax, MagneticButton, Reveal, GradientText, MorphingBlob } from './
 
 export default function Hero() {
     const containerRef = useRef(null);
+    console.log('sri**** ****ra rendi');
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ['start start', 'end start']
@@ -19,21 +20,58 @@ export default function Hero() {
 
     return (
         <section ref={containerRef} className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-            {/* Morphing background blobs */}
+            {/* Background Gradients */}
+            <div className="absolute inset-0 bg-[#070B0B]" />
             <MorphingBlob className="w-[600px] h-[600px] top-1/4 -left-1/4" />
-            <MorphingBlob className="w-[400px] h-[400px] bottom-1/4 right-0" />
+            {/* <MorphingBlob className="w-[400px] h-[400px] bottom-1/4 right-0" /> */}
 
-            {/* Parallax Background Image */}
+            {/* FAQ Style Background Image */}
             <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
                 <Image
                     src="/images/hero-leaves.jpg"
                     alt="Tropical leaves background"
                     fill
-                    className="object-cover scale-110"
-                    priority
+                    className="object-cover opacity-80 scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#070B0B]/60 via-[#070B0B]/40 to-[#070B0B]" />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#070B0B]/80 to-transparent" />
+            </motion.div>
+
+            {/* FAQ Style Global Overlays */}
+            <div className="absolute inset-0 bg-[#070B0B]/30 z-[1] pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#070B0B] via-[#070B0B]/80 to-transparent z-[1] pointer-events-none" />
+            {/* Right edge blend (Middle of screen) - Extended smooth fade */}
+            <div className="absolute inset-0 bg-gradient-to-l from-[#070B0B] from-30% via-[#070B0B]/90 via-50% to-transparent" />
+
+            {/* Foreground Content (Leaf + Video) */}
+            <motion.div className="absolute inset-0 z-[2]" style={{ y: backgroundY }}>
+                {/* Left Leaf Background */}
+                <motion.div
+                    className="absolute top-0 left-0 w-[60%] h-full z-0 pointer-events-none"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                >
+                    {/* <img
+                        src="/leaf-left.png"
+                        alt="Background Leaf"
+                        className="w-full h-full object-cover object-left opacity-80"
+                    /> */}
+                </motion.div>
+
+                {/* Right Half Video Background */}
+                <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-[1] pointer-events-none">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-contain object-right translate-x-16"
+                    >
+                        <source src="https://res.cloudinary.com/dlrlet9fg/video/upload/v1769288843/eco-bg_3_1_x1cpyb.webm" type="video/webm" />
+                    </video>
+                    {/* Left edge blend for video - Stronger */}
+                    <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#070B0B] from-20% via-[#070B0B]/80 via-40% to-transparent pointer-events-none" />
+                </div>
             </motion.div>
 
             <motion.div
@@ -206,7 +244,7 @@ export default function Hero() {
                         </Parallax> */}
 
                         {/* Green Innovation Card */}
-                        <Parallax speed={0.5}>
+                        {/* <Parallax speed={0.5}>
                             <Floating duration={5} distance={12}>
                                 <motion.div
                                     className="absolute top-24 right-0 glass-green rounded-2xl p-5 max-w-xs"
@@ -221,25 +259,13 @@ export default function Hero() {
                                                 Join us in building harmonious balance between nature
                                             </p>
                                         </div>
-                                        {/* <GlowPulse className="w-10 h-10 rounded-xl bg-[#00E08F] flex items-center justify-center flex-shrink-0">
-                                            <motion.svg
-                                                className="w-5 h-5 text-[#070B0B]"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                                whileHover={{ rotate: 45 }}
-                                                transition={{ type: 'spring', stiffness: 300 }}
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-                                            </motion.svg>
-                                        </GlowPulse> */}
                                     </div>
                                 </motion.div>
                             </Floating>
-                        </Parallax>
+                        </Parallax> */}
 
                         {/* Innovative Nature Card */}
-                        <Parallax speed={0.7}>
+                        {/* <Parallax speed={0.7}>
                             <Floating duration={6} distance={8}>
                                 <motion.div
                                     className="absolute top-64 left-1/4 glass rounded-2xl p-5 max-w-xs"
@@ -264,7 +290,7 @@ export default function Hero() {
                                     </p>
                                 </motion.div>
                             </Floating>
-                        </Parallax>
+                        </Parallax> */}
 
                         {/* Sustainable Future Card */}
                         {/* <Parallax speed={0.4}>
