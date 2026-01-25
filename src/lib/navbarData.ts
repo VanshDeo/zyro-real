@@ -10,15 +10,10 @@ export interface LogoData {
     href: string;
 }
 
-export interface ContactData {
-    phoneNumber: string;
-    phoneNumberFormatted: string;
-    phoneNumberHref: string;
-}
-
 export const navLinks: NavLink[] = [
     { name: 'Home', href: '#home', id: 'home' },
     { name: 'About', href: '#about', id: 'about' },
+    { name: 'Prizes', href: '#prizes', id: 'prizes' },
     { name: 'Tracks', href: '#tracks', id: 'tracks' },
     { name: 'Timeline', href: '#timeline', id: 'timeline' },
     { name: 'Partners', href: '#partners', id: 'partners' },
@@ -29,10 +24,4 @@ export const logoData: LogoData = {
     src: 'https://res.cloudinary.com/dkxskaege/image/upload/v1769346773/Zyro_kvywql.png',
     alt: 'Zyro Logo',
     href: '/'
-};
-
-export const contactData: ContactData = {
-    phoneNumber: '+919876543210',
-    phoneNumberFormatted: '+91 98765 43210',
-    phoneNumberHref: 'tel:+919876543210'
 };

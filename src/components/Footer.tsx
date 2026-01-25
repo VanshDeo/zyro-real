@@ -103,6 +103,38 @@ export default function Footer() {
                             ))}
                         </div>
                     </StaggerItem>
+
+                    {/* Contact Information */}
+                    <StaggerItem>
+                        <div className="mb-12 space-y-8">
+                            {/* Contact Us Section */}
+                            <div className="text-center">
+                                <h3 className="text-white font-bold mb-3 text-xl tracking-wide">CONTACT US</h3>
+                                <p className="text-[#A1A1A1] text-sm">
+                                    Email: <a href="mailto:kgec.robotics.club@kgec.edu.in" className="text-white hover:text-[#00E08F] transition-colors">kgec.robotics.club@kgec.edu.in</a>
+                                </p>
+                            </div>
+
+                            {/* For Any Query Section */}
+                            <div className="text-center">
+                                <h3 className="text-white font-bold mb-4 text-xl tracking-wide">FOR ANY QUERY ASK US:</h3>
+                                <div className="space-y-2">
+                                    <p className="text-white text-sm">
+                                        <span className="font-medium">AGNIDIPTA BASU:</span> <a href="tel:+918145069918" className="hover:text-[#00E08F] transition-colors">+91 62896 61833</a>
+                                    </p>
+                                    <p className="text-white text-sm">
+                                        <span className="font-medium">SAIKAT PANDA:</span> <a href="tel:+917319096784" className="hover:text-[#00E08F] transition-colors">+91 93394 26745</a>
+                                    </p>
+                                    <p className="text-white text-sm">
+                                        <span className="font-medium">ANIRBAN MUKHERJEE:</span> <a href="tel:+919051617498" className="hover:text-[#00E08F] transition-colors">+91 62918 30010</a>
+                                    </p>
+                                    <p className="text-white text-sm">
+                                        <span className="font-medium">DEEP RUDRA:</span> <a href="tel:+919339426745" className="hover:text-[#00E08F] transition-colors">+91 70637 40034</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </StaggerItem>
                 </StaggerContainer>
 
                 {/* Bottom Bar - Divider Line */}

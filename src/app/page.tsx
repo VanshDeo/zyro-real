@@ -41,7 +41,7 @@ export default function Home() {
         <div id="about">
           <AboutSection />
         </div>
-          <div id="pricing">
+          <div id="prizes">
           <PrizePoolSection />
         </div>
          <div id="timeline">
