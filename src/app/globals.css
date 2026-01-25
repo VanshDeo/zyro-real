@@ -243,11 +243,23 @@ body {
   padding: 80px 0;
 }
 
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 0;
+  }
+}
+
 /* Container */
 .container-custom {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    padding: 0 16px;
+  }
 }
 
 /* Tag Pills */

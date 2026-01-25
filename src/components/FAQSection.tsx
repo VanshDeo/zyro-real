@@ -121,7 +121,7 @@ export default function FAQSection() {
             <div className="container-custom relative z-10 py-20">
                 <Reveal direction="up">
                     <div className="mb-16">
-                        <h2 className="text-6xl md:text-7xl font-bold text-white">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
                             FAQ
                         </h2>
                     </div>
@@ -143,7 +143,7 @@ export default function FAQSection() {
                                     onClick={() => toggleFAQ(index)}
                                     style={{
                                         background: '#646464',
-                                        clipPath: 'polygon(35px 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%, 0 35px)',
+                                        clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)',
                                         padding: '1px'
                                     }}
                                 >
@@ -151,7 +151,7 @@ export default function FAQSection() {
                                     <motion.div
                                         className="relative bg-black w-full h-full"
                                         style={{
-                                            clipPath: 'polygon(35px 0, 100% 0, 100% calc(100% - 35px), calc(100% - 35px) 100%, 0 100%, 0 35px)'
+                                            clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)'
                                         }}
                                         whileHover={{
                                             backgroundColor: '#0A0A0A'
@@ -159,8 +159,8 @@ export default function FAQSection() {
                                         transition={{ duration: 0.3 }}
                                     >
                                         {/* Question header */}
-                                        <div className="relative z-10 px-8 py-6 flex justify-between items-center">
-                                            <h3 className="text-white text-xl font-normal pr-4">
+                                        <div className="relative z-10 px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex justify-between items-center">
+                                            <h3 className="text-white text-base sm:text-lg md:text-xl font-normal pr-4">
                                                 {faq.question}
                                             </h3>
 

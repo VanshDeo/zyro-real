@@ -120,13 +120,13 @@ export default function Footer() {
                             <h3 className="text-white font-semibold mb-4">Newsletter</h3>
                             <p className="text-[#A1A1A1] text-sm mb-4">Subscribe for updates on green tech innovations.</p>
                             <motion.div
-                                className="flex gap-2"
+                                className="flex flex-col sm:flex-row gap-2"
                                 whileHover={{ scale: 1.02 }}
                             >
                                 <input
                                     type="email"
                                     placeholder="Enter email"
-                                    className="flex-1 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-full px-4 py-2 text-white text-sm focus:outline-none focus:border-[#00E08F] transition-colors"
+                                    className="flex-1 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-full px-4 py-2 text-white text-sm focus:outline-none focus:border-[#00E08F] transition-colors w-full sm:w-auto"
                                 />
                                 <motion.button
                                     className="btn-primary px-6"

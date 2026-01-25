@@ -7,7 +7,7 @@ export default function AboutSection() {
     return (
         <section className="section relative overflow-hidden bg-black py-20">
             {/* Left Circuit Decoration */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-0">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-0 hidden md:block">
                 <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
                     <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
                     <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />
@@ -39,7 +39,7 @@ export default function AboutSection() {
                         {/* Big Heading - FAQ Style */}
                         <Reveal direction="up">
                             <div className="mb-2">
-                                <h2 className="text-6xl md:text-7xl font-bold text-white">
+                                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
                                     ABOUT ZYRO
                                 </h2>
                             </div>
@@ -51,13 +51,13 @@ export default function AboutSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            <h3 className="text-2xl lg:text-3xl font-bold text-[#00E08F] leading-tight mb-6">
+                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#00E08F] leading-tight mb-6">
                                 Pioneering the Future of <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E08F] to-[#00E08F]/50">
                                     Green Technology
                                 </span>
                             </h3>
-                            <p className="text-[#C2C2C2] text-lg leading-relaxed max-w-xl">
+                            <p className="text-[#C2C2C2] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl">
                                 Zyro represents the convergence of sustainable innovation and advanced artificial intelligence. We are building an ecosystem where technology doesn't just serve humanity, but actively regenerates our planet.
                             </p>
                         </motion.div>
@@ -137,7 +137,7 @@ export default function AboutSection() {
                     >
                         {/* Wrapper for the clipped border effect */}
                         <div
-                            className="relative w-full aspect-[691/920] max-w-md mx-auto lg:max-w-none"
+                            className="relative w-full aspect-[4/5] sm:aspect-[691/920] max-w-md mx-auto lg:max-w-none"
                             style={{
                                 background: '#646464',
                                 clipPath: 'polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px)',

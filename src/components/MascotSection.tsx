@@ -57,7 +57,7 @@ export default function MascotSection() {
     };
 
     return (
-        <div ref={containerRef} className="relative h-[300vh] bg-black">
+        <div ref={containerRef} className="relative h-[200vh] md:h-[300vh] bg-black">
             <div className="sticky top-0 h-screen overflow-hidden selection:bg-[#00E08F] selection:text-black">
                 {/* Background decorative lines */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -93,7 +93,7 @@ export default function MascotSection() {
                 />
 
                 {/* Left Circuit Decoration */}
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none z-20 hidden lg:block">
                     <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
                         <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
                         <line x1="50" y1="200" x2="80" y2="230" stroke="#00E08F" strokeWidth="2" />
@@ -119,7 +119,7 @@ export default function MascotSection() {
                 </div>
 
                 {/* Right Circuit Decoration */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none z-20">
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none z-20 hidden lg:block">
                     <svg width="100" height="600" viewBox="0 0 100 600" className="opacity-80">
                         <line x1="50" y1="0" x2="50" y2="200" stroke="#00E08F" strokeWidth="2" />
                         <line x1="50" y1="200" x2="20" y2="230" stroke="#00E08F" strokeWidth="2" />
@@ -146,31 +146,31 @@ export default function MascotSection() {
 
 
                 {/* Navigation Arrows - Fixed to Left Screen Edge */}
-                <div className="absolute left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 hidden lg:flex">
+                <div className="absolute left-4 sm:left-10 md:left-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30">
                     <motion.button
                         onClick={prevFeature}
-                        className="relative w-12 h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
+                        className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <svg className="w-7 h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                         </svg>
                     </motion.button>
                     <motion.button
                         onClick={nextFeature}
-                        className="relative w-12 h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
+                        className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center group hover:bg-[#00E08F]/10 rounded-xl transition-all border border-[#00E08F]/20 hover:border-[#00E08F]"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <svg className="w-7 h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#00E08F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                     </motion.button>
                 </div>
 
                 {/* Progress Indicator - Fixed to Right Screen Edge */}
-                <div className="absolute right-10 md:right-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 hidden lg:flex">
+                <div className="absolute right-4 sm:right-10 md:right-24 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30">
                     {features.map((_, index) => (
                         <motion.div
                             key={index}
@@ -250,7 +250,7 @@ export default function MascotSection() {
 
                             <Reveal direction="up">
                                 <div className="mb-16">
-                                    <h2 className="text-6xl md:text-7xl font-bold text-white">
+                                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
                                         Tracks
                                     </h2>
                                 </div>
@@ -281,7 +281,7 @@ export default function MascotSection() {
                                             <span className="text-[#6B7280] text-xl font-medium tracking-widest block mb-2">
                                                 {features[currentFeature].number}
                                             </span>
-                                            <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#00E08F] leading-tight">
+                                            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#00E08F] leading-tight">
                                                 {features[currentFeature].title}
                                             </h3>
                                         </motion.div>
@@ -331,14 +331,14 @@ export default function MascotSection() {
 
                         {/* RIGHT - Robot Mascot Only (NO phone) */}
                         <motion.div
-                            className="relative lg:absolute lg:bottom-50 lg:-right-62  h-[700px] lg:h-auto flex flex-col items-center justify-end gap-12 lg:mb-0"
+                            className="relative lg:absolute lg:bottom-50 lg:-right-62 h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto flex flex-col items-center justify-end gap-12 lg:mb-0"
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
                             {/* Robot Mascot */}
-                            <div className="relative w-[400px] h-[450px]">
+                            <div className="relative w-[250px] h-[300px] sm:w-[300px] sm:h-[350px] md:w-[350px] md:h-[400px] lg:w-[400px] lg:h-[450px]">
                                 <motion.div
                                     animate={{ y: [0, -15, 0] }}
                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

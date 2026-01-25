@@ -136,7 +136,7 @@ export default function PartnersSection() {
             <div className="container-custom relative z-10 py-20">
                 <Reveal direction="up">
                     <div className="mb-12">
-                        <h2 className="text-6xl md:text-7xl font-bold text-white uppercase text-center mb-10">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase text-center mb-10">
                             Partners
                         </h2>
                     </div>
@@ -166,7 +166,7 @@ export default function PartnersSection() {
                     </div>
 
                     {/* Logo Container with Fade Effects */}
-                    <div className="relative px-16 py-12">
+                    <div className="relative px-8 sm:px-12 md:px-16 py-8 sm:py-10 md:py-12">
                         {/* Left Fade */}
                         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black/50 to-transparent z-10 pointer-events-none" />
 

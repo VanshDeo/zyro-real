@@ -67,16 +67,16 @@ export default function BusinessModelSection() {
             </div>
 
             {/* Heading - Left aligned like Shieldeum */}
-            <div className="absolute top-[4%] left-[15%] z-10 mb-20">
+            <div className="absolute top-[4%] left-[15%] z-10 mb-20 hidden md:block">
                 <Reveal direction="up">
-                    <h2 className="text-6xl md:text-7xl font-bold text-white uppercase mb-20" >
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase mb-20" >
                         Timeline
                     </h2>
                 </Reveal>
             </div>
 
             {/* Main Visualization Container - Full width for proper label positioning */}
-            <div className="relative w-full h-[600px] mt-32 z-10">
+            <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] mt-20 md:mt-32 z-10">
                 {/* Component Labels with Connecting Lines */}
                 {businessComponents.map((component, index) => {
                     // Calculate diagonal line endpoint using trigonometry
@@ -110,7 +110,7 @@ export default function BusinessModelSection() {
                                         component.border === 'left-bottom' ? '0 0 0 4px' :
                                             component.border === 'right-top' ? '0 4px 0 0' :
                                                 component.border === 'left-top' ? '4px 0 0 0' : '0',
-                                    minWidth: '200px'
+                                    minWidth: '150px'
                                 }}
                             >
                                 {/* Number badge */}
@@ -135,7 +135,7 @@ export default function BusinessModelSection() {
                                 </div>
 
                                 {/* Title */}
-                                <div className="text-base md:text-lg font-bold mb-1">
+                                <div className="text-sm sm:text-base md:text-lg font-bold mb-1">
                                     {component.title}
                                 </div>
 

@@ -59,7 +59,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Right Half Video Background */}
-                <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-[1] pointer-events-none">
+                <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-[1] pointer-events-none hidden md:block">
                     <video
                         autoPlay
                         loop
@@ -116,7 +116,7 @@ export default function Hero() {
                                 <motion.img
                                     src="https://res.cloudinary.com/dkxskaege/image/upload/v1769283465/Zyro_kvywql-logo.svg"
                                     alt="Zyro Logo"
-                                    className="w-full max-w-[600px] h-auto object-contain"
+                                    className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain"
                                     animate={{
                                         filter: [
                                             'drop-shadow(0 0 10px rgba(0, 224, 143, 0.3))',
@@ -130,16 +130,16 @@ export default function Hero() {
                         </div>
 
                         <Reveal delay={0.6} direction="up">
-                            <p className="text-[#A1A1A1] text-lg max-w-md leading-relaxed">
+                            <p className="text-[#A1A1A1] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
                                 Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.
                             </p>
                         </Reveal>
 
                         <Reveal delay={0.8} direction="up">
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                                 <MagneticButton>
                                     <motion.button
-                                        className="btn-primary relative overflow-hidden group"
+                                        className="btn-primary relative overflow-hidden group w-full sm:w-auto"
                                         whileHover={{ scale: 1.05, borderColor: '#00E08F' }}
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -149,7 +149,7 @@ export default function Hero() {
                                 </MagneticButton>
                                 <MagneticButton>
                                     <motion.button
-                                        className="btn-outline"
+                                        className="btn-outline w-full sm:w-auto"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: 'spring', stiffness: 400, damping: 1 }}
