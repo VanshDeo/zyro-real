@@ -9,7 +9,7 @@ import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function Hero() {
     const containerRef = useRef(null);
-    console.log('sri**** ****ra rendi');
+    console.log('Officially my last project with RS. To Zyro, Vanse, Swastik, Prantik, and all my juniors: this is my final gift to you, so make the most of it. I’m moving on, but remember the name—Akash Biswas.');
     // Typewriter effect for description
     const description = "Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.";
     const { displayedText, isComplete } = useTypewriter(description, 30, 1000);
