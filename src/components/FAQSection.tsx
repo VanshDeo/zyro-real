@@ -5,30 +5,7 @@ import { useState, useRef } from 'react';
 import { StaggerContainer, StaggerItem } from './AnimationWrappers';
 import { Reveal } from './AdvancedAnimations';
 import Image from 'next/image';
-
-interface FAQItem {
-    question: string;
-    answer: string;
-}
-
-const faqData: FAQItem[] = [
-    {
-        question: "What is Zyro?",
-        answer: "Zyro is a green technology platform that combines innovation with sustainability. Our ecosystem features cutting-edge solutions that secure computing power while enabling a wide array of advanced services. We provide sustainable infrastructure for modern applications, helping businesses transition to eco-friendly technology solutions that are optimized for the future."
-    },
-    {
-        question: "How does Zyro contribute to sustainability?",
-        answer: "Zyro is committed to environmental sustainability through energy-efficient infrastructure, carbon-neutral operations, and green technology initiatives. We utilize renewable energy sources, implement advanced cooling systems to reduce power consumption, and partner with environmental organizations to offset our carbon footprint."
-    },
-    {
-        question: "What technologies does Zyro use?",
-        answer: "Zyro leverages cutting-edge technologies including AI-powered optimization, distributed computing networks, renewable energy integration, and advanced data analytics. Our platform combines modern web technologies with sustainable infrastructure to deliver high-performance solutions."
-    },
-    {
-        question: "How can I get started with Zyro?",
-        answer: "Getting started with Zyro is simple. Explore our solutions, choose the services that fit your needs, and join our growing community of environmentally-conscious innovators. Our team is ready to help you transition to sustainable technology solutions."
-    }
-];
+import { faqData } from '@/lib/faqData';
 
 export default function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
