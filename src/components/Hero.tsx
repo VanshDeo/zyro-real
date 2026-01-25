@@ -59,7 +59,7 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Right Half Video Background */}
-                <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-[1] pointer-events-none hidden md:block">
+                <div className="absolute top-25 right-0 w-full lg:w-1/2 h-full z-[1] pointer-events-none hidden md:block">
                     <video
                         autoPlay
                         loop
@@ -67,10 +67,12 @@ export default function Hero() {
                         playsInline
                         className="w-full h-full object-contain object-right translate-x-16"
                     >
-                        <source src="https://res.cloudinary.com/dlrlet9fg/video/upload/v1769288843/eco-bg_3_1_x1cpyb.webm" type="video/webm" />
+                        <source src="/videos/hero_m4_bg.mp4" type="video/mp4" />
                     </video>
                     {/* Left edge blend for video - Stronger */}
                     <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#070B0B] from-20% via-[#070B0B]/80 via-40% to-transparent pointer-events-none" />
+                    {/* Top edge blend for video to hide border */}
+                    <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#070B0B] via-[#070B0B]/80 to-transparent pointer-events-none" />
                 </div>
             </motion.div>
 
@@ -138,18 +140,23 @@ export default function Hero() {
                         <Reveal delay={0.8} direction="up">
                             <div className="flex flex-col sm:flex-row flex-wrap gap-4 lg:ml-12">
                                 <MagneticButton>
-                                    <motion.button
-                                        className="btn-primary relative overflow-hidden group w-full sm:w-auto"
+                                    <motion.a
+                                        href="https://unstop.com/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn-primary relative overflow-hidden group w-full sm:w-auto inline-block text-center"
                                         whileHover={{ scale: 1.05, borderColor: '#00E08F' }}
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                                     >
                                         Register Now
-                                    </motion.button>
+                                    </motion.a>
                                 </MagneticButton>
                                 <MagneticButton>
-                                    <motion.button
-                                        className="btn-outline w-full sm:w-auto"
+                                    <motion.a
+                                        href="/brochure/hackathonBrochure.pdf"
+                                        download="Zyro_Hackathon_Brochure.pdf"
+                                        className="btn-outline w-full sm:w-auto inline-block text-center"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         transition={{ type: 'spring', stiffness: 400, damping: 1 }}
@@ -161,7 +168,7 @@ export default function Hero() {
                                             whileHover={{ x: '100%' }}
                                             transition={{ duration: 0.5 }}
                                         /> */}
-                                    </motion.button>
+                                    </motion.a>
                                 </MagneticButton>
                             </div>
                         </Reveal>
