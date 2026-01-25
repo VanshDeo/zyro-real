@@ -154,7 +154,7 @@ export default function Hero() {
                                 </MagneticButton>
                                 <MagneticButton>
                                     <motion.a
-                                        href="/brochure/hackathonBrochure.pdf"
+                                        href="/Brochure/hackathonBrochure.pdf"
                                         download="Zyro_Hackathon_Brochure.pdf"
                                         className="btn-outline w-full sm:w-auto inline-block text-center"
                                         whileHover={{ scale: 1.05 }}
