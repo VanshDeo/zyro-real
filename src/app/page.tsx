@@ -12,6 +12,7 @@ import VideoShowcase from '@/components/VideoShowcase';
 import GreenTechSection from '@/components/GreenTechSection';
 import BusinessModelSection from '@/components/BusinessModelSection';
 import PartnersSection from '@/components/PartnersSection';
+import StatsTicker from '@/components/StatsTicker';
 import PrizePoolSection from '@/components/PrizePoolSection';
 import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
@@ -36,8 +37,15 @@ export default function Home() {
         <div id="home">
           <Hero />
         </div>
+        <StatsTicker />
         <div id="about">
           <AboutSection />
+        </div>
+          <div id="pricing">
+          <PrizePoolSection />
+        </div>
+         <div id="timeline">
+          <BusinessModelSection />
         </div>
         {/* <InnovationSection /> */}
         <div id="tracks">
@@ -46,15 +54,12 @@ export default function Home() {
         {/* <IntersectionSection /> */}
         {/* <VideoShowcase /> */}
         {/* <GreenTechSection /> */}
-        <div id="timeline">
-          <BusinessModelSection />
-        </div>
+       
         <div id="partners">
           <PartnersSection />
         </div>
-        <div id="pricing">
-          <PrizePoolSection />
-        </div>
+
+      
         <div id="faq">
           <FAQSection />
         </div>

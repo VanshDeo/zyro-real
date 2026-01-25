@@ -5,10 +5,16 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { FadeIn, Floating, GlowPulse } from './AnimationWrappers';
 import { Parallax, MagneticButton, Reveal, GradientText, MorphingBlob } from './AdvancedAnimations';
+import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function Hero() {
     const containerRef = useRef(null);
     console.log('sri**** ****ra rendi');
+
+    // Typewriter effect for description
+    const description = "Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.";
+    const { displayedText, isComplete } = useTypewriter(description, 30, 1000);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ['start start', 'end start']
@@ -141,7 +147,10 @@ export default function Hero() {
 
                         <Reveal delay={0.6} direction="up">
                             <p className="text-[#A1A1A1] text-sm sm:text-base md:text-lg max-w-md leading-relaxed lg:ml-12">
-                                Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.
+                                {displayedText}
+                                {!isComplete && (
+                                    <span className="inline-block w-0.5 h-5 bg-[#00E08F] ml-1 animate-pulse" />
+                                )}
                             </p>
                         </Reveal>
 
