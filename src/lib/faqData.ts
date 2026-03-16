@@ -14,19 +14,15 @@ export const faqData: FAQItem[] = [
     },
     {
         question: "Can I participate as a team?",
-        answer: "Yes Team size is :- 1 - 3 members."
+        answer: "Yes Team size is :- 1 - 4 members."
     },
     {
         question: "Can 3rd year students also participate?",
-        answer: "You can participate as a mentee if you are a beginner to open source and development. If you have sound knowledge about these, then we highly encourage you to participate as a mentor or project admin."
+        answer: "You can participate surely."
     },
     {
         question: "Is there a registration fee?",
         answer: "Nope."
-    },
-    {
-        question: "Do you have any other doubt?",
-        answer: "You can participate as a mentee if you are a beginner to open source and development. If you have sound knowledge about these, then we highly encourage you to participate as a mentor or project admin."
     },
     {
         question: "What will I need to submit?",
@@ -34,6 +30,11 @@ export const faqData: FAQItem[] = [
     },
     {
         question: "Is this an online or offline hackathon?",
-        answer: "Zyro is strictly an online hackathon."
+        answer: "Zyro is strictly an offline hackathon. only qualification rounds are online. "
+    },
+    {
+        question: "Do you have any other doubt?",
+        answer: "Contact to given details below."
     }
+    
 ];
