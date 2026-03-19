@@ -20,7 +20,7 @@ export const businessComponents: BusinessComponent[] = [
     {
         id: 1,
         number: '01',
-        date: 'Phase 1',
+        date: '12th March',
         title: 'Registration Opens',
         description: 'Join the global community of developers building the future of AI.',
         color: '#00E08F',
@@ -32,9 +32,9 @@ export const businessComponents: BusinessComponent[] = [
     {
         id: 2,
         number: '02',
-        date: 'Core',
+        date: '15th Mar-15th Apr',
         title: 'Hackathon Kick-off',
-        description: 'The official start of the competition where teams begin their development journey.',
+        description: 'Phase 1 : The official start of the competition where teams submit the idea.',
         color: '#00E08F',
         position: { top: '-25%', left: '42%', transform: 'translateX(-50%)' },
         border: 'bottom',
@@ -44,9 +44,9 @@ export const businessComponents: BusinessComponent[] = [
     {
         id: 3,
         number: '03',
-        date: 'Phase 2',
-        title: 'Submission Deadline',
-        description: 'Finalize and submit your innovative projects for evaluation.',
+        date: '18th Apr - 22nd Apr',
+        title: 'Phase 2 Screening Test',
+        description: 'Phase 2 : Online screening test for evaluation.',
         color: '#00E08F',
         position: { top: '15%', right: '0%' }, // Pulled in from -14% to prevent edge clipping
         border: 'left-bottom',
@@ -56,9 +56,9 @@ export const businessComponents: BusinessComponent[] = [
     {
         id: 4,
         number: '04',
-        date: 'Ecosystem',
-        title: 'Winners Announcement',
-        description: 'Celebrating the most innovative solutions and announcing the grand prize winners.',
+        date: '9th May-10th may',
+        title: 'Hackathon Start and Winners Announcement',
+        description: 'Final Phase : Official Start of Hackathon and Celebrating the most innovative solutions and announcing the grand prize winners.',
         color: '#00E08F',
         position: { top: '75%', left: '50%', transform: 'translateX(-50%)' }, // Lifted from 100% to 75% to fix cutoff
         border: 'right-top',

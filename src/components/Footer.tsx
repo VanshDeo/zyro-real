@@ -76,7 +76,7 @@ export default function Footer() {
                     </StaggerItem>
 
                     {/* Social Links */}
-                    <StaggerItem>
+                    {/* <StaggerItem>
                         <div className="flex items-center gap-4 mb-8">
                             {[
                                 { icon: 'M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z', label: 'Twitter' },
@@ -102,7 +102,52 @@ export default function Footer() {
                                 </motion.a>
                             ))}
                         </div>
-                    </StaggerItem>
+                    </StaggerItem> */}
+
+
+
+
+<StaggerItem>
+    <div className="flex items-center gap-4 mb-8">
+        {[
+            {
+                icon: "M20.52 3.48A11.78 11.78 0 0012.03 0C5.41 0 .06 5.35.06 11.97c0 2.11.55 4.17 1.6 6L0 24l6.19-1.63a11.93 11.93 0 005.84 1.49h.01c6.62 0 11.97-5.35 11.97-11.97 0-3.19-1.24-6.19-3.49-8.41zM12.04 21.6a9.57 9.57 0 01-4.87-1.34l-.35-.2-3.67.96.98-3.58-.23-.37a9.55 9.55 0 01-1.47-5.1c0-5.29 4.31-9.6 9.6-9.6 2.56 0 4.96 1 6.77 2.8a9.52 9.52 0 012.82 6.78c0 5.29-4.31 9.6-9.58 9.6zm5.26-7.18c-.29-.15-1.72-.85-1.99-.95-.27-.1-.47-.15-.66.15-.19.29-.76.95-.93 1.14-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.66-1.6-.91-2.19-.24-.58-.49-.5-.66-.51h-.56c-.19 0-.49.07-.75.37-.26.29-.98.96-.98 2.34 0 1.38 1 2.71 1.14 2.9.15.19 1.96 2.99 4.76 4.19.67.29 1.19.46 1.6.59.67.21 1.27.18 1.75.11.53-.08 1.72-.7 1.96-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.34z",
+                label: "WhatsApp",
+                link: "https://chat.whatsapp.com/FFvOe4T22Kv1XmGauaRcqK"
+            },
+            {
+                icon: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z",
+                label: "Instagram",
+                link: "https://www.instagram.com/zyro_kgec"
+            },
+            {
+                icon: "M20.447 20.452H16.89v-5.569c0-1.328-.025-3.037-1.851-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.347V9h3.414v1.561h.049c.476-.9 1.637-1.851 3.367-1.851 3.598 0 4.263 2.368 4.263 5.455v6.287zM5.337 7.433a2.065 2.065 0 11.001-4.131 2.065 2.065 0 01-.001 4.131zM6.78 20.452H3.894V9H6.78v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z",
+                label: "LinkedIn",
+                link: "https://www.linkedin.com/company/zyro-kalyani-government-engineering-college/posts/?feedView=all"
+            }
+        ].map((social, i) => (
+            <motion.a
+                key={i}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-lg bg-[rgba(0,224,143,0.05)] border border-[#00E08F]/20 flex items-center justify-center group"
+                whileHover={{
+                    scale: 1.1,
+                    backgroundColor: 'rgba(0, 224, 143, 0.15)',
+                    borderColor: 'rgba(0, 224, 143, 0.5)',
+                    boxShadow: '0 0 20px rgba(0, 224, 143, 0.3)'
+                }}
+                whileTap={{ scale: 0.95 }}
+                title={social.label}
+            >
+                <svg className="w-5 h-5 text-[#00E08F]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d={social.icon} />
+                </svg>
+            </motion.a>
+        ))}
+    </div>
+</StaggerItem>
 
                     {/* Contact Information */}
                     <StaggerItem>
@@ -142,7 +187,7 @@ export default function Footer() {
                     <FadeIn>
                         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
                             <p className="text-[#A1A1A1] text-sm">
-                                © 2024 Zyro. All rights reserved.
+                                © 2026 Zyro. All rights reserved.
                             </p>
                             <div className="flex items-center gap-6">
                                 <motion.div whileHover={{ color: '#00E08F' }}>

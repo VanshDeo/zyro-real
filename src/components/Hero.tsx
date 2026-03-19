@@ -9,7 +9,7 @@ import { useTypewriter } from '@/hooks/useTypewriter';
 
 export default function Hero() {
     const containerRef = useRef(null);
-    console.log('Officially my last project with RS. To Zyro, Vansh, Swastik, Prantik, and all my juniors: this is my final gift to you, so make the most of it. I’m moving on, but remember the name—Akash Biswas.');
+    console.log('ZYRO 2026 Best.');
     // Typewriter effect for description
     const description = "Be ready for 24 hours of relentless building, where robotics meets raw hardware engineering. Join Zyro for an intensive hackathon dedicated to crafting the future at the intersection of silicon and nature.";
     const { displayedText, isComplete } = useTypewriter(description, 30, 1000);
@@ -119,20 +119,27 @@ export default function Hero() {
                             <Reveal delay={0.8} direction="up">
                                 <div className="flex flex-col sm:flex-row flex-wrap gap-6 lg:pl-12 items-center">
                                     {/* Register Now Button */}
-                                    <div
+                                    
+                                    
+                                    
+                                    {/* <div
                                         className="relative group cursor-pointer w-full sm:w-64"
                                         style={{ filter: 'drop-shadow(0 0 5px rgba(0, 224, 143, 0.2))' }}
+                                    
                                     >
-                                        <div
+                                        <div 
                                             className="p-[1px] bg-[#00E08F] transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(0,224,143,0.4)]"
                                             style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
                                         >
+
+                                         
+                                                
                                             <div
                                                 className="relative flex items-center justify-center px-10 py-5 bg-black/80 backdrop-blur-md transition-colors duration-300 group-hover:bg-[#00E08F]/20"
                                                 style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
                                             >
                                                 <a
-                                                    href="https://unstop.com/"
+                                                    href="https://www.namespace.world/events/256WHF"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-[#00E08F] font-bold text-xl tracking-wide uppercase group-hover:text-white transition-colors"
@@ -141,10 +148,34 @@ export default function Hero() {
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
+
+
+
+
+                                    <div
+    className="relative group cursor-pointer w-full sm:w-64"
+    style={{ filter: 'drop-shadow(0 0 5px rgba(0, 224, 143, 0.2))' }}
+    onClick={() => window.open("https://www.namespace.world/events/256WHF", "_blank")}
+>
+    <div 
+        className="p-[1px] bg-[#00E08F] transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(0,224,143,0.4)]"
+        style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
+    >
+        <div
+            className="relative flex items-center justify-center px-10 py-5 bg-black/80 backdrop-blur-md transition-colors duration-300 group-hover:bg-[#00E08F]/20"
+            style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
+        >
+            <span className="text-[#00E08F] font-bold text-xl tracking-wide uppercase group-hover:text-white transition-colors">
+                Register Now
+            </span>
+        </div>
+    </div>
+</div>
+
 
                                     {/* Download Brochure Button */}
-                                    <div className="relative group cursor-pointer w-full sm:w-64">
+                                    {/* <div className="relative group cursor-pointer w-full sm:w-64">
                                         <div
                                             className="p-[1px] bg-white/50 transition-all duration-300 group-hover:bg-[#00E08F]"
                                             style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
@@ -154,7 +185,7 @@ export default function Hero() {
                                                 style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
                                             >
                                                 <a
-                                                    href="/Brochure/hackathonBrochure.pdf"
+                                                    href="Brochure\Zyro Brouchre.pdf"
                                                     download="Zyro_Hackathon_Brochure.pdf"
                                                     className="text-white font-bold text-xl tracking-wide uppercase group-hover:text-[#00E08F] transition-colors"
                                                 >
@@ -162,7 +193,34 @@ export default function Hero() {
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
+
+                                    <div
+    className="relative group cursor-pointer w-full sm:w-64"
+    onClick={() => {
+        const link = document.createElement("a");
+        link.href = "Brochure/Zyro Brouchre.pdf";
+        link.download = "Zyro_Hackathon_Brochure.pdf";
+        link.click();
+    }}
+>
+    <div
+        className="p-[1px] bg-white/50 transition-all duration-300 group-hover:bg-[#00E08F]"
+        style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
+    >
+        <div
+            className="relative flex items-center justify-center px-10 py-5 bg-black/60 backdrop-blur-md transition-colors duration-300 group-hover:bg-black/80"
+            style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
+        >
+            <span className="text-white font-bold text-xl tracking-wide uppercase group-hover:text-[#00E08F] transition-colors">
+                Brochure
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
                                 </div>
                             </Reveal>
                         </div>
