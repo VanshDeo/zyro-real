@@ -5,6 +5,10 @@ export interface Feature {
     title: string;
     logo: ReactNode;
     cards: string[];
+    button?: {   // ✅ make it optional
+    text: string;
+    action: () => void;
+  };
    
 }
 
