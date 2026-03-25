@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export interface Feature {
-    button: any;
+    button?: any;
     number: string;
     title: string;
     logo: ReactNode;
