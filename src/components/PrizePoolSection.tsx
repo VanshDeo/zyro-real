@@ -185,7 +185,7 @@ export default function PrizePoolSection() {
                 <Reveal>
                     <div className="text-center mt-12 md:mt-16 px-4">
                         <p className="text-[#A1A1A1] mb-4 text-base md:text-lg">
-                            Total Prize Pool: <span className="text-[#00E08F] font-bold text-xl md:text-2xl">₹1,00,000 and Coming Soon</span>
+                            Total Prize Pool: <span className="text-[#00E08F] font-bold text-xl md:text-2xl">₹1,00,000 and Growing</span>
                         </p>
                         <p className="text-[#A1A1A1] text-xs md:text-sm">
                             Additional prizes and recognition for notable participants will be announced later 

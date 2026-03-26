@@ -205,7 +205,7 @@ export default function Hero() {
     }}
 >
     <div
-        className="p-[1px] bg-white/50 transition-all duration-300 group-hover:bg-[#00E08F]"
+        className="p-[1px] bg-[#00E08F]/50 transition-all duration-300 group-hover:bg-white"
         style={{ clipPath: 'polygon(20px 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0 50%)' }}
     >
         <div
