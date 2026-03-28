@@ -191,10 +191,10 @@ export default function Footer() {
                             </p>
                             <div className="flex items-center gap-6">
                                 <motion.div whileHover={{ color: '#00E08F' }}>
-                                    <Link href="/privacy" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Privacy Policy</Link>
+                                    {/* <Link href="/privacy" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Privacy Policy</Link> */}
                                 </motion.div>
                                 <motion.div whileHover={{ color: '#00E08F' }}>
-                                    <Link href="/terms" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Terms of Service</Link>
+                                    {/* <Link href="/terms" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Terms of Service</Link> */}
                                 </motion.div>
                             </div>
                         </div>

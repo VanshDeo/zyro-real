@@ -6,6 +6,10 @@ export interface Feature {
     title: string;
     logo: ReactNode;
     cards: string[];
+    button?: {   // ✅ make it optional
+    text: string;
+    action: () => void;
+  };
    
 }
 
@@ -38,7 +42,7 @@ export const features: Feature[] = [
     },
     {
         number: '03',
-        title: 'Open Innovation',
+        title: 'Climate Tech',
         logo: (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
                 <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
@@ -50,7 +54,7 @@ export const features: Feature[] = [
             </svg>
         ),
         cards: [
-            'Creative robotics solutions addressing real-world problems beyond the defined themes.',
+            'Innovative technologies designed to address climate challenges such as pollution monitoring, waste management or environmental protection.',
         ],
         
     },
@@ -108,9 +112,10 @@ export const features: Feature[] = [
         ],
         
     },
-    {
+    
+     {
         number: '07',
-        title: 'Climate Tech',
+        title: 'Open Innovation',
         logo: (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
                 <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
@@ -122,8 +127,9 @@ export const features: Feature[] = [
             </svg>
         ),
         cards: [
-            'Innovative technologies designed to address climate challenges such as pollution monitoring, waste management or environmental protection.',
+            'Creative robotics solutions addressing real-world problems beyond the defined themes.',
         ],
         
-    }
+    },
+   
 ];
