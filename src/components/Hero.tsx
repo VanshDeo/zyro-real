@@ -89,7 +89,7 @@ export default function Hero() {
                                 style={{ transformOrigin: 'bottom' }}
                             >
                                 <motion.img
-                                    src="https://res.cloudinary.com/dkxskaege/image/upload/v1769346773/Zyro_kvywql.png"
+                                    src="https://res.cloudinary.com/dkxskaege/image/upload/v1775026905/Zyro-logo_qabb2l.png"
                                     alt="Zyro Logo"
                                     className="w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain mx-auto lg:mx-0"
                                     animate={{

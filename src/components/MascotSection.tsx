@@ -57,7 +57,7 @@ export default function MascotSection() {
     };
 
     return (
-        <div ref={containerRef} className="relative h-[200vh] md:h-[300vh] bg-black">
+        <div ref={containerRef} className="relative h-[500vh] md:h-[600vh] bg-black">
             <div className="sticky top-0 h-screen overflow-hidden selection:bg-[#00E08F] selection:text-black">
                 {/* Background decorative lines */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">

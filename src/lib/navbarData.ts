@@ -21,7 +21,7 @@ export const navLinks: NavLink[] = [
 ];
 
 export const logoData: LogoData = {
-    src: 'https://res.cloudinary.com/dkxskaege/image/upload/v1769346773/Zyro_kvywql.png',
+    src: 'https://res.cloudinary.com/dkxskaege/image/upload/v1775026905/Zyro-logo_qabb2l.png',
     alt: 'Zyro Logo',
     href: '/'
 };

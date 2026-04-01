@@ -16,7 +16,7 @@ export default function Footer() {
                             <motion.div whileHover={{ scale: 1.05 }}>
                                 <Link href="/" className="flex items-center justify-center gap-2">
                                     <motion.img
-                                        src="/zyro-logo.svg"
+                                        src="https://res.cloudinary.com/dkxskaege/image/upload/v1775026905/Zyro-logo_qabb2l.png"
                                         alt="Zyro Logo"
                                         className="w-auto h-16 object-contain"
                                         animate={{
