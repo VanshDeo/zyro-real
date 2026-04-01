@@ -316,7 +316,7 @@ export default function MascotSection() {
                                         {features[currentFeature].button && (
                                             <div className="mt-12 ml-16 md:ml-12 relative z-[90] inline-block">
                                                 <motion.button
-                                                    onClick={features[currentFeature].button.action}
+                                                    onClick={features[currentFeature].button?.action}
                                                     className="relative group cursor-pointer border-none bg-transparent p-0 outline-none"
                                                     initial={{ opacity: 0, y: 20 }}
                                                     animate={{ opacity: 1, y: 0 }}
@@ -338,7 +338,7 @@ export default function MascotSection() {
                                                             }}
                                                         >
                                                             <span className="text-[#00E08F] font-bold text-lg tracking-wide uppercase group-hover:text-white transition-colors">
-                                                                {features[currentFeature].button.text}
+                                                                {features[currentFeature].button?.text}
                                                             </span>
                                                         </div>
                                                     </div>

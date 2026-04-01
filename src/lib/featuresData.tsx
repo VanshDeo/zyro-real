@@ -5,6 +5,10 @@ export interface Feature {
     title: string;
     logo: ReactNode;
     cards: string[];
+    button?: {
+        text: string;
+        action: () => void;
+    };
 }
 
 export const features: Feature[] = [
