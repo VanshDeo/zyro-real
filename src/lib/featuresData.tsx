@@ -1,16 +1,10 @@
 import { ReactNode } from 'react';
 
 export interface Feature {
-    button?: any;
     number: string;
     title: string;
     logo: ReactNode;
     cards: string[];
-    button?: {   // ✅ make it optional
-    text: string;
-    action: () => void;
-  };
-   
 }
 
 export const features: Feature[] = [
