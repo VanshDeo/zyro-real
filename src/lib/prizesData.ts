@@ -13,12 +13,11 @@ export interface Prize {
 export const prizes: Prize[] = [
     {
         place: '1st',
-        prize: '₹40,000',
+        prize: '₹50,000',
         icon: '🏆',
         color: 'from-[#00E08F] to-[#00A86B]',
         borderColor: '#00E08F',
         perks: [
-            'Cash Prize: ₹15,000',
             'Grand Cash Prize',
             'Winner Trophy',
             'Project Incubation Support',
@@ -32,12 +31,11 @@ export const prizes: Prize[] = [
     },
     {
         place: '2nd',
-        prize: '35,000',
+        prize: '₹30,000',
         icon: '🏆',
         color: 'from-[#00E08F] to-[#00A86B]',
         borderColor: '#00E08F',
         perks: [
-            'Cash Prize: ₹12,000',
             'Grand Cash Prize',
             'Certificate of Achievement',
             'Mentorship Session',
@@ -50,12 +48,11 @@ export const prizes: Prize[] = [
     },
     {
         place: '3rd',
-        prize: '₹25,000',
+        prize: '₹20,000',
         icon: '🏆',
         color: 'from-[#00E08F] to-[#00A86B]',
         borderColor: '#00E08F',
         perks: [
-            'Cash Prize: ₹10,000',
             'Grand Cash Prize',
             'Certificate of Excellence',
             'Swag Kit',

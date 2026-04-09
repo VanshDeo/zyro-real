@@ -1,12 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { Reveal } from "./AdvancedAnimations";
 import { businessComponents } from "@/lib/businessComponentsData";
 
 export default function BusinessModelSection() {
+  const mobileContainerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: mobileContainerRef,
+    offset: ["start center", "end center"]
+  });
+
   return (
-    <section className="section relative overflow-hidden bg-black min-h-screen py-20">
+    <section className="section relative overflow-hidden bg-black min-h-screen py-10">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -18,7 +25,7 @@ export default function BusinessModelSection() {
         >
           <source
             src="https://res.cloudinary.com/dlrlet9fg/video/upload/v1769270495/9a163233-0ae9-4c7d-873f-220ab0943ea0_e5wthk.mp4"
-            type="video/webm"
+            type="video/mp4"
           />
         </video>
         {/* Dark overlay for text readability */}
@@ -114,9 +121,13 @@ export default function BusinessModelSection() {
       {/* Main Content Container */}
       <div className="container-custom relative z-10 w-full h-full">
         {/* Title - Relative Flow for BOTH Mobile and Desktop (Standardized) */}
-        <div className="relative z-10 mb-12 ml-12 md:ml-0 pt-24 md:pt-0">
+        <div className="relative z-10 mb-2 pt-4 md:pt-0">
           <Reveal direction="up">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="h-px w-10 bg-[#00E08F]/70" />
+              <span className="text-[#00E08F] text-xs font-accent uppercase tracking-[0.35em] font-semibold">Schedule</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white uppercase font-display tracking-wider">
               Timeline
             </h2>
           </Reveal>
@@ -128,74 +139,82 @@ export default function BusinessModelSection() {
         {/* ==========================================
                 MOBILE LAYOUT: Vertical Stack (One by One) 
                 ========================================== */}
-        <div className="relative w-full px-6 pb-20 mt-12 z-10 block lg:hidden">
-          {/* Connecting Green Line */}
-          <div className="absolute left-6 top-10 bottom-20 w-[2px] bg-gradient-to-b from-[#00E08F] via-[#00E08F]/50 to-transparent" />
+        <div ref={mobileContainerRef} className="relative w-full px-4 pb-10 mt-2 z-10 block md:hidden">
+          {/* Static background dashed line */}
+          <div className="absolute left-[27px] top-6 bottom-10 w-[2px] bg-[#00E08F]/10 border-l border-dashed border-[#00E08F]/20" />
+          
+          {/* Dynamic Interactive Scroll Line */}
+          <motion.div 
+            className="absolute left-[27px] top-6 bottom-10 w-[2px] bg-gradient-to-b from-[#00E08F] via-[#00E08F] to-transparent origin-top shadow-[0_0_10px_#00E08F]"
+            style={{ scaleY: scrollYProgress }}
+          />
 
-          <div className="flex flex-col gap-12 pl-8">
+          <div className="flex flex-col gap-6 pl-12">
             {businessComponents.map((component, index) => (
               <motion.div
                 key={`mobile-${component.id}`}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                {/* Connector Dot on the Line */}
-                <div className="absolute -left-[41px] top-6 w-4 h-4 rounded-full bg-[#000] border-2 border-[#00E08F] shadow-[0_0_10px_#00E08F] z-20" />
+                {/* Timeline dot */}
+                <div className="absolute -left-[45px] top-5 w-4 h-4 rounded-full bg-black border-2 border-[#00E08F] shadow-[0_0_10px_rgba(0,224,143,0.6)] z-20" />
 
-                {/* Card Content - Cyber HUD Style */}
+                {/* Card */}
                 <div
                   className="relative bg-[#1F2937]"
                   style={{
-                    clipPath:
-                      "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
-                    padding: "1px",
+                    clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
+                    padding: '1px',
                   }}
                 >
                   <div
-                    className="relative p-6 bg-black/80 backdrop-blur-md h-full"
+                    className="relative p-5 bg-black/85 backdrop-blur-md h-full"
                     style={{
-                      clipPath:
-                        "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
-                      borderLeft: `4px solid ${component.color}`,
+                      clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
+                      borderLeft: `3px solid ${component.color}`,
                     }}
                   >
-                    {/* Glow Effect */}
+                    {/* Glow */}
                     <div
-                      className="absolute -right-10 -top-10 w-32 h-32 opacity-20 blur-2xl rounded-full"
+                      className="absolute -right-6 -top-6 w-24 h-24 opacity-15 blur-2xl rounded-full"
                       style={{ backgroundColor: component.color }}
                     />
 
-                    <div className="flex items-start justify-between mb-4 relative z-10">
-                      <div
-                        className="text-sm font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10"
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-3 relative z-10">
+                      <span
+                        className="text-xs font-accent font-bold px-2.5 py-1 rounded-full bg-white/5 border border-white/10"
                         style={{ color: component.color }}
                       >
                         {component.date}
-                      </div>
+                      </span>
                       <div
-                        className="w-8 h-8 flex items-center justify-center rounded-lg font-bold text-black text-sm shadow-[0_0_10px_rgba(0,0,0,0.5)]"
+                        className="w-7 h-7 flex items-center justify-center rounded-lg font-bold font-accent text-black text-xs"
                         style={{ backgroundColor: component.color }}
                       >
                         {component.number}
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2 relative z-10">
+                    <h3 className="text-base font-bold font-accent text-white mb-1.5 relative z-10 uppercase tracking-wide">
                       {component.title}
                     </h3>
-                    <p className="text-gray-400 text-sm leading-relaxed relative z-10">
+                    <p className="text-white/50 text-xs leading-relaxed relative z-10">
                       {component.description}
                     </p>
+
                     {component.button && (
-                      <button
-                        onClick={component.button.action}
-                        className="mt-4 px-4 py-2 text-sm font-semibold text-black bg-[#00E08F] rounded-md hover:opacity-80 transition"
+                      <a
+                        href={component.button.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-3 px-4 py-1.5 text-xs font-accent font-bold uppercase tracking-widest text-black bg-[#00E08F] rounded-lg hover:opacity-85 transition relative z-50 pointer-events-auto"
                       >
                         {component.button.text}
-                      </button>
+                      </a>
                     )}
                   </div>
                 </div>
@@ -207,7 +226,7 @@ export default function BusinessModelSection() {
         {/* ==========================================
                 DESKTOP LAYOUT: Absolute Node Map 
                 ========================================== */}
-        <div className="relative w-full h-[600px] md:h-[700px] lg:h-[850px] mt-20 md:mt-32 z-10 hidden lg:block">
+        <div className="relative w-full h-[520px] md:h-[620px] lg:h-[850px] mt-4 md:mt-6 lg:mt-8 z-10 hidden md:block">
           {/* Component Labels with Connecting Lines */}
           {businessComponents.map((component, index) => {
             // Calculate diagonal line endpoint using trigonometry
@@ -232,7 +251,7 @@ export default function BusinessModelSection() {
                 {/* Label Box with structured content */}
                 {/* Label Box - Cyber HUD Style for Desktop */}
                 <div
-                  className="relative bg-[#1F2937] w-72"
+                  className="relative bg-[#1F2937] w-48 md:w-56 lg:w-72"
                   style={{
                     clipPath:
                       "polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px))",
@@ -268,19 +287,21 @@ export default function BusinessModelSection() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white mb-2 relative z-10">
+                    <h3 className="text-sm md:text-base lg:text-xl font-bold font-accent text-white mb-2 relative z-10 uppercase tracking-wide">
                       {component.title}
                     </h3>
-                    <p className="text-gray-400 text-xs leading-relaxed relative z-10">
+                    <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed relative z-10">
                       {component.description}
                     </p>
                     {component.button && (
-                      <button
-                        onClick={component.button.action}
-                        className="mt-4 px-4 py-2 text-xs font-semibold text-black bg-[#00E08F] rounded-md hover:opacity-80 transition"
+                      <a
+                        href={component.button.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-3 px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-accent font-semibold uppercase tracking-widest text-[#00E08F] bg-[#00E08F]/10 border border-[#00E08F]/50 rounded-md hover:bg-[#00E08F] hover:text-black transition relative z-50 pointer-events-auto"
                       >
                         {component.button.text}
-                      </button>
+                      </a>
                     )}
                   </div>
                 </div>
@@ -330,7 +351,7 @@ export default function BusinessModelSection() {
           })}
 
           {/* Central Visualization Area (Video provides the 3D elements) */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 flex items-center justify-center">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 flex items-center justify-center pointer-events-none">
             <motion.div
               className="text-center"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -341,11 +362,6 @@ export default function BusinessModelSection() {
               {/* The video background shows the 3D isometric visualization */}
             </motion.div>
           </div>
-        </div>
-        <div className="text-center mt-12 md:mt-16 px-4 py-4">
-          <p className="text-[#A1A1A1] text-xs md:text-sm">
-            A comprehensive and detailed timeline will be shared soon. Stay tuned for further updates.
-          </p>
         </div>
       </div>
     </section>

@@ -16,12 +16,13 @@ export const features: Feature[] = [
         number: '01',
         title: 'Green Energy Automation',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-zap-icon lucide-zap">
-                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
-            </svg>
+            <img 
+                src="/images/tracks/green-energy.png" 
+                alt="Green Energy Automation" 
+            />
         ),
         cards: [
-            'Automation and robotics solutions focused on renewable energy systems,energy efficiency and smart power management.',
+            'Design bleeding-edge automation and robotics systems dedicated to revolutionizing renewable energy. Build smart power management grids, drastically improve energy efficiency, and engineer autonomous solutions that scale green energy production for a zero-carbon future.',
         ],
         
     },
@@ -29,12 +30,13 @@ export const features: Feature[] = [
         number: '02',
         title: 'Robotics for Public Infrastructure',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-droplet-icon lucide-droplet">
-                <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
-            </svg>
+            <img 
+                src="/images/tracks/infrastruture.png" 
+                alt="Robotics for Public Infrastructure" 
+            />
         ),
         cards: [
-            'Robotic systems that support infrastructure development, maintenance, transportation or smart city applications.',
+            'Develop autonomous robotic systems and smart IoT arrays that modernize public infrastructure. Build hardware solutions capable of maintaining roads, monitoring structural integrity in real-time, optimizing urban transit, and forming the backbone of fully connected smart cities.',
         ],
         
     },
@@ -42,17 +44,13 @@ export const features: Feature[] = [
         number: '03',
         title: 'Climate Tech',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
-                <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
-                <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />
-                <path d="m14 16-3 3 3 3" />
-                <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
-                <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
-                <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-            </svg>
+            <img 
+                src="/images/tracks/climate.png" 
+                alt="Climate Tech" 
+            />
         ),
         cards: [
-            'Innovative technologies designed to address climate challenges such as pollution monitoring, waste management or environmental protection.',
+            'Engineer innovative hardware technologies to combat the global climate crisis head-on. Create precision systems for widespread pollution tracking, autonomous waste sorting, ecosystem protection, and radical atmospheric restoration architectures.',
         ],
         
     },
@@ -60,17 +58,13 @@ export const features: Feature[] = [
         number: '04',
         title: 'Sustainable Development',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
-                <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
-                <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />
-                <path d="m14 16-3 3 3 3" />
-                <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
-                <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
-                <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-            </svg>
+            <img 
+                src="/images/tracks/sustain-develop.png" 
+                alt="Sustainable Development" 
+            />
         ),
         cards: [
-            'Robotic or automated solutions that promote environmentally responsible and sustainable practices.',
+            'Architect advanced robotic and automated solutions that enforce environmentally responsible practices across industries. Focus on creating closed-loop recycling mechanisms, reducing industrial footprints, and establishing sustainable production pipelines.',
         ],
         
     },
@@ -78,17 +72,13 @@ export const features: Feature[] = [
         number: '05',
         title: 'Smart Agriculture',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
-                <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
-                <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />
-                <path d="m14 16-3 3 3 3" />
-                <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
-                <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
-                <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-            </svg>
+            <img 
+                src="/images/tracks/agiculture.png" 
+                alt="Smart Agriculture" 
+            />
         ),
         cards: [
-            'Technologies that improve farming efficiency through automation, monitoring systems and smart irrigation.',
+            'Transform the agricultural sector with advanced agritech and precision farming hardware. Implement autonomous drone monitoring, robotic harvesting networks, AI-driven soil analysis, and smart irrigation matrices to maximize yield while minimizing resource waste.',
         ],
         
     },
@@ -96,17 +86,13 @@ export const features: Feature[] = [
         number: '06',
         title: 'Smart Healthcare',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
-                <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
-                <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />
-                <path d="m14 16-3 3 3 3" />
-                <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
-                <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
-                <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-            </svg>
+            <img 
+                src="/images/tracks/health.png" 
+                alt="Smart Healthcare" 
+            />
         ),
         cards: [
-            'Robotics or hardware solutions that enhance healthcare delivery, patient monitoring or medical assistance.',
+            'Build the next generation of life-saving medical hardware. Design highly responsive robotics for surgical assistance, intelligent wearables for real-time remote patient monitoring, and automated diagnostic tools that make elite healthcare scalable and accessible.',
         ],
         
     },
@@ -115,17 +101,13 @@ export const features: Feature[] = [
         number: '07',
         title: 'Open Innovation',
         logo: (
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#00E08F] lucide lucide-recycle-icon lucide-recycle">
-                <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
-                <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />
-                <path d="m14 16-3 3 3 3" />
-                <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
-                <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
-                <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-            </svg>
+            <img 
+                src="/images/tracks/open-inoo.png" 
+                alt="Open Innovation" 
+            />
         ),
         cards: [
-            'Creative robotics solutions addressing real-world problems beyond the defined themes.',
+            'Break boundaries with completely unconstrained, creative robotics solutions. Address any complex real-world problem outside the predefined themes by engineering novel hardware, experimental automation, and visionary technological breakthroughs.',
         ],
         
     },

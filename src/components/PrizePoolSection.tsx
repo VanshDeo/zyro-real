@@ -38,7 +38,7 @@ export default function PrizePoolSection() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#070B0B] via-transparent to-[#070B0B] z-[1] pointer-events-none" />
 
             {/* Left Circuit Decoration */}
-            <div className="absolute -left-10 lg:left-0 top-0 pointer-events-none z-10 w-full h-full">
+            <div className="absolute left-0 top-0 pointer-events-none z-10 w-full h-full hidden sm:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
                     <path d="M50 100 L50 200 L80 230 L80 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
                     <rect x="46" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow)" />
@@ -56,7 +56,7 @@ export default function PrizePoolSection() {
             </div>
 
             {/* Right Circuit Decoration */}
-            <div className="absolute -right-10 lg:right-0 top-0 pointer-events-none h-full">
+            <div className="absolute right-0 top-0 pointer-events-none h-full hidden sm:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
                     <path d="M50 100 L50 200 L20 230 L20 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
                     <rect x="46" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow2)" />
@@ -78,7 +78,7 @@ export default function PrizePoolSection() {
                 <Reveal>
                     <div className="text-center mb-12 md:mb-16">
                         <motion.h2
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+                            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-display tracking-wider"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -99,16 +99,26 @@ export default function PrizePoolSection() {
                 </Reveal>
 
                 {/* Prize Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto md:items-end px-4 md:px-0">
-                    {prizes.map((prize, index) => (
+                <div className="flex flex-col md:flex-row justify-center md:items-end gap-6 md:gap-4 lg:gap-8 max-w-6xl mx-auto px-4 md:px-0 mt-10">
+                    {prizes.map((prize, index) => {
+                        // Responsive ordering: 1st is top on mobile, center on desktop
+                        const orderClass = prize.place === '1st' ? 'order-1 md:order-2' : 
+                                           prize.place === '2nd' ? 'order-2 md:order-1' : 
+                                           'order-3';
+                        
+                        // Responsive scaling: 1st is largest on desktop
+                        const scaleClass = prize.place === '1st' ? 'md:scale-110 z-10' :
+                                           prize.place === '2nd' ? 'md:scale-95 z-0' :
+                                                                   'md:scale-90 z-0';
+
+                        return (
                         <motion.div
                             key={prize.place}
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2 }}
-                            className={`relative ml-12 mr-4 md:mx-0 md:order-${prize.order}`}
-                            style={{ transform: typeof window !== 'undefined' && window.innerWidth >= 768 ? `scale(${prize.scale})` : 'scale(1)' }}
+                            className={`relative w-full md:w-1/3 ${orderClass} ${scaleClass}`}
                         >
                             {/* Winner Badge */}
                             {prize.popular && (
@@ -142,17 +152,17 @@ export default function PrizePoolSection() {
 
                                     {/* Header with Place Badge and Number */}
                                     <div className="flex items-start justify-between mb-6 relative z-10">
-                                        <div className="text-sm font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#00E08F]">
+                                        <div className="text-sm font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#00E08F] font-accent">
                                             {prize.place} Place
                                         </div>
-                                        <div className="w-10 h-10 flex items-center justify-center rounded-lg font-bold text-black text-lg bg-[#00E08F] shadow-[0_0_15px_rgba(0,224,143,0.5)]">
+                                        <div className="w-10 h-10 flex items-center justify-center rounded-lg font-bold text-black text-lg bg-[#00E08F] shadow-[0_0_15px_rgba(0,224,143,0.5)] font-accent">
                                             {prize.place === '1st' ? '1' : prize.place === '2nd' ? '2' : '3'}
                                         </div>
                                     </div>
 
                                     {/* Prize Amount */}
                                     <div className="mb-6 relative z-10">
-                                        <div className={`text-4xl md:text-5xl font-bold text-[#00E08F]`}>
+                                        <div className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#00E08F] font-mono`}>
                                             {prize.prize}
                                         </div>
                                     </div>
@@ -178,7 +188,8 @@ export default function PrizePoolSection() {
                                 </div>
                             </div>
                         </motion.div>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 {/* Bottom Info */}

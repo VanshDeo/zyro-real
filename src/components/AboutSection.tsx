@@ -5,7 +5,7 @@ import { Reveal } from './AdvancedAnimations';
 
 export default function AboutSection() {
     return (
-        <section className="section relative overflow-hidden bg-black pt-32 md:pt-48 pb-20">
+        <section className="section relative overflow-hidden bg-black pt-20 md:pt-28 pb-14">
             {/* Left Circuit Decoration - Standard FAQ Style - Desktop Only */}
             <div className="absolute left-0 top-0 pointer-events-none z-0 w-full h-full hidden lg:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
@@ -31,13 +31,13 @@ export default function AboutSection() {
             </div>
 
             <div className="container-custom relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                     {/* LEFT - Text Content */}
-                    <div className="space-y-8">
+                    <div className="space-y-5">
                         {/* Big Heading - FAQ Style */}
                         <Reveal direction="up">
                             <div className="mb-2">
-                                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white lg:ml-12">
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white lg:ml-12 font-display tracking-wider uppercase">
                                     ABOUT ZYRO
                                 </h2>
                             </div>
@@ -60,7 +60,7 @@ export default function AboutSection() {
                             </p>
                         </motion.div>
 
-                        <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
                             {/* Feature Card 1 - Constructed Border */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -69,14 +69,14 @@ export default function AboutSection() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                                 className="relative group p-6 bg-black"
                             >
-                                {/* Border Top (Shortened for Left Corner) */}
-                                <div className="absolute top-0 left-[20px] right-0 h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
-                                {/* Border Bottom (Shortened for Right Corner - Starts at 1px) */}
-                                <div className="absolute bottom-0 left-[1px] right-[20px] h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
-                                {/* Border Left (Shortened for Top Corner - Shifted to 1px) */}
-                                <div className="absolute top-[20px] bottom-0 left-[1px] w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
-                                {/* Border Right (Shortened for Bottom Corner) */}
-                                <div className="absolute top-0 bottom-[20px] right-0 w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Top */}
+                                <div className="absolute top-0 left-[20px] right-0 h-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Bottom */}
+                                <div className="absolute bottom-0 left-[1px] right-[20px] h-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Left */}
+                                <div className="absolute top-[20px] bottom-0 left-[1px] w-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Right */}
+                                <div className="absolute top-0 bottom-[20px] right-0 w-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
 
                                 {/* Angled Corner: Top-Left - SVG */}
                                 <svg className="absolute top-0 left-0 w-[20px] h-[20px] pointer-events-none overflow-visible">
@@ -94,8 +94,8 @@ export default function AboutSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-medium text-white mb-2">Hardware Integration</h4>
-                                        <p className="text-[#C2C2C2] text-sm">Design and build fully functional physical prototypes powered by modern electronics, sensors, and microcontrollers.</p>
+                                        <h4 className="text-base font-semibold font-accent uppercase tracking-wide text-white mb-1.5">Hardware Integration</h4>
+                                        <p className="text-white/55 text-sm leading-relaxed">Design and build fully functional physical prototypes powered by modern electronics, sensors, and microcontrollers.</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -108,14 +108,14 @@ export default function AboutSection() {
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 className="relative group p-6 bg-black"
                             >
-                                {/* Border Top (Shortened for Left Corner) */}
-                                <div className="absolute top-0 left-[20px] right-0 h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
-                                {/* Border Bottom (Shortened for Right Corner - Starts at 1px) */}
-                                <div className="absolute bottom-0 left-[1px] right-[20px] h-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
-                                {/* Border Left (Shortened for Top Corner - Shifted to 1px) */}
-                                <div className="absolute top-[20px] bottom-0 left-[1px] w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
-                                {/* Border Right (Shortened for Bottom Corner) */}
-                                <div className="absolute top-0 bottom-[20px] right-0 w-[1px] bg-[#646464] group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Top */}
+                                <div className="absolute top-0 left-[20px] right-0 h-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Bottom */}
+                                <div className="absolute bottom-0 left-[1px] right-[20px] h-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Left */}
+                                <div className="absolute top-[20px] bottom-0 left-[1px] w-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
+                                {/* Border Right */}
+                                <div className="absolute top-0 bottom-[20px] right-0 w-[1px] bg-white/15 group-hover:bg-[#00E08F] transition-colors" />
 
                                 {/* Angled Corner: Top-Left - SVG */}
                                 <svg className="absolute top-0 left-0 w-[20px] h-[20px] pointer-events-none overflow-visible">
@@ -133,8 +133,8 @@ export default function AboutSection() {
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-medium text-white mb-2">Intelligent Automation</h4>
-                                        <p className="text-[#C2C2C2] text-sm">Implement cutting-edge software, autonomous control systems, and AI to bring your robotic solutions to life.</p>
+                                        <h4 className="text-base font-semibold font-accent uppercase tracking-wide text-white mb-1.5">Intelligent Automation</h4>
+                                        <p className="text-white/55 text-sm leading-relaxed">Implement cutting-edge software, autonomous control systems, and AI to bring your robotic solutions to life.</p>
                                     </div>
                                 </div>
                             </motion.div>

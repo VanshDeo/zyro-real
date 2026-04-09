@@ -5,36 +5,39 @@ export interface FAQItem {
 
 export const faqData: FAQItem[] = [
     {
-        question: "I am not a student of KGEC, Can I participate?",
-        answer: "Yes, you can definitely participate"
+        question: "What is ZYRO Hackathon?",
+        answer: "A 24-hour robotics hackathon where participants build innovative, real-world hardware solutions."
     },
     {
-        question: "I am a beginner can I participate?",
-        answer: "There is no such restriction but with some amount of development knowledge in any domain will be good to go."
+        question: "Who can participate?",
+        answer: "Students from any college or technical background are welcome, including beginners."
     },
     {
-        question: "Can I participate as a team?",
-        answer: "Yes Team size is :- 1 - 4 members."
+        question: "What is the team size?",
+        answer: "Teams can have 1-4 members."
     },
     {
-        question: "Can 3rd year students also participate?",
-        answer: "You can participate surely."
+        question: "How can I register?",
+        answer: "You can register through the official website by filling out the registration form."
     },
     {
-        question: "Is there a registration fee?",
-        answer: "Nope."
+        question: "Is there any registration fee?",
+        answer: "Free"
     },
     {
-        question: "What will I need to submit?",
-        answer: "Detailed information about what to submit is included within the problem statement documents."
+        question: "What should participants bring?",
+        answer: "Laptop, hardware components, chargers, and any tools required for building."
     },
     {
-        question: "Is this an online or offline hackathon?",
-        answer: "Zyro is strictly an offline hackathon. only qualification rounds are online. "
+        question: "Will hardware or components be provided?",
+        answer: "No"
     },
     {
-        question: "Do you have any other doubt?",
-        answer: "Contact to given details below."
+        question: "What are the judging criteria?",
+        answer: "Innovation, technical complexity, real-world impact, and presentation."
+    },
+    {
+        question: "What do winners receive?",
+        answer: "Cash prizes, goodies, and certificates."
     }
-    
 ];

@@ -1,68 +1,73 @@
 'use client';
 
-import Header from '@/components/Header';
 import { AnimatePresence } from 'framer-motion';
-import Hero from '@/components/Hero';
-import Preloader from '@/components/Preloader';
-import AboutSection from '@/components/AboutSection';
-import InnovationSection from '@/components/InnovationSection';
-import IntersectionSection from '@/components/IntersectionSection';
-import MascotSection from '@/components/MascotSection';
-import VideoShowcase from '@/components/VideoShowcase';
-import GreenTechSection from '@/components/GreenTechSection';
-import BusinessModelSection from '@/components/BusinessModelSection';
-import PartnersSection from '@/components/PartnersSection';
-import StatsTicker from '@/components/StatsTicker';
-import PrizePoolSection from '@/components/PrizePoolSection';
-import FAQSection from '@/components/FAQSection';
-import Footer from '@/components/Footer';
-import ParticleBackground from '@/components/ParticleBackground';
+import { useState } from 'react';
 
-import { useState, useEffect } from 'react';
+import Header           from '@/components/Header';
+import Preloader        from '@/components/Preloader';
+import Hero             from '@/components/Hero';
+import StatsTicker      from '@/components/StatsTicker';
+import AboutSection     from '@/components/AboutSection';
+import PrizePoolSection from '@/components/PrizePoolSection';
+import BusinessModelSection from '@/components/BusinessModelSection';
+import TracksSection   from '@/components/TracksSection';
+import PartnersSection  from '@/components/PartnersSection';
+import FAQSection       from '@/components/FAQSection';
+import Footer           from '@/components/Footer';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <main className="min-h-screen relative">
+      {/* ── Preloader ── */}
       <AnimatePresence mode="wait">
         {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
-      {/* Particle Background - Behind everything */}
-      {/* <ParticleBackground /> */}
 
-      {/* Content */}
+      {/* ── Page content ── */}
       <div className="relative z-10">
         <Header />
+
+        {/* Hero */}
         <div id="home">
           <Hero />
         </div>
+
+        {/* Stats Ticker */}
         <StatsTicker />
+
+        {/* About */}
         <div id="about">
           <AboutSection />
         </div>
-          <div id="prizes">
+
+        {/* Prizes */}
+        <div id="prizes">
           <PrizePoolSection />
         </div>
-         <div id="timeline">
+
+        {/* Timeline */}
+        <div id="timeline">
           <BusinessModelSection />
         </div>
-        {/* <InnovationSection /> */}
+
+        {/* Tracks */}
         <div id="tracks">
-          <MascotSection />
+          <TracksSection />
         </div>
-        {/* <IntersectionSection /> */}
-        {/* <VideoShowcase /> */}
-        {/* <GreenTechSection /> */}
-       
+
+        {/* Community & Sponsors */}
         <div id="partners">
           <PartnersSection />
         </div>
 
-      
+        {/* FAQ */}
         <div id="faq">
           <FAQSection />
         </div>
+
+        {/* Footer / Terms */}
         <div id="terms">
           <Footer />
         </div>
