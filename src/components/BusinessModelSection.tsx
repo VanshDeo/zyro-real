@@ -9,7 +9,7 @@ export default function BusinessModelSection() {
   const mobileContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: mobileContainerRef,
-    offset: ["start center", "end center"]
+    offset: ["start 80%", "end 20%"]
   });
 
   return (
@@ -99,8 +99,11 @@ export default function BusinessModelSection() {
           
           {/* Dynamic Interactive Scroll Line */}
           <motion.div 
-            className="absolute left-[27px] top-6 bottom-10 w-[2px] bg-gradient-to-b from-[#00E08F] via-[#00E08F] to-transparent origin-top shadow-[0_0_10px_#00E08F]"
-            style={{ scaleY: scrollYProgress }}
+            className="absolute left-[27px] top-6 bottom-10 w-[2px] bg-[#00E08F] origin-top"
+            style={{ 
+              scaleY: scrollYProgress,
+              // filter: 'drop-shadow(0 0 4px #00E08F) drop-shadow(0 0 8px rgba(0,224,143,0.6))'
+            }}
           />
 
           <div className="flex flex-col gap-6 pl-12">

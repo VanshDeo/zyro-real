@@ -1,43 +1,39 @@
 import type { Metadata } from "next";
-import { Inter, Orbitron, Space_Grotesk, JetBrains_Mono, Nova_Square, Michroma, Hanken_Grotesk } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono, Syne, Exo_2, Ubuntu_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const orbitron = Orbitron({
-  variable: "--font-orbitron",
-  subsets: ["latin"],
-});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const novaSquare = Nova_Square({
-  weight: "400",
-  variable: "--font-nova-square",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
-const michroma = Michroma({
-  weight: "400",
-  variable: "--font-michroma",
+const exo2 = Exo_2({
+  variable: "--font-exo2",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const hankenGrotesk = Hanken_Grotesk({
-  variable: "--font-hanken-grotesk",
+const ubuntuMono = Ubuntu_Mono({
+  variable: "--font-ubuntu-mono",
   subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 /* ── Local Fonts ─────────────────────────────────────────────── */
@@ -72,7 +68,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning className={`${inter.variable} ${orbitron.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${novaSquare.variable} ${michroma.variable} ${hankenGrotesk.variable} ${harmond.variable} ${centrion.variable} antialiased`}>
+      <body suppressHydrationWarning className={`${syne.variable} ${exo2.variable} ${spaceGrotesk.variable} ${ubuntuMono.variable} ${jetbrainsMono.variable} ${harmond.variable} ${centrion.variable} antialiased`}>
         {children}
       </body>
     </html>

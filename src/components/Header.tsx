@@ -186,7 +186,7 @@ export default function Header() {
               onClick={() => setMobileOpen(o => !o)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
-              className="md:hidden z-50 p-2 rounded-lg text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E08F]"
+              className="md:hidden z-50 w-11 h-11 flex items-center justify-center rounded-xl text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00E08F] active:bg-white/10 transition-colors"
             >
               <div className="w-5 h-4 relative flex flex-col justify-between">
                 <motion.span animate={mobileOpen ? { rotate: 45, y: 7 }  : { rotate: 0, y: 0 }}  className="block w-full h-0.5 bg-white rounded-full" />
@@ -220,12 +220,12 @@ export default function Header() {
                             href={item.href}
                             onClick={(e) => scrollTo(e, item.href)}
                             className={`
-                              flex items-center justify-between w-full px-5 py-3.5 rounded-xl
+                              flex items-center justify-between w-full px-5 py-4 rounded-xl
                               font-accent uppercase tracking-widest text-sm font-bold
-                              transition-colors duration-200
+                              transition-colors duration-200 active:scale-[0.98] active:opacity-80
                               ${isActive
                                 ? 'text-[#00E08F] bg-[#00E08F]/8'
-                                : 'text-white/70 hover:text-white hover:bg-white/5'}
+                                : 'text-white/70 hover:text-white hover:bg-white/5 active:bg-white/10'}
                             `}
                           >
                             {item.name}
@@ -246,9 +246,9 @@ export default function Header() {
                       rel="noopener noreferrer"
                       onClick={() => setMobileOpen(false)}
                       className="
-                        flex items-center justify-center gap-2 w-full py-3.5 rounded-xl
+                        flex items-center justify-center gap-2 w-full py-4 rounded-xl
                         font-accent uppercase tracking-widest text-sm font-bold text-black
-                        bg-[#00E08F] hover:bg-[#00ff9f] transition-colors duration-200
+                        bg-[#00E08F] active:bg-[#00c47a] transition-colors duration-200
                         shadow-[0_0_20px_rgba(0,224,143,0.35)]
                       "
                     >

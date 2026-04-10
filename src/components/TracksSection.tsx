@@ -115,15 +115,15 @@ function DetailContent({ track }: { track: Feature }) {
                 className="flex flex-col gap-5 w-full"
             >
                 {/* Icon + title */}
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 w-full">
                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-[#00E08F]/10 border border-[#00E08F]/30 flex items-center justify-center p-2.5 shadow-[0_0_24px_rgba(0,224,143,0.2)] shrink-0">
                         <MaskedIcon logo={track.logo} className="w-full h-full" />
                     </div>
-                    <div className="flex flex-col justify-center gap-1 min-w-0">
-                        <span className="text-[#00E08F] text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.3em] font-mono uppercase">
+                    <div className="flex flex-col justify-center gap-0.5 min-w-0 flex-1">
+                        <span className="text-[#00E08F] text-[9px] md:text-[10px] tracking-[0.2em] font-mono uppercase">
                             Track {track.number}
                         </span>
-                        <h2 className="text-white text-base md:text-2xl lg:text-3xl font-accent font-bold uppercase tracking-widest leading-tight">
+                        <h2 className="text-white text-[clamp(16px,3.5vw,26px)] font-display font-bold uppercase tracking-wider leading-tight sm:leading-snug break-words pr-2">
                             {track.title}
                         </h2>
                     </div>
@@ -175,8 +175,8 @@ function IDETitleBar({ title }: { title: string }) {
 function IDEVideoBg() {
     return (
         <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl bg-black flex items-center justify-center">
-            <video autoPlay loop muted playsInline className="w-full h-full object-cover object-top">
-                <source src="https://res.cloudinary.com/dlrlet9fg/video/upload/c_crop,h_1080,w_510/v1769278556/robot1_ioekuk.webm" type="video/webm" />
+            <video autoPlay loop muted playsInline className="w-full h-full object-cover object-top md:w-auto md:h-full md:object-contain md:object-center md:max-w-none">
+                <source src="/videos/robot1_ioekuk (1).webm" type="video/webm" />
                 <source src="/videos/hero_m4_bg.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70" />
@@ -230,8 +230,8 @@ export default function TracksSection() {
                             <motion.button
                                 key={f.number}
                                 onClick={() => setSelected(f)}
-                                whileTap={{ scale: 0.92 }}
-                                className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-accent transition-all duration-200
+                                whileTap={{ scale: 0.9 }}
+                                className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-xs font-accent transition-all duration-200 active:opacity-75
                                     ${isSelected
                                         ? 'bg-[#00E08F]/20 border-[#00E08F]/60 text-white shadow-[0_0_12px_rgba(0,224,143,0.3)]'
                                         : 'bg-white/5 border-white/10 text-white/50'
@@ -257,7 +257,7 @@ export default function TracksSection() {
                     <IDETitleBar title={selected.title} />
                     <div
                         className="relative z-10 p-5"
-                        style={{ background: 'rgba(10, 15, 18, 0.65)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+                        style={{ background: 'rgba(10, 15, 18, 0.45)' }}
                     >
                         <DetailContent track={selected} />
                     </div>

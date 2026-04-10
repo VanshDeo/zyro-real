@@ -144,7 +144,7 @@ export default function PrizePoolSection() {
 
                                     {/* Prize Amount */}
                                     <div className="mb-6 relative z-10">
-                                        <div className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#00E08F] font-mono`}>
+                                        <div className={`text-3xl sm:text-4xl md:text-5xl font-bold text-[#00E08F] font-display`}>
                                             {prize.prize}
                                         </div>
                                     </div>
