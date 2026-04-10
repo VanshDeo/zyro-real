@@ -40,36 +40,18 @@ export default function PrizePoolSection() {
             {/* Left Circuit Decoration */}
             <div className="absolute left-0 top-0 pointer-events-none z-10 w-full h-full hidden sm:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
-                    <path d="M50 100 L50 200 L80 230 L80 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
-                    <rect x="46" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow)" />
-                    <rect x="46" y="792" width="8" height="8" fill="#00E08F" filter="url(#glow)" transform="rotate(45 50 796)" />
-                    <defs>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
+                    <path d="M50 100 L50 200 L80 230 L80 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }} />
+                    <rect x="46" y="96" width="8" height="8" fill="#00E08F" />
+                    <rect x="46" y="792" width="8" height="8" fill="#00E08F" transform="rotate(45 50 796)" />
                 </svg>
             </div>
 
             {/* Right Circuit Decoration */}
             <div className="absolute right-0 top-0 pointer-events-none h-full hidden sm:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
-                    <path d="M50 100 L50 200 L20 230 L20 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
-                    <rect x="46" y="96" width="8" height="8" fill="#00E08F" filter="url(#glow2)" />
-                    <rect x="46" y="792" width="8" height="8" fill="#00E08F" filter="url(#glow2)" transform="rotate(45 50 796)" />
-                    <defs>
-                        <filter id="glow2">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
+                    <path d="M50 100 L50 200 L20 230 L20 600 L50 630 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }} />
+                    <rect x="46" y="96" width="8" height="8" fill="#00E08F" />
+                    <rect x="46" y="792" width="8" height="8" fill="#00E08F" transform="rotate(45 50 796)" />
                 </svg>
             </div>
 

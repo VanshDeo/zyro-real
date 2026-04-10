@@ -14,8 +14,9 @@
 
   /* Text Colors */
   --text-primary: #FFFFFF;
-  --text-secondary: #A1A1A1;
-  --text-muted: #6B7280;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-description: #D1D5DB;
 
   /* Border Colors */
   --border-subtle: rgba(255, 255, 255, 0.1);
@@ -33,16 +34,18 @@
   --color-bg-dark-secondary: var(--bg-dark-secondary);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-description: var(--text-description);
   /* ── Font Hierarchy ──────────────────────────────
-     Display  → Orbitron        (headings, hero titles)
-     Body     → Space Grotesk   (paragraphs, descriptions)
-     Accent   → Nova Square     (buttons, labels, nav, badges)
-     Code     → JetBrains Mono  (terminal, timer, IDE text)
+     Display  → Harmond          (headings, hero titles)
+     Body     → Hanken Grotesk   (paragraphs, descriptions)
+     Accent   → Centrion         (buttons, labels, nav, badges)
+     Code     → JetBrains Mono   (terminal, timer, IDE text)
   ──────────────────────────────────────────────── */
-  --font-sans: var(--font-space-grotesk);
-  --font-display: var(--font-michroma);
-  --font-accent: var(--font-nova-square);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-hanken-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-harmond), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--font-centrion), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 * {

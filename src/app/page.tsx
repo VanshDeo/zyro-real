@@ -6,7 +6,6 @@ import { useState } from 'react';
 import Header           from '@/components/Header';
 import Preloader        from '@/components/Preloader';
 import Hero             from '@/components/Hero';
-import StatsTicker      from '@/components/StatsTicker';
 import AboutSection     from '@/components/AboutSection';
 import PrizePoolSection from '@/components/PrizePoolSection';
 import BusinessModelSection from '@/components/BusinessModelSection';
@@ -29,13 +28,10 @@ export default function Home() {
       <div className="relative z-10">
         <Header />
 
-        {/* Hero */}
+        {/* Hero & Stats */}
         <div id="home">
           <Hero />
         </div>
-
-        {/* Stats Ticker */}
-        <StatsTicker />
 
         {/* About */}
         <div id="about">

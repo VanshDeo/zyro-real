@@ -7,6 +7,7 @@ import { FadeIn, Floating, GlowPulse } from './AnimationWrappers';
 import { Parallax, MagneticButton, Reveal, GradientText, MorphingBlob } from './AdvancedAnimations';
 import { useTypewriter } from '@/hooks/useTypewriter';
 import { useState, useEffect } from 'react';
+import StatsTicker from './StatsTicker';
 
 /* ── Registration Countdown Timer ────────────────────────────── */
 function CountdownTimer() {
@@ -52,7 +53,7 @@ function CountdownTimer() {
 
     return (
         <div className="flex flex-col items-center pt-2 sm:pt-4 mx-auto w-full z-20">
-            <p className="text-[#00E08F] font-accent uppercase tracking-[0.2em] text-[8px] sm:text-[10px] mb-2 sm:mb-3 opacity-80 shadow-[#00E08F]">
+            <p className="text-[#00E08F] font-accent uppercase tracking-[0.2em] text-[8px] sm:text-[10px] mb-2 sm:mb-3 opacity-90 shadow-[#00E08F]">
                 Registration Closes In
             </p>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4 font-mono">
@@ -61,7 +62,7 @@ function CountdownTimer() {
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
                         <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-widest">{timeLeft.days}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/50 mt-1 sm:mt-2 uppercase tracking-wide">Days</span>
+                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Days</span>
                 </div>
                 
                 <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
@@ -71,7 +72,7 @@ function CountdownTimer() {
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
                         <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-widest">{timeLeft.hours}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/50 mt-1 sm:mt-2 uppercase tracking-wide">Hrs</span>
+                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Hrs</span>
                 </div>
 
                 <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
@@ -81,7 +82,7 @@ function CountdownTimer() {
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
                         <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-widest">{timeLeft.minutes}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/50 mt-1 sm:mt-2 uppercase tracking-wide">Min</span>
+                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Min</span>
                 </div>
 
                 <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
@@ -115,7 +116,7 @@ export default function Hero() {
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     return (
-        <section ref={containerRef} className="relative min-h-screen flex items-start md:items-center pt-24 md:pt-24 lg:pt-24 md:pb-10 lg:pb-12 overflow-hidden">
+        <section ref={containerRef} className="relative min-h-[100dvh] flex flex-col items-center pt-20 sm:pt-24 pb-0 overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-[#070B0B]" />
             <MorphingBlob className="w-[600px] h-[600px] top-1/4 -left-1/4" />
@@ -165,15 +166,15 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/40 z-[5] pointer-events-none md:hidden" />
 
             <motion.div
-                className="container-custom relative z-10 w-full"
+                className="container-custom relative z-10 w-full flex-grow flex flex-col justify-center"
                 style={{ y: textY, opacity }}
             >
-                <div className="flex flex-col justify-center items-center w-full mt-6 md:mt-8 lg:mt-8 z-20">
+                <div className="flex flex-col justify-center items-center w-full mt-2 sm:mt-6 md:mt-8 z-20">
                     {/* Centered Content */}
-                    <div className="flex flex-col items-center justify-center space-y-5 md:space-y-3 lg:space-y-4 w-full max-w-4xl mx-auto">
+                    <div className="flex flex-col items-center justify-center space-y-4 md:space-y-3 lg:space-y-4 w-full max-w-4xl mx-auto">
                         
                         {/* Logo Container */}
-                        <div className="flex flex-col items-center text-center space-y-6 md:space-y-3 lg:space-y-4 w-full">
+                        <div className="flex flex-col items-center text-center space-y-4 sm:space-y-6 md:space-y-3 w-full">
                             <motion.div
                                 initial={{ y: 100, rotateX: -90 }}
                                 animate={{ y: 0, rotateX: 0 }}
@@ -204,7 +205,7 @@ export default function Hero() {
                                         {description}
                                     </p>
                                     {/* Visible typewriter overlay */}
-                                    <p className="absolute inset-0 text-[#A1A1A1]">
+                                    <p className="absolute inset-0 text-[#D1D5DB]">
                                         {displayedText}
                                         {!isComplete && (
                                             <span className="inline-block w-0.5 h-4 bg-[#00E08F] ml-0.5 animate-pulse" />
@@ -222,7 +223,7 @@ export default function Hero() {
                         </Reveal>
 
                         {/* Buttons Area */}
-                        <div className="flex flex-col items-center w-full z-20 mt-6 md:mt-3 lg:mt-4 mb-safe pb-10 md:pb-4">
+                        <div className="flex flex-col items-center w-full z-20 mt-4 sm:mt-6 md:mt-3 mb-4 md:mb-8 pb-4 md:pb-0">
                             <Reveal delay={0.8} direction="up">
                                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center items-center w-full">
                                     {/* Register Now Button */}
@@ -278,9 +279,14 @@ export default function Hero() {
                 </div>
             </motion.div>
 
+            {/* Stats Ticker — below buttons, decoupled from parallax scroll */}
+            <div className="w-full relative z-20 pb-6 sm:pb-8 pt-4">
+                <StatsTicker />
+            </div>
+
             {/* Scroll Indicator */}
             <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
+                className="absolute bottom-28 md:bottom-20 left-1/2 -translate-x-1/2 hidden md:block z-30"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
@@ -293,6 +299,8 @@ export default function Hero() {
                     />
                 </div>
             </motion.div>
+
+
         </section>
     );
 }

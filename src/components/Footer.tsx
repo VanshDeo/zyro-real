@@ -30,7 +30,7 @@ export default function Footer() {
                                     />
                                 </Link>
                             </motion.div>
-                            <p className="text-white/50 text-sm xl:text-base max-w-sm mx-auto md:mx-0 leading-relaxed">
+                            <p className="text-white/65 text-sm xl:text-base max-w-sm mx-auto md:mx-0 leading-relaxed">
                                 Pioneering green technology for a sustainable future. Join us in creating a cleaner world.
                             </p>
                         </div>
@@ -164,12 +164,11 @@ export default function Footer() {
                             <p className="text-[#A1A1A1] text-sm">
                                 © 2026 Zyro. All rights reserved.
                             </p>
-                            <div className="flex items-center gap-6">
-                                <motion.div whileHover={{ color: '#00E08F' }}>
-                                    {/* <Link href="/privacy" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Privacy Policy</Link> */}
-                                </motion.div>
-                                <motion.div whileHover={{ color: '#00E08F' }}>
-                                    {/* <Link href="/terms" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Terms of Service</Link> */}
+                            <div className="flex items-center gap-4 sm:gap-6">
+                                <motion.div whileHover={{ scale: 1.05 }}>
+                                    <Link href="/code-of-conduct" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-xs sm:text-sm uppercase font-accent tracking-widest font-semibold flex items-center gap-2">
+                                        <span className="text-[#00E08F]">[</span> Code of Conduct <span className="text-[#00E08F]">]</span>
+                                    </Link>
                                 </motion.div>
                             </div>
                         </div>

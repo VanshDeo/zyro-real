@@ -134,7 +134,7 @@ function DetailContent({ track }: { track: Feature }) {
 
                 {/* Description */}
                 <div className="flex flex-col gap-3">
-                    <h3 className="text-white/40 text-[10px] tracking-[0.2em] font-mono uppercase">// Description</h3>
+                    <h3 className="text-white/50 text-[10px] tracking-[0.2em] font-mono uppercase">// Description</h3>
                     {track.cards.map((card, idx) => (
                         <motion.div
                             key={idx}
@@ -144,7 +144,7 @@ function DetailContent({ track }: { track: Feature }) {
                             className="relative p-4 rounded-xl bg-white/5 border border-white/10"
                         >
                             <div className="absolute left-0 top-3 bottom-3 w-[2px] rounded-full bg-[#00E08F]/50" />
-                            <p className="text-white/70 text-sm leading-relaxed pl-3">{card}</p>
+                            <p className="text-white/80 text-sm leading-relaxed pl-3">{card}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -175,7 +175,7 @@ function IDETitleBar({ title }: { title: string }) {
 function IDEVideoBg() {
     return (
         <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl bg-black flex items-center justify-center">
-            <video autoPlay loop muted playsInline className="h-full w-auto object-contain">
+            <video autoPlay loop muted playsInline className="w-full h-full object-cover object-top">
                 <source src="https://res.cloudinary.com/dlrlet9fg/video/upload/c_crop,h_1080,w_510/v1769278556/robot1_ioekuk.webm" type="video/webm" />
                 <source src="/videos/hero_m4_bg.mp4" type="video/mp4" />
             </video>
@@ -212,7 +212,7 @@ export default function TracksSection() {
                 <h2 className="font-display font-bold text-white uppercase tracking-widest text-3xl sm:text-4xl md:text-5xl">
                     PROBLEM <span className="text-[#00E08F]" style={{ textShadow: '0 0 24px rgba(0,224,143,0.4)' }}>TRACKS</span>
                 </h2>
-                <p className="text-white/40 text-xs sm:text-sm mt-3 max-w-sm mx-auto">
+                <p className="text-white/60 text-xs sm:text-sm mt-3 max-w-sm mx-auto">
                     7 tracks. Tap any to explore the problem domain.
                 </p>
             </motion.div>
@@ -222,8 +222,8 @@ export default function TracksSection() {
                 Icon pills → tap → detail card below
                 ════════════════════════════════════════ */}
             <div className="block md:hidden px-4 pb-12">
-                {/* Horizontal icon pill row */}
-                <div className="flex flex-wrap justify-center gap-2.5 mb-6">
+                {/* Icon pill area - wrapped layout for mobile */}
+                <div className="flex flex-wrap justify-center gap-2.5 mb-6 pb-2 px-1">
                     {features.map((f) => {
                         const isSelected = f.number === selected.number;
                         return (
