@@ -203,30 +203,18 @@ export default function PartnersSection() {
             {/* Circuit decoration — left */}
             <div className="absolute left-0 top-0 bottom-0 w-20 pointer-events-none z-10 hidden lg:block opacity-40">
                 <svg width="80" height="100%" viewBox="0 0 80 800" preserveAspectRatio="none">
-                    <defs>
-                        <filter id="glow-l">
-                            <feGaussianBlur stdDeviation="3" result="blur" />
-                            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                        </filter>
-                    </defs>
-                    <path d="M40 80 L40 180 L65 210 L65 590 L40 620 L40 800" stroke="#00E08F" strokeWidth="1.5" fill="none" filter="url(#glow-l)" />
-                    <rect x="36" y="76" width="8" height="8" fill="#00E08F" filter="url(#glow-l)" />
-                    <rect x="36" y="796" width="8" height="8" fill="#00E08F" filter="url(#glow-l)" transform="rotate(45 40 800)" />
+                    <path d="M40 80 L40 180 L65 210 L65 590 L40 620 L40 800" stroke="#00E08F" strokeWidth="1.5" fill="none" style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }} />
+                    <rect x="36" y="76" width="8" height="8" fill="#00E08F" />
+                    <rect x="36" y="796" width="8" height="8" fill="#00E08F" transform="rotate(45 40 800)" />
                 </svg>
             </div>
 
             {/* Circuit decoration — right */}
             <div className="absolute right-0 top-0 bottom-0 w-20 pointer-events-none z-10 hidden lg:block opacity-40">
                 <svg width="80" height="100%" viewBox="0 0 80 800" preserveAspectRatio="none">
-                    <defs>
-                        <filter id="glow-r">
-                            <feGaussianBlur stdDeviation="3" result="blur" />
-                            <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-                        </filter>
-                    </defs>
-                    <path d="M40 80 L40 180 L15 210 L15 590 L40 620 L40 800" stroke="#00E08F" strokeWidth="1.5" fill="none" filter="url(#glow-r)" />
-                    <rect x="36" y="76" width="8" height="8" fill="#00E08F" filter="url(#glow-r)" />
-                    <rect x="36" y="796" width="8" height="8" fill="#00E08F" filter="url(#glow-r)" transform="rotate(45 40 800)" />
+                    <path d="M40 80 L40 180 L15 210 L15 590 L40 620 L40 800" stroke="#00E08F" strokeWidth="1.5" fill="none" style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }} />
+                    <rect x="36" y="76" width="8" height="8" fill="#00E08F" />
+                    <rect x="36" y="796" width="8" height="8" fill="#00E08F" transform="rotate(45 40 800)" />
                 </svg>
             </div>
 

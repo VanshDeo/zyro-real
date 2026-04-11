@@ -10,23 +10,13 @@ export default function AboutSection() {
             <div className="absolute left-0 top-0 pointer-events-none z-0 w-full h-full hidden lg:block">
                 <svg width="100" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none" className="opacity-80">
                     {/* Path matching About section flow */}
-                    <path d="M50 0 L50 300 L80 330 L80 670 L50 700 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" />
+                    <path d="M50 0 L50 300 L80 330 L80 670 L50 700 L50 800" stroke="#00E08F" strokeWidth="2" fill="none" style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }} />
 
                     {/* Top Square Node */}
-                    <rect x="46" y="0" width="8" height="8" fill="#00E08F" filter="url(#glow)" />
+                    <rect x="46" y="0" width="8" height="8" fill="#00E08F" />
 
                     {/* Bottom Diamond Node */}
-                    <rect x="46" y="600" width="8" height="8" fill="#00E08F" filter="url(#glow)" transform="rotate(45 50 604)" />
-
-                    <defs>
-                        <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                            <feMerge>
-                                <feMergeNode in="coloredBlur" />
-                                <feMergeNode in="SourceGraphic" />
-                            </feMerge>
-                        </filter>
-                    </defs>
+                    <rect x="46" y="600" width="8" height="8" fill="#00E08F" transform="rotate(45 50 604)" />
                 </svg>
             </div>
 
@@ -55,7 +45,7 @@ export default function AboutSection() {
                                     Green Technology
                                 </span>
                             </h3>
-                            <p className="text-[#C2C2C2] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl lg:ml-12">
+                            <p className="text-[#D1D5DB] text-sm sm:text-base md:text-lg leading-relaxed max-w-xl lg:ml-12">
                                 <strong className="text-white font-semibold">ZYRO 2026</strong> is an immersive 24-hour offline hardware robotics hackathon dedicated to building real-world, impact-driven systems aligned with the theme: <span className="text-[#00E08F]">"Sustainable Future with Robotics"</span>. This is not a software-only hackathon. Participants are challenged to design and construct hardware-integrated solutions encompassing electronics, microcontrollers, sensors, automation, AI, and physical prototypes.
                             </p>
                         </motion.div>
@@ -95,7 +85,7 @@ export default function AboutSection() {
                                     </div>
                                     <div>
                                         <h4 className="text-base font-semibold font-accent uppercase tracking-wide text-white mb-1.5">Hardware Integration</h4>
-                                        <p className="text-white/55 text-sm leading-relaxed">Design and build fully functional physical prototypes powered by modern electronics, sensors, and microcontrollers.</p>
+                                        <p className="text-white/70 text-sm leading-relaxed">Design and build fully functional physical prototypes powered by modern electronics, sensors, and microcontrollers.</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -134,7 +124,7 @@ export default function AboutSection() {
                                     </div>
                                     <div>
                                         <h4 className="text-base font-semibold font-accent uppercase tracking-wide text-white mb-1.5">Intelligent Automation</h4>
-                                        <p className="text-white/55 text-sm leading-relaxed">Implement cutting-edge software, autonomous control systems, and AI to bring your robotic solutions to life.</p>
+                                        <p className="text-white/70 text-sm leading-relaxed">Implement cutting-edge software, autonomous control systems, and AI to bring your robotic solutions to life.</p>
                                     </div>
                                 </div>
                             </motion.div>

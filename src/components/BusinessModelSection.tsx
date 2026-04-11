@@ -9,7 +9,7 @@ export default function BusinessModelSection() {
   const mobileContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: mobileContainerRef,
-    offset: ["start center", "end center"]
+    offset: ["start 80%", "end 20%"]
   });
 
   return (
@@ -45,33 +45,10 @@ export default function BusinessModelSection() {
             stroke="#00E08F"
             strokeWidth="2"
             fill="none"
+            style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }}
           />
-          <rect
-            x="46"
-            y="0"
-            width="8"
-            height="8"
-            fill="#00E08F"
-            filter="url(#glow-bm)"
-          />
-          <rect
-            x="46"
-            y="592"
-            width="8"
-            height="8"
-            fill="#00E08F"
-            filter="url(#glow-bm)"
-            transform="rotate(45 50 596)"
-          />
-          <defs>
-            <filter id="glow-bm">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+          <rect x="46" y="0" width="8" height="8" fill="#00E08F" />
+          <rect x="46" y="592" width="8" height="8" fill="#00E08F" transform="rotate(45 50 596)" />
         </svg>
       </div>
 
@@ -88,33 +65,10 @@ export default function BusinessModelSection() {
             stroke="#00E08F"
             strokeWidth="2"
             fill="none"
+            style={{ filter: 'drop-shadow(0 0 3px #00E08F)' }}
           />
-          <rect
-            x="46"
-            y="0"
-            width="8"
-            height="8"
-            fill="#00E08F"
-            filter="url(#glow-bm2)"
-          />
-          <rect
-            x="46"
-            y="592"
-            width="8"
-            height="8"
-            fill="#00E08F"
-            filter="url(#glow-bm2)"
-            transform="rotate(45 50 596)"
-          />
-          <defs>
-            <filter id="glow-bm2">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+          <rect x="46" y="0" width="8" height="8" fill="#00E08F" />
+          <rect x="46" y="592" width="8" height="8" fill="#00E08F" transform="rotate(45 50 596)" />
         </svg>
       </div>
 
@@ -145,8 +99,11 @@ export default function BusinessModelSection() {
           
           {/* Dynamic Interactive Scroll Line */}
           <motion.div 
-            className="absolute left-[27px] top-6 bottom-10 w-[2px] bg-gradient-to-b from-[#00E08F] via-[#00E08F] to-transparent origin-top shadow-[0_0_10px_#00E08F]"
-            style={{ scaleY: scrollYProgress }}
+            className="absolute left-[27px] top-6 bottom-10 w-[2px] bg-[#00E08F] origin-top"
+            style={{ 
+              scaleY: scrollYProgress,
+              // filter: 'drop-shadow(0 0 4px #00E08F) drop-shadow(0 0 8px rgba(0,224,143,0.6))'
+            }}
           />
 
           <div className="flex flex-col gap-6 pl-12">
@@ -202,7 +159,7 @@ export default function BusinessModelSection() {
                     <h3 className="text-base font-bold font-accent text-white mb-1.5 relative z-10 uppercase tracking-wide">
                       {component.title}
                     </h3>
-                    <p className="text-white/50 text-xs leading-relaxed relative z-10">
+                    <p className="text-white/70 text-xs leading-relaxed relative z-10">
                       {component.description}
                     </p>
 
@@ -290,7 +247,7 @@ export default function BusinessModelSection() {
                     <h3 className="text-sm md:text-base lg:text-xl font-bold font-accent text-white mb-2 relative z-10 uppercase tracking-wide">
                       {component.title}
                     </h3>
-                    <p className="text-gray-400 text-[10px] md:text-xs leading-relaxed relative z-10">
+                    <p className="text-white/70 text-[10px] md:text-xs leading-relaxed relative z-10">
                       {component.description}
                     </p>
                     {component.button && (
@@ -330,21 +287,12 @@ export default function BusinessModelSection() {
                     cy={startY + endY}
                     r="4"
                     fill="#00E08F"
-                    filter={`url(#glow-line-${component.id})`}
+                    style={{ filter: 'drop-shadow(0 0 4px #00E08F)' }}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: index * 0.1 + 0.8 }}
                   />
-                  <defs>
-                    <filter id={`glow-line-${component.id}`}>
-                      <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                      <feMerge>
-                        <feMergeNode in="coloredBlur" />
-                        <feMergeNode in="SourceGraphic" />
-                      </feMerge>
-                    </filter>
-                  </defs>
                 </svg>
               </motion.div>
             );

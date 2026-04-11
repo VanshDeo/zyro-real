@@ -6,7 +6,8 @@ import { useRef } from 'react';
 import { FadeIn, Floating, GlowPulse } from './AnimationWrappers';
 import { Parallax, MagneticButton, Reveal, GradientText, MorphingBlob } from './AdvancedAnimations';
 import { useTypewriter } from '@/hooks/useTypewriter';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import StatsTicker from './StatsTicker';
 
 /* ── Registration Countdown Timer ────────────────────────────── */
 function CountdownTimer() {
@@ -52,49 +53,157 @@ function CountdownTimer() {
 
     return (
         <div className="flex flex-col items-center pt-2 sm:pt-4 mx-auto w-full z-20">
-            <p className="text-[#00E08F] font-accent uppercase tracking-[0.2em] text-[8px] sm:text-[10px] mb-2 sm:mb-3 opacity-80 shadow-[#00E08F]">
+            <p className="text-[#00E08F] font-accent uppercase tracking-[0.2em] text-[8px] sm:text-[10px] mb-2 sm:mb-3 opacity-90 shadow-[#00E08F]">
                 Registration Closes In
             </p>
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 font-mono">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                 {/* Days */}
                 <div className="flex flex-col items-center">
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-widest">{timeLeft.days}</span>
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.days}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/50 mt-1 sm:mt-2 uppercase tracking-wide">Days</span>
+                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Days</span>
                 </div>
                 
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
 
                 {/* Hours */}
                 <div className="flex flex-col items-center">
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-widest">{timeLeft.hours}</span>
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.hours}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/50 mt-1 sm:mt-2 uppercase tracking-wide">Hrs</span>
+                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Hrs</span>
                 </div>
 
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
 
                 {/* Minutes */}
                 <div className="flex flex-col items-center">
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-widest">{timeLeft.minutes}</span>
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.minutes}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/50 mt-1 sm:mt-2 uppercase tracking-wide">Min</span>
+                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Min</span>
                 </div>
 
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
+                <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
 
                 {/* Seconds */}
                 <div className="flex flex-col items-center">
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-[#00E08F]/10 border border-[#00E08F]/30 rounded-xl backdrop-blur-md shadow-[0_0_15px_rgba(0,224,143,0.15)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00E08F] tracking-widest">{timeLeft.seconds}</span>
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] tracking-tight">{timeLeft.seconds}</span>
                     </div>
                     <span className="text-[10px] sm:text-xs text-[#00E08F]/50 mt-1 sm:mt-2 uppercase tracking-wide shadow-[#00E08F]">Sec</span>
                 </div>
             </div>
         </div>
+    );
+}
+
+/* ── Brochure Download Button with Loading Animation ─────────── */
+function BrochureDownloadButton() {
+    const [status, setStatus] = useState<'idle' | 'loading' | 'done'>('idle');
+    const [progress, setProgress] = useState(0);
+
+    const handleDownload = useCallback(() => {
+        if (status !== 'idle') return;
+        setStatus('loading');
+        setProgress(0);
+
+        // Simulate a download progress ramp
+        let prog = 0;
+        const interval = setInterval(() => {
+            prog += Math.random() * 18 + 8;
+            if (prog >= 100) {
+                prog = 100;
+                clearInterval(interval);
+                setProgress(100);
+                setStatus('done');
+
+                // Trigger actual download
+                const link = document.createElement('a');
+                link.href = 'Brochure/Zyro%20Brouchre.pdf';
+                link.download = 'Zyro_Hackathon_Brochure.pdf';
+                link.click();
+
+                // Reset after 2.5 s
+                setTimeout(() => {
+                    setStatus('idle');
+                    setProgress(0);
+                }, 2500);
+            } else {
+                setProgress(prog);
+            }
+        }, 120);
+    }, [status]);
+
+    const clipStyle = { clipPath: 'polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%)' };
+
+    const borderColor =
+        status === 'done' ? 'rgba(0,224,143,1)' :
+        status === 'loading' ? 'rgba(0,224,143,0.8)' :
+        'rgba(0,224,143,0.5)';
+
+    return (
+        <button
+            onClick={handleDownload}
+            disabled={status !== 'idle'}
+            className="relative group cursor-pointer w-full max-w-[260px] sm:max-w-none sm:w-52 md:w-64 block"
+            aria-label="Download Brochure"
+        >
+            <div
+                className="p-[1px] transition-all duration-300"
+                style={{ ...clipStyle, background: borderColor, boxShadow: status !== 'idle' ? '0 0 18px rgba(0,224,143,0.4)' : undefined }}
+            >
+                <div
+                    className="relative flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-black/80 backdrop-blur-md overflow-hidden"
+                    style={clipStyle}
+                >
+                    {/* Progress fill bar */}
+                    <motion.div
+                        className="absolute inset-0 bg-[#00E08F]/20 origin-left"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: status === 'loading' ? progress / 100 : status === 'done' ? 1 : 0 }}
+                        transition={{ ease: 'easeOut', duration: 0.15 }}
+                    />
+
+                    {/* Label */}
+                    <span className="relative z-10 flex items-center gap-2 text-white font-bold text-xs sm:text-sm md:text-base tracking-widest uppercase font-accent whitespace-nowrap transition-colors duration-200"
+                        style={{ color: status !== 'idle' ? '#00E08F' : undefined }}
+                    >
+                        {status === 'idle' && (
+                            <>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4 shrink-0">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v12m0 0l-4-4m4 4l4-4" />
+                                </svg>
+                                Brochure
+                            </>
+                        )}
+                        {status === 'loading' && (
+                            <>
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
+                                    className="w-4 h-4 border-2 border-[#00E08F]/40 border-t-[#00E08F] rounded-full shrink-0"
+                                />
+                                {Math.round(progress)}%
+                            </>
+                        )}
+                        {status === 'done' && (
+                            <>
+                                <motion.svg
+                                    initial={{ scale: 0 }} animate={{ scale: 1 }}
+                                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-4 h-4 shrink-0"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                </motion.svg>
+                                Done!
+                            </>
+                        )}
+                    </span>
+                </div>
+            </div>
+        </button>
     );
 }
 
@@ -115,7 +224,7 @@ export default function Hero() {
     const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     return (
-        <section ref={containerRef} className="relative min-h-screen flex items-start md:items-center pt-24 md:pt-24 lg:pt-24 md:pb-10 lg:pb-12 overflow-hidden">
+        <section ref={containerRef} className="relative min-h-[100dvh] flex flex-col items-center pt-20 sm:pt-24 pb-0 overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute inset-0 bg-[#070B0B]" />
             <MorphingBlob className="w-[600px] h-[600px] top-1/4 -left-1/4" />
@@ -165,15 +274,15 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/40 z-[5] pointer-events-none md:hidden" />
 
             <motion.div
-                className="container-custom relative z-10 w-full"
+                className="container-custom relative z-10 w-full flex-grow flex flex-col justify-center"
                 style={{ y: textY, opacity }}
             >
-                <div className="flex flex-col justify-center items-center w-full mt-6 md:mt-8 lg:mt-8 z-20">
+                <div className="flex flex-col justify-center items-center w-full mt-2 sm:mt-6 md:mt-8 z-20">
                     {/* Centered Content */}
-                    <div className="flex flex-col items-center justify-center space-y-5 md:space-y-3 lg:space-y-4 w-full max-w-4xl mx-auto">
+                    <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:gap-4 lg:gap-5 w-full max-w-4xl mx-auto">
                         
                         {/* Logo Container */}
-                        <div className="flex flex-col items-center text-center space-y-6 md:space-y-3 lg:space-y-4 w-full">
+                        <div className="flex flex-col items-center text-center gap-5 sm:gap-7 md:gap-3 w-full">
                             <motion.div
                                 initial={{ y: 100, rotateX: -90 }}
                                 animate={{ y: 0, rotateX: 0 }}
@@ -204,7 +313,7 @@ export default function Hero() {
                                         {description}
                                     </p>
                                     {/* Visible typewriter overlay */}
-                                    <p className="absolute inset-0 text-[#A1A1A1]">
+                                    <p className="absolute inset-0 text-[#D1D5DB]">
                                         {displayedText}
                                         {!isComplete && (
                                             <span className="inline-block w-0.5 h-4 bg-[#00E08F] ml-0.5 animate-pulse" />
@@ -216,13 +325,13 @@ export default function Hero() {
 
                         {/* Registration Timer */}
                         <Reveal delay={0.7} direction="up">
-                            <div className="-mt-1 sm:-mt-2 md:-mt-3 xl:-mt-2 relative z-20">
+                            <div className="mt-2 sm:mt-0 relative z-20">
                                 <CountdownTimer />
                             </div>
                         </Reveal>
 
                         {/* Buttons Area */}
-                        <div className="flex flex-col items-center w-full z-20 mt-6 md:mt-3 lg:mt-4 mb-safe pb-10 md:pb-4">
+                        <div className="flex flex-col items-center w-full z-20 mt-2 sm:mt-4 md:mt-2 mb-4 md:mb-8 pb-4 md:pb-0">
                             <Reveal delay={0.8} direction="up">
                                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center items-center w-full">
                                     {/* Register Now Button */}
@@ -249,25 +358,7 @@ export default function Hero() {
                                     </a>
 
                                     {/* Download Brochure Button */}
-                                    <a
-                                        href="Brochure/Zyro%20Brouchre.pdf"
-                                        download="Zyro_Hackathon_Brochure.pdf"
-                                        className="relative group cursor-pointer w-full max-w-[260px] sm:max-w-none sm:w-52 md:w-64 block"
-                                    >
-                                        <div
-                                            className="p-[1px] bg-[#00E08F]/50 transition-all duration-300 group-hover:bg-white group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-                                            style={{ clipPath: 'polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%)' }}
-                                        >
-                                            <div
-                                                className="relative flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-black/60 backdrop-blur-md transition-colors duration-300 group-hover:bg-black/80"
-                                                style={{ clipPath: 'polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%)' }}
-                                            >
-                                                <span className="text-white font-bold text-xs sm:text-sm md:text-base tracking-widest uppercase group-hover:text-[#00E08F] transition-colors font-accent whitespace-nowrap">
-                                                    Brochure
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
+                                    <BrochureDownloadButton />
 
 
 
@@ -278,9 +369,14 @@ export default function Hero() {
                 </div>
             </motion.div>
 
+            {/* Stats Ticker — below buttons, decoupled from parallax scroll */}
+            <div className="w-full relative z-20 pb-6 sm:pb-8 pt-4">
+                <StatsTicker />
+            </div>
+
             {/* Scroll Indicator */}
             <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
+                className="absolute bottom-28 md:bottom-20 left-1/2 -translate-x-1/2 hidden md:block z-30"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5 }}
@@ -293,6 +389,8 @@ export default function Hero() {
                     />
                 </div>
             </motion.div>
+
+
         </section>
     );
 }

@@ -30,7 +30,7 @@ export default function Footer() {
                                     />
                                 </Link>
                             </motion.div>
-                            <p className="text-white/50 text-sm xl:text-base max-w-sm mx-auto md:mx-0 leading-relaxed">
+                            <p className="text-white/65 text-sm xl:text-base max-w-sm mx-auto md:mx-0 leading-relaxed">
                                 Pioneering green technology for a sustainable future. Join us in creating a cleaner world.
                             </p>
                         </div>
@@ -159,21 +159,25 @@ export default function Footer() {
 
                 {/* Bottom Bar - Divider Line */}
                 <div className="border-t border-[#00E08F]/10 pt-6">
-                    <FadeIn>
-                        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                    
+                        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-3 text-center md:text-left">
                             <p className="text-[#A1A1A1] text-sm">
                                 © 2026 Zyro. All rights reserved.
                             </p>
-                            <div className="flex items-center gap-6">
-                                <motion.div whileHover={{ color: '#00E08F' }}>
-                                    {/* <Link href="/privacy" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Privacy Policy</Link> */}
-                                </motion.div>
-                                <motion.div whileHover={{ color: '#00E08F' }}>
-                                    {/* <Link href="/terms" className="text-[#A1A1A1] hover:text-[#00E08F] transition-colors text-sm">Terms of Service</Link> */}
-                                </motion.div>
-                            </div>
+                            <a
+                                href="https://kgec-robotics-society.github.io/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1.5 text-white/25 hover:text-white/55 transition-colors duration-200"
+                                title="KGEC Robotics Society"
+                            >
+                                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current shrink-0">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 110-16 8 8 0 010 16zm-1.5-8.5c0 .828.672 1.5 1.5 1.5.552 0 1.035-.298 1.299-.742l1.299.75C14.114 13.942 13.107 14.5 12 14.5c-1.657 0-3-1.343-3-3s1.343-3 3-3c1.107 0 2.114.558 2.598 1.492l-1.299.75A1.5 1.5 0 0012 10a1.5 1.5 0 00-1.5 1.5z"/>
+                                </svg>
+                                <span className="text-[10px] font-mono tracking-widest uppercase">KGEC ROBOTICS SOCIETY</span>
+                            </a>
                         </div>
-                    </FadeIn>
+                    
                 </div>
             </div>
 

@@ -86,8 +86,7 @@ function OrbitGrid({
             <svg width="100%" height="100%" className="absolute inset-0 pointer-events-none z-0">
                 <defs>
                     <filter id="glow-line" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="3" result="blur" />
-                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#00E08F" floodOpacity="0.6" />
                     </filter>
                 </defs>
                 <g>
@@ -251,7 +250,7 @@ export default function MascotSection() {
                 <h2 className="font-display font-bold text-white uppercase tracking-widest leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                     PROBLEM <span className="text-[#00E08F]" style={{ textShadow: '0 0 20px rgba(0,224,143,0.3)' }}>TRACKS</span>
                 </h2>
-                <p className="text-white/40 text-xs sm:text-sm md:text-base mt-3 max-w-sm mx-auto">
+                <p className="text-white/60 text-xs sm:text-sm md:text-base mt-3 max-w-sm mx-auto">
                     Explore the problem domains surrounding the core. Click any node.
                 </p>
             </motion.div>
@@ -306,7 +305,7 @@ export default function MascotSection() {
                                     </div>
                                 </div>
                                 {/* Description Layout */}
-                                <p className="text-white/80 text-[9px] sm:text-[10px] lg:text-xs leading-relaxed w-full line-clamp-5 text-left">
+                                <p className="text-white/85 text-[9px] sm:text-[10px] lg:text-xs leading-relaxed w-full line-clamp-5 text-left">
                                     {selectedTrack.cards[0]}
                                 </p>
                             </div>
