@@ -4,9 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { navLinks, logoData } from '@/lib/navbarData';
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
   const [isScrolled, setIsScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen]     = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -51,12 +55,19 @@ export default function Header() {
 
   /* ── Smooth scroll helper ──────────────────────────────────── */
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
     setMobileOpen(false);
-    const id = href.replace('#', '');
-    const el = document.getElementById(id);
-    if (el) {
-      window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+    
+    // Check if it's an anchor link and we are actively on the homepage
+    const isAnchor = href.startsWith('/#') || href.startsWith('#');
+    const isHomePage = window.location.pathname === '/';
+
+    if (isHomePage && isAnchor) {
+      e.preventDefault();
+      const id = href.split('#')[1];
+      const el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+      }
     }
   };
 
@@ -124,7 +135,8 @@ export default function Header() {
             {/* ── Desktop nav ── */}
             <ul className="hidden md:flex items-center gap-1">
               {navLinks.map((item, i) => {
-                const isActive = activeSection === item.id;
+                const isActive = (!isHomePage && pathname === item.href) || (isHomePage && activeSection === item.id);
+                
                 return (
                   <motion.li
                     key={item.id}
@@ -213,7 +225,8 @@ export default function Header() {
 
                   <ul className="flex flex-col py-4 px-2">
                     {navLinks.map((item) => {
-                      const isActive = activeSection === item.id;
+                      const isActive = (!isHomePage && pathname === item.href) || (isHomePage && activeSection === item.id);
+
                       return (
                         <motion.li key={item.id} variants={linkVariants}>
                           <Link

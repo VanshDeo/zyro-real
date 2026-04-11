@@ -11,13 +11,14 @@ export interface LogoData {
 }
 
 export const navLinks: NavLink[] = [
-    { name: 'Home', href: '#home', id: 'home' },
-    { name: 'About', href: '#about', id: 'about' },
-    { name: 'Prizes', href: '#prizes', id: 'prizes' },
-    { name: 'Tracks', href: '#tracks', id: 'tracks' },
-    { name: 'Timeline', href: '#timeline', id: 'timeline' },
-    { name: 'Partners', href: '#partners', id: 'partners' },
-    { name: 'FAQ', href: '#faq', id: 'faq' },
+    { name: 'Home', href: '/#home', id: 'home' },
+    { name: 'About', href: '/#about', id: 'about' },
+    { name: 'Prizes', href: '/#prizes', id: 'prizes' },
+    { name: 'Tracks', href: '/#tracks', id: 'tracks' },
+    { name: 'Timeline', href: '/#timeline', id: 'timeline' },
+    { name: 'Partners', href: '/#partners', id: 'partners' },
+    { name: 'Leaderboard', href: '/leaderboard', id: 'leaderboard'},
+    { name: 'FAQ', href: '/#faq', id: 'faq' }
 ];
 
 export const logoData: LogoData = {

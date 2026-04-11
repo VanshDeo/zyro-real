@@ -14,6 +14,7 @@ import TracksSection   from '@/components/TracksSection';
 import PartnersSection  from '@/components/PartnersSection';
 import FAQSection       from '@/components/FAQSection';
 import Footer           from '@/components/Footer';
+import HomeLeaderboardPreview from '@/components/HomeLeaderboardPreview';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -61,6 +62,9 @@ export default function Home() {
         <div id="partners">
           <PartnersSection />
         </div>
+
+        {/* Leaderboard Preview */}
+        <HomeLeaderboardPreview />
 
         {/* FAQ */}
         <div id="faq">
