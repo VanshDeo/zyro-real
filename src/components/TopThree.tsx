@@ -17,26 +17,20 @@ export default function TopThree({ users }: { users: User[] }) {
   // Ensure we have exactly up to 3 users
   const topUsers = [...users].slice(0, 3);
 
-  // We want to order them as [2, 1, 3] on desktop so #1 is in the center
-  const displayOrder = topUsers.length === 3 
-    ? [topUsers[1], topUsers[0], topUsers[2]]
-    : topUsers;
-
-  const getRankInfo = (name: string) => {
-    const originalIndex = topUsers.findIndex((u) => u.name === name);
-    switch(originalIndex) {
-      case 0: return { rank: '🥇 1st', color: 'from-yellow-300 via-yellow-500 to-yellow-600', shadow: 'shadow-[#fde047]/30' };
-      case 1: return { rank: '🥈 2nd', color: 'from-gray-300 via-gray-400 to-gray-500', shadow: 'shadow-gray-400/30' };
-      case 2: return { rank: '🥉 3rd', color: 'from-orange-300 via-amber-600 to-orange-700', shadow: 'shadow-amber-600/30' };
-      default: return { rank: '', color: '', shadow: '' };
+  const getRankInfo = (index: number) => {
+    switch(index) {
+      case 0: return { rank: '🥇 1st', color: 'from-yellow-300 via-yellow-500 to-yellow-600', shadow: 'shadow-[#fde047]/30', orderClass: 'order-1 md:order-2' };
+      case 1: return { rank: '🥈 2nd', color: 'from-gray-300 via-gray-400 to-gray-500', shadow: 'shadow-gray-400/30', orderClass: 'order-2 md:order-1' };
+      case 2: return { rank: '🥉 3rd', color: 'from-orange-300 via-amber-600 to-orange-700', shadow: 'shadow-amber-600/30', orderClass: 'order-3 md:order-3' };
+      default: return { rank: '', color: '', shadow: '', orderClass: '' };
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-end justify-center gap-6 mt-8 mb-16">
-      {displayOrder.map((user, i) => {
-        const isFirst = user === topUsers[0];
-        const { rank, color, shadow } = getRankInfo(user.name);
+    <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-6 mt-8 mb-16">
+      {topUsers.map((user, i) => {
+        const isFirst = i === 0;
+        const { rank, color, shadow, orderClass } = getRankInfo(i);
 
         return (
           <motion.div
@@ -44,7 +38,7 @@ export default function TopThree({ users }: { users: User[] }) {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.15, duration: 0.6, ease: 'easeOut' }}
-            className={`w-full md:w-64 relative ${isFirst ? 'md:-translate-y-6 md:scale-110 z-10' : 'z-0'}`}
+            className={`w-full md:w-64 relative ${orderClass} ${isFirst ? 'md:-translate-y-6 md:scale-110 z-10' : 'z-0'}`}
           >
             {/* Glowing background behind card */}
             <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${color} blur-xl opacity-20 pointer-events-none`} />
