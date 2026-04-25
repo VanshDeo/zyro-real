@@ -52,7 +52,7 @@ export const businessComponents: BusinessComponent[] = [
         lineLength: 100,
         button: {
             text: 'Go to Contest',
-            url: 'https://www.namespace.world/events/256WHF'
+            url: 'https://practice.geeksforgeeks.org/contest/zyro-2026'
         }
     },
     {
