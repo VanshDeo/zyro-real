@@ -26,7 +26,7 @@ export const businessComponents: BusinessComponent[] = [
     {
         id: 1,
         number: '01',
-        date: '15th March - 7th May',
+        date: '15th March - 10th May',
         title: 'Registration Phase',
         description: 'Kickstart your journey by registering for the hackathon through the official portal. Form your team, explore problem statements, and secure your spot in this innovation-driven competition.',
         color: '#00E08F',
@@ -58,7 +58,7 @@ export const businessComponents: BusinessComponent[] = [
     {
         id: 3,
         number: '03',
-        date: '15th March - 7th May',
+        date: '15th March - 15th May',
         title: 'Idea Submission',
         description: 'Teams must select a problem track and submit their innovative solution idea in the form of a presentation. Upload your PPT on Google Drive and share the link for evaluation.',
         color: '#00E08F',
