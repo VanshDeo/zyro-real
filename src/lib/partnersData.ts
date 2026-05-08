@@ -39,4 +39,10 @@ export const SPONSORS: Partner[] = [
     { id: 5, sponsor: 'Interview Buddy', url: '/images/sponsor/interview_buddy.png' },
     { id: 6, sponsor: 'Roastway', url: '/images/sponsor/Roastway.png' },
     { id: 7, sponsor: 'StartNews', url: '/images/sponsor/StartNews.jpeg' },
+    { id: 8, sponsor: 'DMV CoreTech', url: '/images/sponsor/DMV_CoreTech.jpg' },
+    { id: 9, sponsor: 'Edubuk', url: '/images/sponsor/Edubuk.jpg' },
+    { id: 10, sponsor: 'Vanguard', url: '/images/sponsor/Vanguard.jpg' },
+    { id: 11, sponsor: 'Shadow Corps', url: '/images/sponsor/ShadowCorps.jpg' },
+    { id: 12, sponsor: 'GeeksforGeeks', url: '/images/sponsor/GeeksforGeeks.jpg' },
+    { id: 13, sponsor: 'Miro', url: '/images/sponsor/Miro.jpg' },
 ];
