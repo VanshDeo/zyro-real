@@ -16,8 +16,8 @@ function CountdownTimer() {
 
     useEffect(() => {
         setMounted(true);
-        // Deadline: 7th May 2026 midnight (IST)
-        const targetDate = new Date('2026-05-07T23:59:59+05:30').getTime();
+        // Deadline: 30th May 2026 11:00 AM (IST)
+        const targetDate = new Date('2026-05-30T11:00:00+05:30').getTime();
 
         const updateTimer = () => {
             const now = new Date().getTime();
