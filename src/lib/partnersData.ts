@@ -45,4 +45,10 @@ export const SPONSORS: Partner[] = [
     { id: 11, sponsor: 'Shadow Corps', url: '/images/sponsor/ShadowCorps.jpg' },
     { id: 12, sponsor: 'GeeksforGeeks', url: '/images/sponsor/GeeksforGeeks.jpg' },
     { id: 13, sponsor: 'Miro', url: '/images/sponsor/Miro.jpg' },
+    { id: 14, sponsor: 'OSEN', url: '/images/sponsor/new_sponsor_5.png' },
+    { id: 15, sponsor: 'IEEE', url: '/images/sponsor/new_sponsor_2.png' },
+    { id: 16, sponsor: 'HackNest', url: '/images/sponsor/new_sponsor_3.png' },
+    { id: 17, sponsor: 'Certify X', url: '/images/sponsor/new_sponsor_1.png' },
+    { id: 18, sponsor: 'Namespace', url: '/images/sponsor/new_sponsor_4.png' },
+    { id: 19, sponsor: 'Anibotix', url: '/images/sponsor/new_sponsor_6.jpg' },
 ];
