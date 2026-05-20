@@ -10,7 +10,8 @@ import AboutSection     from '@/components/AboutSection';
 import PrizePoolSection from '@/components/PrizePoolSection';
 import BusinessModelSection from '@/components/BusinessModelSection';
 import TracksSection   from '@/components/TracksSection';
-import PartnersSection  from '@/components/PartnersSection';
+import PartnersSection       from '@/components/PartnersSection';
+import SelectedTeamsSection from '@/components/SelectedTeamsSection';
 import FAQSection       from '@/components/FAQSection';
 import Footer           from '@/components/Footer';
 import HomeLeaderboardPreview from '@/components/HomeLeaderboardPreview';
@@ -52,6 +53,11 @@ export default function Home() {
         {/* Tracks */}
         <div id="tracks">
           <TracksSection />
+        </div>
+
+        {/* Selected Teams */}
+        <div id="selected-teams">
+          <SelectedTeamsSection />
         </div>
 
         {/* Community & Sponsors */}

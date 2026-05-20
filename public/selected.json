@@ -1,0 +1,286 @@
+{
+  "round1": [
+    {
+      "idx": 1,
+      "team": "Apex Predators",
+      "members": ["Sourasish Mitra", "Avirup Majumder", "Tanzeem Aziz Ansari", "Aghnya Kundu"]
+    },
+    {
+      "idx": 2,
+      "team": "Auto Matrix",
+      "members": ["Himadri Mahata", "Amit Jana", "Anup Majumder", "Ranjan Bera"]
+    },
+    {
+      "idx": 3,
+      "team": "BigYahu",
+      "members": ["Trinankur Bera", "Abirbhab Sengupta", "Debajit Pal"]
+    },
+    {
+      "idx": 4,
+      "team": "Butterflies",
+      "members": ["Uttara Paul", "Madhuparna Ghosh", "Akshita"]
+    },
+    {
+      "idx": 5,
+      "team": "Disaster Techies",
+      "members": ["Ayush Shukla", "Baibhab Das", "Abhinav Gupta", "Swarnendu Kundu"]
+    },
+    {
+      "idx": 6,
+      "team": "DSP",
+      "members": ["Shaswata De", "Swastik Sarkar", "Sreyoshi Pal"]
+    },
+    {
+      "idx": 7,
+      "team": "Ghost Touch",
+      "members": ["Saswata Das", "Sidhorishi Das", "Soham Majhi"]
+    },
+    {
+      "idx": 8,
+      "team": "Haxthon",
+      "members": ["Shubhashis Dhar", "Sayantani Sinha", "Aritra Saha", "Abjoraj Biswas"]
+    },
+    {
+      "idx": 9,
+      "team": "INDROVE",
+      "members": ["Mou Hutait", "Kishor Halder", "Sahanowaz Hossain Molla", "Arpan Dolui"]
+    },
+    {
+      "idx": 10,
+      "team": "InventX",
+      "members": ["Ayush Singh", "Sayan Singha", "Ankan Giri", "Dhiraj Chowdhury"]
+    },
+    {
+      "idx": 11,
+      "team": "KISAAN ROVER",
+      "members": ["Sohel Abbas", "Mounak Ghosh", "Raunak Dasgupta", "Anirban Das"]
+    },
+    {
+      "idx": 12,
+      "team": "Learvon",
+      "members": ["Shaunak Sah", "Mohit Sah", "Aniket Dutta", "Aditya Singh"]
+    },
+    {
+      "idx": 13,
+      "team": "Logic Knights",
+      "members": ["Romio Samanta", "Ansh Kumar", "Aryan Shaw", "Dishan Biswas"]
+    },
+    {
+      "idx": 14,
+      "team": "Malai Chaap",
+      "members": ["Shashank Shekhar Mishra", "Niyati Singh"]
+    },
+    {
+      "idx": 15,
+      "team": "Matrix",
+      "members": ["Mahad Iqbal", "Avijnan Purkait", "Manish Bera", "Arnab Paul"]
+    },
+    {
+      "idx": 16,
+      "team": "MicroHarD",
+      "members": ["ATANU RAY", "Atanu Maity", "Poulami Neogi", "ABHIJIT MRIDHA."]
+    },
+    {
+      "idx": 17,
+      "team": "Mind Surge",
+      "members": ["Sekh Motier Rahaman", "Ankita Saha", "Shriza Baidya"]
+    },
+    {
+      "idx": 18,
+      "team": "Nexus 2.0",
+      "members": ["Dhritiman Siva", "SOUVICK MAITY", "Swagata Ganguly", "Anuvab Das"]
+    },
+    {
+      "idx": 19,
+      "team": "NodeZero",
+      "members": ["Somnath Pratihar", "Mohan Shaw", "Sabyasachi Biswas", "Arindam Samanta"]
+    },
+    {
+      "idx": 20,
+      "team": "PATTERNX",
+      "members": ["Rajdeep Chatterjee", "Irish Roy", "Debanjali Das", "Shibashis Das"]
+    },
+    {
+      "idx": 21,
+      "team": "PetVibe",
+      "members": ["Samriddhi Mondal", "Chandranil Das"]
+    },
+    {
+      "idx": 22,
+      "team": "RESISTANCE",
+      "members": ["Nilesh Karmakar", "Abheek Samaddar"]
+    },
+    {
+      "idx": 23,
+      "team": "ROBOCRAFTS",
+      "members": ["Anirban Midya", "Anthony Mark", "Soumyadip Paul", "SOUNAK KUMAR MONDAL"]
+    },
+    {
+      "idx": 24,
+      "team": "TEAM JONAKI",
+      "members": ["Sayan Pal", "Adrish Haldar", "Sudip Santra", "Priyam Chakraborty"]
+    },
+    {
+      "idx": 25,
+      "team": "Team SENSEible",
+      "members": ["Soumik Samanta", "Soumya Adhikari", "Barnik Chakraborty", "Ranit Pramanick"]
+    },
+    {
+      "idx": 26,
+      "team": "Team_Losers",
+      "members": ["Debabrata Nath", "Dipan Lahiri", "Koustav Rudra", "Saikat Mohis"]
+    },
+    {
+      "idx": 27,
+      "team": "TetraARMS",
+      "members": ["Misa Haldar", "Soumyajit Banerjee", "Adwitiyo Bera", "Rumila Nandy"]
+    },
+    {
+      "idx": 28,
+      "team": "The Neural Rebels",
+      "members": ["Avik Mallick", "Samya Mallick", "Atreyi Maity", "Ishita Biswas"]
+    },
+    {
+      "idx": 29,
+      "team": "TITANIUM ROBOTICS",
+      "members": ["SAPTANGSHU ROY", "SUDIPTA SARKAR", "SHUVRODIP SARKAR"]
+    },
+    {
+      "idx": 30,
+      "team": "VoltEdge",
+      "members": ["Manish Das", "BAIDIK DAS", "Debraj Das", "Avigyan Kishor Das"]
+    },
+    {
+      "idx": 31,
+      "team": "Wireless Wizard",
+      "members": ["Pradip Dutta", "AKASH MAITY", "Abhijit Mondal"]
+    },
+    {
+      "idx": 32,
+      "team": "Zenova",
+      "members": ["Hrisit Das", "Sruti Pandey", "Aryan Raj Tiwary", "Shreejata Mukhopadhyay"]
+    }
+  ],
+  "finalRound": [
+    {
+      "idx": 1,
+      "team": "Bolt & Byte",
+      "members": ["Mayank", "Divya Prasad", "Aryan Bhiwaniwala", "Sumesh Singh"]
+    },
+    {
+      "idx": 2,
+      "team": "Bot Things",
+      "members": ["Subhajit Halder", "PAPON CHOWDHURY", "Arghya Roy", "Prolayjit Biswas"]
+    },
+    {
+      "idx": 3,
+      "team": "Circuit Bird",
+      "members": ["GOURAB DUTTA", "SUBHASISH KAR", "Srijan Das", "Soumadeep Shee"]
+    },
+    {
+      "idx": 4,
+      "team": "Cosmic Crafters",
+      "members": ["Protyush Chowdhury", "Ranjan Khuntia", "Rupanjan Saha", "Raunak Das"]
+    },
+    {
+      "idx": 5,
+      "team": "eBhoomi",
+      "members": ["Ridhibrata Das", "Soumyadip Pal", "Ankit Mondal", "Rup Roshan Jha"]
+    },
+    {
+      "idx": 6,
+      "team": "error.iOta",
+      "members": ["Subhankar Das", "Archisman Kayal", "Soumyadeep Das", "Sujay Paul"]
+    },
+    {
+      "idx": 7,
+      "team": "Error-404",
+      "members": ["Tirthankar Sarkar", "Suhani Pattanaik", "Spandan Sarkar"]
+    },
+    {
+      "idx": 8,
+      "team": "Flare",
+      "members": ["Rajdeep Roy", "Priyanshu Priyadarshi", "Yogesh Kumar", "ANVESHA"]
+    },
+    {
+      "idx": 9,
+      "team": "HEARTROCK",
+      "members": ["Shreyashi Bera", "Spandan Nandi", "Aayush Dey", "Soumadip Dutta"]
+    },
+    {
+      "idx": 10,
+      "team": "Knull Zone",
+      "members": ["Hrishikesh Jha", "SHIBAM JOARDAR", "Mohit Kumar Sheel", "Atrayee Nag"]
+    },
+    {
+      "idx": 11,
+      "team": "Mango Bytes",
+      "members": ["Adrija Chakraborty", "ROCHISHNU DUTTA", "Utsha Nandi"]
+    },
+    {
+      "idx": 12,
+      "team": "Penteract",
+      "members": ["sayan ghanty", "Saaraswata Roy"]
+    },
+    {
+      "idx": 13,
+      "team": "Quantum Sparks",
+      "members": ["Aditya Dutta", "Soumyadeep Kolay", "Govind Raj Gupta", "Pankaj Kumar Gupta"]
+    },
+    {
+      "idx": 14,
+      "team": "Quiet Labs",
+      "members": ["Arka Saha"]
+    },
+    {
+      "idx": 15,
+      "team": "Rivendell",
+      "members": ["Sagnik Mitra", "Rahul Ganguly", "Suvam Kar"]
+    },
+    {
+      "idx": 16,
+      "team": "Robo Craze",
+      "members": ["ANIRUDDHA PAUL", "Shounak Sen", "Krishnendu Koley", "Adrija Datta"]
+    },
+    {
+      "idx": 17,
+      "team": "Rookiez",
+      "members": ["Ishani Saha roy", "Gargee Ghosh", "Saptak Saha"]
+    },
+    {
+      "idx": 18,
+      "team": "Silicon Syndicate",
+      "members": ["AKASH PATRA", "Sahina Parveen", "Sayantika Biswas", "Ankit Karmakar"]
+    },
+    {
+      "idx": 19,
+      "team": "SUPR BUILDERS",
+      "members": ["Sampujit Nath", "Ayanka Ghosh", "SAGNIK SARKAR", "Bikram Pal"]
+    },
+    {
+      "idx": 20,
+      "team": "Team Angad",
+      "members": ["PRAKASH DEEPAK KUMAR", "Abhishek sharma"]
+    },
+    {
+      "idx": 21,
+      "team": "Team NOX",
+      "members": ["Debasmita Guchhait", "Anubhav Sarkar"]
+    },
+    {
+      "idx": 22,
+      "team": "Team π",
+      "members": ["Sukriti Bera", "Rahul Singha", "Arnab Das", "Sudipta Bag"]
+    },
+    {
+      "idx": 23,
+      "team": "Tech Titans",
+      "members": ["SUDIPTA PAL", "Anish Sarkar", "Archita Chakraborty", "Disha Das"]
+    },
+    {
+      "idx": 24,
+      "team": "The Dose Bros",
+      "members": ["Asmita Aditya", "TITHI PATRA", "Sayanton Mondal"]
+    }
+  ]
+}

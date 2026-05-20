@@ -1,102 +1,146 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Card, CardContent } from './ui/card';
-import { Badge } from './ui/badge';
 import Link from 'next/link';
-import { Button } from './ui/button';
-import { ArrowRight, Trophy } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Reveal } from './AdvancedAnimations';
 
-interface User {
-  name: string;
-  role: string;
-  score: number;
-}
+interface User { name: string; role: string; score: number; }
+
+const RANK_CFG = [
+  { label: '🥇', text: 'text-yellow-400' },
+  { label: '🥈', text: 'text-slate-300'  },
+  { label: '🥉', text: 'text-orange-400' },
+];
 
 export default function HomeLeaderboardPreview() {
-  const [data, setData] = useState<User[]>([]);
+  const [data, setData]     = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch('/api/leaderboard');
-        const json = await res.json();
-        if (Array.isArray(json)) {
-          // Get the absolute top 5 regardless of role.
-          setData(json.slice(0, 5));
-        }
-      } catch (error) {
-        console.error("Failed to fetch preview leaderboard:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
+    fetch('/api/leaderboard')
+      .then(r => r.json())
+      .then(j => { if (Array.isArray(j)) setData(j.slice(0, 5)); })
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#070B0B] py-16 sm:py-24 border-t border-white/5">
+    <section className="relative overflow-hidden bg-[#070B0B] py-14 sm:py-20
+                        border-t border-white/[0.05]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px]
+                      bg-[#00E08F] rounded-full blur-[140px] opacity-[0.04] pointer-events-none" />
+
       <div className="container-custom relative z-10">
+
+        {/* Header */}
         <Reveal direction="up">
-          <div className="mb-10 text-center">
-             <div className="flex items-center justify-center gap-4 mb-2">
-                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#00E08F]/40 to-transparent" />
-                 <span className="text-[#00E08F] text-xs font-accent uppercase tracking-[0.3em] font-semibold flex items-center gap-1">
-                     <Trophy className="w-4 h-4" /> Leaderboard
-                 </span>
-                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#00E08F]/40 to-transparent" />
-             </div>
-             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white uppercase tracking-wider font-display">
-                 🔥 Top Contributors
-             </h2>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <div className="h-px w-5 bg-[#00E08F]/60" />
+                <span className="text-[#00E08F] text-[9px] font-accent uppercase tracking-[0.35em] font-semibold">
+                  Leaderboard
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider font-display">
+                Top <span className="text-[#00E08F]">Contributors</span>
+              </h2>
+            </div>
+
+            <Link
+              href="/leaderboard"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg
+                         border border-white/[0.1] text-white/45 text-[11px] font-accent
+                         uppercase tracking-widest hover:border-[#00E08F]/40
+                         hover:text-[#00E08F] transition-all duration-200 group self-start sm:self-auto"
+            >
+              Full board
+              <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform"
+                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </Reveal>
 
-        <Reveal direction="up" delay={0.2}>
-          <div className="max-w-3xl mx-auto">
-            <Card className="bg-white/[0.02] border-white/10 overflow-hidden shadow-2xl backdrop-blur-xl">
-              <CardContent className="p-0">
-                {loading ? (
-                   <div className="p-8 text-center text-white/50">Loading leaderboard...</div>
-                ) : (
-                  <div className="divide-y divide-white/5">
-                    {data.map((user, index) => (
-                      <div 
-                        key={user.name} 
-                        className="flex items-center justify-between p-4 sm:p-6 hover:bg-white/[0.04] transition-colors group"
-                      >
-                         <div className="flex items-center gap-4">
-                           <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm
-                              ${index === 0 ? 'bg-yellow-400/20 text-yellow-400 border border-yellow-400/50' : 
-                                index === 1 ? 'bg-gray-300/20 text-gray-300 border border-gray-300/50' : 
-                                index === 2 ? 'bg-orange-400/20 text-orange-400 border border-orange-400/50' : 
-                                'bg-white/5 text-white/50 border border-white/10'}`}>
-                             {index + 1}
-                           </div>
-                           <div>
-                             <h4 className="text-white font-medium text-lg leading-tight group-hover:text-[#00E08F] transition-colors">{user.name}</h4>
-                             <span className="text-white/40 text-xs tracking-wider uppercase">{user.role}</span>
-                           </div>
-                         </div>
-                         <div className="text-right">
-                           <div className="text-xl font-display font-bold text-white">{user.score.toLocaleString()}</div>
-                           <div className="text-[#00E08F] text-[10px] uppercase tracking-widest">Points</div>
-                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+        <Reveal direction="up" delay={0.15}>
+          <div className="rounded-2xl border border-white/[0.07] overflow-hidden
+                          bg-white/[0.015] backdrop-blur-xl max-w-2xl">
 
-            <div className="mt-8 text-center">
-              <Link href="/leaderboard">
-                 <Button className="bg-[#00E08F] hover:bg-[#00E08F]/90 text-black font-semibold tracking-widest uppercase px-8 py-6 rounded-none transition-all hover:scale-105 active:scale-95 group">
-                   View Full Leaderboard
-                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                 </Button>
+            {loading ? (
+              /* Skeleton rows */
+              <div className="divide-y divide-white/[0.05]">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="flex items-center gap-4 px-5 py-4">
+                    <div className="w-5 h-4 rounded bg-white/[0.05] animate-pulse" />
+                    <div className="flex-1 space-y-1.5">
+                      <div className="h-3 w-32 rounded bg-white/[0.05] animate-pulse" />
+                      <div className="h-2 w-16 rounded bg-white/[0.03] animate-pulse" />
+                    </div>
+                    <div className="h-4 w-12 rounded bg-white/[0.05] animate-pulse" />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="divide-y divide-white/[0.05]">
+                {data.map((user, idx) => {
+                  const rc = idx < 3 ? RANK_CFG[idx] : null;
+                  return (
+                    <motion.div
+                      key={user.name}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.07 }}
+                      className="flex items-center gap-4 px-5 py-3.5
+                                 hover:bg-white/[0.03] transition-colors group"
+                    >
+                      {/* Rank */}
+                      <div className="w-6 text-center flex-shrink-0">
+                        {rc ? (
+                          <span className="text-base select-none">{rc.label}</span>
+                        ) : (
+                          <span className="text-white/20 text-xs font-accent">{idx + 1}</span>
+                        )}
+                      </div>
+
+                      {/* Name / role */}
+                      <div className="flex-1 min-w-0">
+                        <p className={`font-semibold text-sm truncate transition-colors
+                                       ${rc
+                                         ? `text-white group-hover:${rc.text}`
+                                         : 'text-white/65 group-hover:text-white/90'}`}>
+                          {user.name}
+                        </p>
+                        <p className="text-white/25 text-[9px] uppercase tracking-wider font-accent truncate">
+                          {user.role}
+                        </p>
+                      </div>
+
+                      {/* Score */}
+                      <div className="text-right flex-shrink-0">
+                        <p className={`font-display font-bold tabular-nums text-sm
+                                       ${rc ? rc.text : 'text-white/40'}`}>
+                          {user.score.toLocaleString()}
+                        </p>
+                        <p className="text-white/20 text-[9px] uppercase tracking-wider font-accent">pts</p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Footer */}
+            <div className="px-5 py-3 border-t border-white/[0.06] flex items-center justify-between">
+              <span className="text-white/20 text-[10px] font-accent uppercase tracking-wider">
+                Showing top 5
+              </span>
+              <Link href="/leaderboard"
+                    className="text-[#00E08F] text-[10px] font-accent font-semibold uppercase
+                               tracking-widest hover:underline underline-offset-4">
+                See all →
               </Link>
             </div>
           </div>
