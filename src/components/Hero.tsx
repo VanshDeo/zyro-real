@@ -54,7 +54,7 @@ function CountdownTimer() {
     return (
         <div className="flex flex-col items-center pt-2 sm:pt-4 mx-auto w-full z-20">
             <p className="text-[#00E08F] font-accent uppercase tracking-[0.2em] text-[8px] sm:text-[10px] mb-2 sm:mb-3 opacity-90 shadow-[#00E08F]">
-                Registration Closes In
+                Building Starts In
             </p>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                 {/* Days */}
@@ -64,7 +64,7 @@ function CountdownTimer() {
                     </div>
                     <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Days</span>
                 </div>
-                
+
                 <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
 
                 {/* Hours */}
@@ -140,8 +140,8 @@ function BrochureDownloadButton() {
 
     const borderColor =
         status === 'done' ? 'rgba(0,224,143,1)' :
-        status === 'loading' ? 'rgba(0,224,143,0.8)' :
-        'rgba(0,224,143,0.5)';
+            status === 'loading' ? 'rgba(0,224,143,0.8)' :
+                'rgba(0,224,143,0.5)';
 
     return (
         <button
@@ -280,7 +280,7 @@ export default function Hero() {
                 <div className="flex flex-col justify-center items-center w-full mt-2 sm:mt-6 md:mt-8 z-20">
                     {/* Centered Content */}
                     <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:gap-4 lg:gap-5 w-full max-w-4xl mx-auto">
-                        
+
                         {/* Logo Container */}
                         <div className="flex flex-col items-center text-center gap-5 sm:gap-7 md:gap-3 w-full">
                             <motion.div
