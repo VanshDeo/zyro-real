@@ -10,56 +10,63 @@ import { useState, useEffect, useCallback } from 'react';
 import StatsTicker from './StatsTicker';
 
 /* ── Registration Closed · Results Out ───────────────────────── */
+const targetDate = new Date(2026, 4, 30, 11, 0, 0, 0);
+
 function CountdownTimer() {
     const [mounted, setMounted] = useState(false);
+    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+    const getTimeLeft = useCallback(() => {
+        const now = new Date();
+        const diff = Math.max(targetDate.getTime() - now.getTime(), 0);
+
+        return {
+            days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((diff / (1000 * 60)) % 60),
+            seconds: Math.floor((diff / 1000) % 60),
+        };
+    }, [targetDate]);
+
     useEffect(() => { setMounted(true); }, []);
 
+    useEffect(() => {
+        if (!mounted) return;
+
+        const updateTimer = () => setTimeLeft(getTimeLeft());
+        updateTimer();
+
+        const interval = window.setInterval(updateTimer, 1000);
+        return () => window.clearInterval(interval);
+    }, [mounted, getTimeLeft]);
+
     if (!mounted) {
-        return <div className="h-[140px] sm:h-[160px] w-full max-w-[400px] mx-auto invisible" />;
+        return <div className="h-[128px] sm:h-[144px] w-full max-w-[560px] mx-auto invisible" />;
     }
 
     const slots = [
-        { val: '00', label: 'Days' },
-        { val: '00', label: 'Hrs' },
-        { val: '00', label: 'Min' },
-        { val: '00', label: 'Sec' },
+        { val: String(timeLeft.days).padStart(2, '0'), label: 'Days' },
+        { val: String(timeLeft.hours).padStart(2, '0'), label: 'Hrs' },
+        { val: String(timeLeft.minutes).padStart(2, '0'), label: 'Min' },
+        { val: String(timeLeft.seconds).padStart(2, '0'), label: 'Sec' },
     ];
 
     return (
-        <div className="flex flex-col items-center pt-2 sm:pt-4 mx-auto w-full z-20">
-            <p className="text-[#00E08F] font-accent uppercase tracking-[0.2em] text-[8px] sm:text-[10px] mb-2 sm:mb-3 opacity-90 shadow-[#00E08F]">
+        <div className="flex flex-col items-center pt-1 sm:pt-2 mx-auto w-full max-w-4xl z-20 px-3 sm:px-4">
+            <p className="text-[#00E08F] font-accent uppercase tracking-[0.28em] text-[8px] sm:text-[10px] mb-3 sm:mb-4 opacity-90 shadow-[#00E08F] text-center">
                 Building Starts In
             </p>
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                {/* Days */}
-                <div className="flex flex-col items-center">
-                    <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.days}</span>
-                    </div>
-                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Days</span>
-                </div>
-
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
-
-                {/* Hours */}
-                <div className="flex flex-col items-center">
-                    <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.hours}</span>
-                    </div>
-                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Hrs</span>
-                </div>
-
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
-
-                {/* Minutes */}
-                <div className="flex flex-col items-center">
-                    <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.minutes}</span>
+            <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 items-start w-full max-w-[560px] mx-auto">
+                {slots.map((s, i) => (
+                    <div key={s.label} className="flex flex-col items-center min-w-0">
+                        <div className="w-full max-w-[92px] aspect-square flex items-center justify-center bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)] px-2">
+                            <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-white tracking-tight leading-none tabular-nums">{s.val}</span>
+                        </div>
+                        <span className="text-[10px] sm:text-xs text-white/70 mt-2 sm:mt-3 uppercase tracking-[0.18em]">{s.label}</span>
+                        {i < slots.length - 1 && <span className="hidden" />}
                     </div>
                 ))}
-            </motion.div>
-
-
+            </div>
         </div>
     );
 }
@@ -244,7 +251,7 @@ export default function Hero() {
             >
                 <div className="flex flex-col justify-center items-center w-full mt-2 sm:mt-6 md:mt-8 z-20">
                     {/* Centered Content */}
-                    <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:gap-4 lg:gap-5 w-full max-w-4xl mx-auto">
+                    <div className="flex flex-col items-center justify-center gap-5 sm:gap-7 md:gap-4 lg:gap-5 w-full max-w-4xl mx-auto">
 
                         {/* Logo Container */}
                         <div className="flex flex-col items-center text-center gap-5 sm:gap-7 md:gap-3 w-full">
@@ -296,7 +303,7 @@ export default function Hero() {
                         </Reveal>
 
                         {/* Buttons Area */}
-                        <div className="flex flex-col items-center w-full z-20 mt-2 sm:mt-4 md:mt-2 mb-4 md:mb-8 pb-4 md:pb-0">
+                        <div className="flex flex-col items-center w-full z-20 mt-3 sm:mt-4 md:mt-2 mb-4 md:mb-8 pb-2 md:pb-0">
                             <Reveal delay={0.8} direction="up">
                                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center items-center w-full">
                                     {/* View Results Button */}
