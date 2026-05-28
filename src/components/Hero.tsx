@@ -9,47 +9,21 @@ import { useTypewriter } from '@/hooks/useTypewriter';
 import { useState, useEffect, useCallback } from 'react';
 import StatsTicker from './StatsTicker';
 
-/* ── Registration Countdown Timer ────────────────────────────── */
+/* ── Registration Closed · Results Out ───────────────────────── */
 function CountdownTimer() {
-    const [timeLeft, setTimeLeft] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
     const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-        // Deadline: 30th May 2026 11:00 AM (IST)
-        const targetDate = new Date('2026-05-30T11:00:00+05:30').getTime();
-
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-
-            if (diff <= 0) {
-                setTimeLeft({ days: '00', hours: '00', minutes: '00', seconds: '00' });
-                return;
-            }
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            setTimeLeft({
-                days: String(d).padStart(2, '0'),
-                hours: String(h).padStart(2, '0'),
-                minutes: String(m).padStart(2, '0'),
-                seconds: String(s).padStart(2, '0')
-            });
-        };
-
-        updateTimer();
-        const interval = setInterval(updateTimer, 1000);
-        return () => clearInterval(interval);
-    }, []);
+    useEffect(() => { setMounted(true); }, []);
 
     if (!mounted) {
-        // Prevents hydration mismatch by reserving space layout identical to the active timer
-        return <div className="h-[72px] sm:h-[84px] md:h-[96px] w-full max-w-[280px] sm:max-w-[340px] md:max-w-[420px] mx-auto invisible" />;
+        return <div className="h-[140px] sm:h-[160px] w-full max-w-[400px] mx-auto invisible" />;
     }
+
+    const slots = [
+        { val: '00', label: 'Days' },
+        { val: '00', label: 'Hrs' },
+        { val: '00', label: 'Min' },
+        { val: '00', label: 'Sec' },
+    ];
 
     return (
         <div className="flex flex-col items-center pt-2 sm:pt-4 mx-auto w-full z-20">
@@ -82,19 +56,10 @@ function CountdownTimer() {
                     <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-white/5 border border-white/10 rounded-xl backdrop-blur-md shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
                         <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-white tracking-tight">{timeLeft.minutes}</span>
                     </div>
-                    <span className="text-[10px] sm:text-xs text-white/70 mt-1 sm:mt-2 uppercase tracking-wide">Min</span>
-                </div>
+                ))}
+            </motion.div>
 
-                <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] animate-pulse pb-5 sm:pb-6">:</span>
 
-                {/* Seconds */}
-                <div className="flex flex-col items-center">
-                    <div className="w-[45px] h-[45px] sm:w-[55px] sm:h-[55px] md:w-[65px] md:h-[65px] flex items-center justify-center bg-[#00E08F]/10 border border-[#00E08F]/30 rounded-xl backdrop-blur-md shadow-[0_0_15px_rgba(0,224,143,0.15)]">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold font-display text-[#00E08F] tracking-tight">{timeLeft.seconds}</span>
-                    </div>
-                    <span className="text-[10px] sm:text-xs text-[#00E08F]/50 mt-1 sm:mt-2 uppercase tracking-wide shadow-[#00E08F]">Sec</span>
-                </div>
-            </div>
         </div>
     );
 }
@@ -334,11 +299,9 @@ export default function Hero() {
                         <div className="flex flex-col items-center w-full z-20 mt-2 sm:mt-4 md:mt-2 mb-4 md:mb-8 pb-4 md:pb-0">
                             <Reveal delay={0.8} direction="up">
                                 <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center items-center w-full">
-                                    {/* Register Now Button */}
+                                    {/* View Results Button */}
                                     <a
-                                        href="https://www.namespace.world/events/256WHF"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        href="/leaderboard#teams"
                                         className="relative group cursor-pointer w-full max-w-[260px] sm:max-w-none sm:w-52 md:w-64 block"
                                         style={{ filter: 'drop-shadow(0 0 5px rgba(0, 224, 143, 0.2))' }}
                                     >
@@ -351,7 +314,7 @@ export default function Hero() {
                                                 style={{ clipPath: 'polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%)' }}
                                             >
                                                 <span className="text-[#00E08F] font-bold text-xs sm:text-sm md:text-base tracking-widest uppercase group-hover:text-black transition-colors font-accent whitespace-nowrap">
-                                                    Register Now
+                                                    View Results
                                                 </span>
                                             </div>
                                         </div>
