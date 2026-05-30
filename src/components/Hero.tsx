@@ -10,7 +10,7 @@ import { useState, useEffect, useCallback } from 'react';
 import StatsTicker from './StatsTicker';
 
 /* ── Registration Closed · Results Out ───────────────────────── */
-const targetDate = new Date(2026, 4, 30, 11, 0, 0, 0);
+const targetDate = new Date(2026, 4, 31, 12, 30, 0, 0);
 
 function CountdownTimer() {
     const [mounted, setMounted] = useState(false);
