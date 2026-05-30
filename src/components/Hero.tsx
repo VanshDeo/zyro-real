@@ -54,7 +54,7 @@ function CountdownTimer() {
     return (
         <div className="flex flex-col items-center pt-1 sm:pt-2 mx-auto w-full max-w-4xl z-20 px-3 sm:px-4">
             <p className="text-[#00E08F] font-accent uppercase tracking-[0.28em] text-[8px] sm:text-[10px] mb-3 sm:mb-4 opacity-90 shadow-[#00E08F] text-center">
-                Building Starts In
+                Components will be seized after
             </p>
             <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4 items-start w-full max-w-[560px] mx-auto">
                 {slots.map((s, i) => (
