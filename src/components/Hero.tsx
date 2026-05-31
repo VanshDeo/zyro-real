@@ -10,7 +10,8 @@ import { useState, useEffect, useCallback } from 'react';
 import StatsTicker from './StatsTicker';
 
 /* ── Registration Closed · Results Out ───────────────────────── */
-const targetDate = new Date(2026, 4, 31, 12, 30, 0, 0);
+// Extended submissions deadline: May 31, 2026 at 1:15 PM
+const targetDate = new Date(2026, 4, 31, 13, 15, 0, 0);
 
 function CountdownTimer() {
     const [mounted, setMounted] = useState(false);
@@ -297,8 +298,29 @@ export default function Hero() {
 
                         {/* Registration Timer */}
                         <Reveal delay={0.7} direction="up">
-                            <div className="mt-2 sm:mt-0 relative z-20">
-                                <CountdownTimer />
+                            <div className="mt-2 sm:mt-0 relative z-20 flex flex-col items-center justify-center gap-4">
+                                {/* Prominent Extension / Judging overlay */}
+                                <div className="w-full sm:w-[480px] max-w-[760px] bg-gradient-to-r from-[#052018] to-[#002c1a] border border-[#00E08F]/25 ring-1 ring-[#00E08F]/8 rounded-2xl p-5 backdrop-blur-md text-sm text-white/95 shadow-[0_10px_30px_rgba(0,224,143,0.08)] transform-gpu transition-all duration-300 hover:scale-[1.01]">
+                                    <div className="flex items-start gap-3">
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00E08F]/10 flex items-center justify-center">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5 text-[#00E08F]" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p className="text-[#00E08F] font-accent uppercase tracking-[0.12em] text-xs mb-1">Submission Extended</p>
+                                            <p className="leading-relaxed text-sm">
+                                                Submissions are now accepted until <span className="font-semibold text-white">1:15 PM</span>. Judging will begin immediately after the extended deadline.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Time & label below overlay */}
+                                <div className="w-full flex justify-center mt-3">
+                                    <CountdownTimer />
+                                </div>
                             </div>
                         </Reveal>
 
